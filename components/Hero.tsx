@@ -68,6 +68,12 @@ export const Hero: React.FC = () => {
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}>
                     <div className="bg-gradient-to-br from-brand-sage-light/40 via-brand-cream/30 to-brand-sage-light/40 rounded-2xl p-8 md:p-12 shadow-xl border border-brand-sage-light/50 backdrop-blur-sm">
+                        {/* Title for expertise items (moved here) */}
+                        <div className="text-center max-w-3xl mx-auto mb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-brand-sage-dark">Mes domaines d'expertise</h2>
+                            <p className="mt-3 text-lg text-brand-sage-gray">Un savoir-faire pointu pour les secteurs qui ont du sens et des défis uniques.</p>
+                        </div>
+
                         <div className="grid md:grid-cols-3 gap-8 md:gap-10">
                             {pillars.map((pillar, index) => (
                                 <div 

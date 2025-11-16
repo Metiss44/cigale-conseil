@@ -23,12 +23,7 @@ const expertiseItems = [
 export const Expertise: React.FC = () => {
     return (
         <section id="expertises" className="container mx-auto px-6 py-20 md:py-28">
-                <div className="text-center max-w-3xl mx-auto mb-8">
-                    <h2 className="text-3xl md:text-4xl font-bold text-brand-sage-dark">Mes domaines d'expertise</h2>
-                    <p className="mt-4 text-lg text-brand-sage-gray">
-                        Un savoir-faire pointu pour les secteurs qui ont du sens et des défis uniques.
-                    </p>
-                </div>
+                {/* Title moved to Hero where the expertise items are displayed */}
 
                 <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {expertiseItems.map((item, index) => (
