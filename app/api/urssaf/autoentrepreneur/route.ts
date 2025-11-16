@@ -1,59 +1,73 @@
+// app/api/urssaf/autoentrepreneur/route.ts
 import { NextResponse } from 'next/server';
 
-type Activity = 'service' | 'sales' | 'liberal';
-
-const RATES: Record<Activity, number> = {
-  // NOTE: illustrative example rates (fractions, e.g. 0.22 = 22%) — adapt to current URSSAF rates if needed
-  service: 0.22, // prestations de service (BIC/BNC approximatif)
-  sales: 0.128,  // ventes de marchandises
-  liberal: 0.22, // professions libérales (approx.)
+type ResultatSimulation = {
+  cotisationsMensuelles: number;
+  revenuNetAnnuel: number;
+  revenuNetApresImpotsAnnuel: number;
 };
 
-function validateBody(body: any) {
-  if (!body || typeof body !== 'object') return 'Invalid JSON body';
-  const { revenue, activity } = body;
-  if (typeof revenue !== 'number' || Number.isNaN(revenue) || revenue < 0) return 'Field "revenue" must be a non-negative number';
-  if (!activity || !Object.keys(RATES).includes(activity)) return `Field "activity" must be one of: ${Object.keys(RATES).join(', ')}`;
-  return null;
-}
-
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
-    const err = validateBody(body);
-    if (err) return NextResponse.json({ error: err }, { status: 400 });
+    const body = await request.json();
+    const { chiffreAffaires } = body;
 
-    const { revenue, activity } = body as { revenue: number; activity: Activity };
-    const rate = RATES[activity];
+    if (!chiffreAffaires || isNaN(Number(chiffreAffaires))) {
+      return NextResponse.json(
+        { error: 'chiffreAffaires manquant ou invalide' },
+        { status: 400 }
+      );
+    }
 
-    // total URSSAF contribution (simple model)
-    const contribution = +(revenue * rate).toFixed(2);
-    const net = +(revenue - contribution).toFixed(2);
-
-    // Simple illustrative breakdown (not an official split)
-    const breakdown = {
-      social: +(contribution * 0.7).toFixed(2),
-      pension: +(contribution * 0.3).toFixed(2),
+    // Payload envoyé à l’API URSSAF
+    const payload = {
+      situation: {
+        "dirigeant . auto-entrepreneur": "oui",
+        "dirigeant . auto-entrepreneur . chiffre d'affaires": `${chiffreAffaires} €/an`
+      },
+      expressions: [
+        "dirigeant . auto-entrepreneur . cotisations et contributions",
+        "dirigeant . auto-entrepreneur . revenu net",
+        "dirigeant . auto-entrepreneur . revenu net . après impôt"
+      ]
     };
 
-    return NextResponse.json({
-      revenue,
-      activity,
-      rate,
-      contribution,
-      net,
-      breakdown,
-      note: 'Rates are illustrative. Replace RATES with up-to-date URSSAF percentages for production use.'
+    const apiRes = await fetch('https://mon-entreprise.urssaf.fr/api/v1/evaluate', {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(payload)
     });
-  } catch (e: any) {
-    return NextResponse.json({ error: e?.message ?? 'Invalid request' }, { status: 400 });
+
+    if (!apiRes.ok) {
+      const text = await apiRes.text();
+      console.error('Erreur API URSSAF', apiRes.status, text);
+      return NextResponse.json(
+        { error: 'Erreur lors de la simulation URSSAF' },
+        { status: 500 }
+      );
+    }
+
+    const data = await apiRes.json();
+
+    // L’API renvoie un tableau "evaluate" dans l’ordre des expressions
+    const [cotisations, revenuNet, revenuNetApresImpots] = data.evaluate || [];
+
+    const resultat: ResultatSimulation = {
+      cotisationsMensuelles: cotisations?.nodeValue ?? 0,
+      revenuNetAnnuel: revenuNet?.nodeValue ?? 0,
+      revenuNetApresImpotsAnnuel: revenuNetApresImpots?.nodeValue ?? 0
+    };
+
+    return NextResponse.json(resultat);
+  } catch (error) {
+    console.error('Erreur interne simulateur URSSAF', error);
+    return NextResponse.json(
+      { error: 'Erreur interne serveur' },
+      { status: 500 }
+    );
   }
 }
 
-export function GET() {
-  return NextResponse.json({
-    ok: true,
-    message: 'URSSAF auto-entrepreneur endpoint - POST { revenue: number, activity: "service"|"sales"|"liberal" }',
-    activities: Object.keys(RATES),
-  });
-}
