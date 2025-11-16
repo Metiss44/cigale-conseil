@@ -7,8 +7,8 @@ export const About: React.FC = () => {
         <section id="a-propos" className="bg-brand-sage-light py-12 md:py-20 lg:py-28 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-                    <div className="lg:col-span-2 relative h-full max-w-xs lg:max-w-none mx-auto">
-                         <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-2xl shadow-2xl w-full object-cover h-full" />
+                <div className="lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
+                    <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-2xl shadow-2xl w-full h-auto object-cover" />
                     </div>
                     <div className="lg:col-span-3">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-sage-medium">vos valeurs</span></h2>
