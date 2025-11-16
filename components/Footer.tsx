@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ openModal }) => {
             <div className="container mx-auto px-6 py-12">
                 <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
-                         <img src="https://cigale.matisscottard.com/illustrations/logo-cigale-conseil.webp" alt="Cigale Conseil Logo" className="h-14 w-auto mx-auto md:mx-0 filter brightness-0 invert" />
+                         <img src="https://cigale.matisscottard.com/illustrations/logo-cigale.webp" alt="Cigale Conseil Logo" className="h-14 w-auto mx-auto md:mx-0 filter brightness-0 invert" />
                          <p className="mt-4 text-sm text-brand-sage-light">e.perez@cigaleconseil.fr<br/>Montpellier, France</p>
                     </div>
                     <div>
