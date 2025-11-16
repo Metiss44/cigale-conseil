@@ -51,7 +51,7 @@ export const TemporaryCalendar: React.FC = () => {
     const firstDay = getFirstDayOfMonth(currentDate);
     const dayLabels = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
     
-    const calendarDays = Array.from({ length: firstDay }, () => null);
+    const calendarDays: (number | null)[] = Array.from({ length: firstDay }, () => null);
     for (let i = 1; i <= daysInMonth; i++) {
         calendarDays.push(i);
     }
