@@ -11,37 +11,47 @@ export const About: React.FC = () => {
                          <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-2xl shadow-2xl w-full object-cover h-full" />
                     </div>
                     <div className="lg:col-span-3">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-4 md:mb-6">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-sage-medium">vos valeurs</span></h2>
-                        <div className="space-y-4">
-                            <p className="text-base md:text-lg text-brand-sage-gray">
-                                Je suis Eva Perez, experte-comptable diplômée, fondatrice d’un cabinet à taille humaine dédié aux entrepreneuses et aux projets à impact.
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-sage-medium">vos valeurs</span></h2>
+                        
+                        <div className="space-y-5 mb-8">
+                            <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
+                                Je suis <strong className="text-brand-sage-dark">Eva Perez</strong>, experte-comptable diplômée, fondatrice d'un cabinet à taille humaine dédié aux entrepreneuses et aux projets à impact.
                             </p>
 
-                            <p className="text-base md:text-lg text-brand-sage-gray">
-                                Après plusieurs années en cabinet traditionnel, j’ai choisi de créer un espace professionnel aligné avec mes valeurs : bienveillance, clarté, éthique et écoute. Ici, pas de jargon inutile ni de relation distante.
+                            <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
+                                Après plusieurs années en cabinet traditionnel, j'ai choisi de créer un espace professionnel aligné avec mes valeurs : <span className="font-medium text-brand-sage-dark">bienveillance, clarté, éthique et écoute</span>. Ici, pas de jargon inutile ni de relation distante.
                             </p>
 
-                            <p className="text-base md:text-lg text-brand-sage-gray">
-                                Je vous accompagne pas à pas, avec rigueur et pédagogie, pour que vous puissiez avancer sereinement dans votre activité. Que vous lanciez votre projet ou que vous soyez déjà bien installée, je vous propose une collaboration fondée sur la confiance, le respect de votre rythme, et la conviction que la comptabilité peut être un véritable outil d’autonomie et de stratégie.
-                            </p>
-
-                            <p className="text-sm md:text-base text-brand-sage-gray">
-                                📍 Basée à Montpellier, j’interviens partout en France en digital.<br/>
-                                🌱 Spécialisée dans l’accompagnement des entrepreneuses, freelances, et structures engagées dans la transition écologique ou sociale.
+                            <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
+                                Je vous accompagne pas à pas, avec rigueur et pédagogie, pour que vous puissiez avancer sereinement dans votre activité. Que vous lanciez votre projet ou que vous soyez déjà bien installée, je vous propose une collaboration fondée sur la confiance, le respect de votre rythme, et la conviction que la comptabilité peut être un véritable outil d'autonomie et de stratégie.
                             </p>
                         </div>
-                        <ul className="space-y-3 md:space-y-4 text-brand-sage-dark">
-                            <li className="flex items-start">
-                                <MapPin className="text-brand-sage-medium mt-1 mr-4 flex-shrink-0" size={20} />
-                                <span className="text-sm md:text-base">Basée à Montpellier, j'accompagne mes clients partout en France grâce au 100% digital.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <Target className="text-brand-sage-medium mt-1 mr-4 flex-shrink-0" size={20} />
-                                <span className="text-sm md:text-base">Spécialisée dans les entrepreneuses, freelances et projets à impact écologique ou social.</span>
-                            </li>
-                        </ul>
-                        <a href="https://www.linkedin.com/in/eva-perez-cigale-conseil" target="_blank" rel="noopener noreferrer" className="inline-flex items-center mt-6 md:mt-8 font-semibold text-sm md:text-base text-brand-sage-medium hover:text-brand-sage-dark transition-colors">
-                            <Linkedin className="mr-2" size={18} />
+
+                        {/* Info cards with icons */}
+                        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-start gap-3">
+                                    <MapPin className="text-brand-sage-medium mt-0.5 flex-shrink-0" size={22} />
+                                    <div>
+                                        <h3 className="font-semibold text-brand-sage-dark mb-1">Montpellier & France entière</h3>
+                                        <p className="text-sm text-brand-sage-gray">Accompagnement 100% digital, partout en France</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
+                                <div className="flex items-start gap-3">
+                                    <Target className="text-brand-sage-medium mt-0.5 flex-shrink-0" size={22} />
+                                    <div>
+                                        <h3 className="font-semibold text-brand-sage-dark mb-1">Spécialisation</h3>
+                                        <p className="text-sm text-brand-sage-gray">Entrepreneuses, freelances et projets à impact</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://www.linkedin.com/in/eva-perez-cigale-conseil" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-sm md:text-base text-brand-sage-medium hover:text-brand-sage-dark transition-colors group">
+                            <Linkedin className="mr-2 group-hover:scale-110 transition-transform" size={18} />
                             Voir mon profil LinkedIn
                         </a>
                     </div>
