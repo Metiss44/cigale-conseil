@@ -1,7 +1,6 @@
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
-import { Expertise } from '@/components/Expertise';
 import { WhyUs } from '@/components/WhyUs';
 import { Services } from '@/components/Services';
 import { Video } from '@/components/Video';
@@ -19,7 +18,6 @@ export default function Home() {
             <main>
                 <Hero />
                 <About />
-                <Expertise />
                 <WhyUs />
                 <Services />
                 <Video />
