@@ -22,11 +22,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <script src="https://elfsightcdn.com/platform.js" defer></script>
       </head>
-      <body className="bg-brand-cream text-brand-sage-dark">
-        {/* Background image for the first section (behind header + hero) */}
+      <body className="bg-brand-cream text-brand-sage-dark relative">
+        {/* Background image for the first section (behind header + hero) - limited to hero height */}
         <div
           aria-hidden="true"
-          className="fixed inset-x-0 top-0 h-screen pointer-events-none -z-10 hero-bg"
+          className="absolute inset-x-0 top-0 h-[100vh] max-h-[900px] pointer-events-none -z-10 hero-bg"
         />
 
         {children}
