@@ -1,21 +1,28 @@
-"use client";
+// app/simulateur-auto-entrepreneur/page.tsx
+'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-export default function SimulatorPage() {
-  const [chiffreAffaires, setChiffreAffaires] = useState('');
+type ResultatSimulation = {
+  cotisationsMensuelles: number;
+  revenuNetAnnuel: number;
+  revenuNetApresImpotsAnnuel: number;
+};
+
+export default function SimulateurAutoEntrepreneur() {
+  const [chiffreAffaires, setChiffreAffaires] = useState<string>('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<any>(null);
+  const [erreur, setErreur] = useState<string | null>(null);
+  const [resultat, setResultat] = useState<ResultatSimulation | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setError(null);
-    setResult(null);
+    setErreur(null);
+    setResultat(null);
 
-    const value = Number(chiffreAffaires);
-    if (Number.isNaN(value) || value < 0) {
-      setError('Veuillez entrer un chiffre d\'affaires valide (nombre positif)');
+    const caNumber = Number(chiffreAffaires);
+    if (!caNumber || caNumber <= 0) {
+      setErreur('Merci de saisir un chiffre d’affaires annuel valide.');
       return;
     }
 
@@ -24,82 +31,102 @@ export default function SimulatorPage() {
       const res = await fetch('/api/urssaf/autoentrepreneur', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chiffreAffaires: value })
+        body: JSON.stringify({ chiffreAffaires: caNumber })
       });
 
       const data = await res.json();
+
       if (!res.ok) {
-        setError(data?.error || 'Erreur lors de la simulation');
+        setErreur(data.error || 'Erreur lors du calcul.');
       } else {
-        setResult(data);
+        setResultat(data as ResultatSimulation);
       }
-    } catch (err: any) {
-      setError(err?.message || 'Erreur réseau');
+    } catch (err) {
+      console.error(err);
+      setErreur('Erreur réseau, merci de réessayer.');
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  function formatEuroMontant(montant: number, suffix?: string) {
+    if (montant === 0 || isNaN(montant)) return '-';
+    return (
+      montant.toLocaleString('fr-FR', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }) + ' €' + (suffix ? ` / ${suffix}` : '')
+    );
+  }
 
   return (
-    <main className="min-h-screen container mx-auto px-6 py-16">
-      <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-brand-sage-dark mb-4">Simulateur auto-entrepreneur</h1>
-        <p className="text-sm text-brand-sage-gray mb-6">Entrez votre chiffre d'affaires annuel pour obtenir une estimation des cotisations et du revenu net (approx.).</p>
+    <main className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="w-full max-w-xl bg-white shadow-lg rounded-2xl p-8 border border-slate-100">
+        <h1 className="text-2xl font-semibold mb-2">
+          Simulateur de revenus auto-entrepreneur
+        </h1>
+        <p className="text-sm text-slate-500 mb-6">
+          Calculez vos cotisations sociales et votre revenu net à partir de votre
+          chiffre d’affaires annuel. Calcul basé sur le moteur officiel de
+          Mon-entreprise / URSSAF (résultats indicatifs).
+        </p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 mb-6">
           <div>
-            <label className="block text-sm font-medium text-brand-sage-dark mb-2">Chiffre d'affaires annuel (€)</label>
+            <label className="block text-sm font-medium text-slate-700 mb-1">
+              Chiffre d’affaires annuel (en €)
+            </label>
             <input
               type="number"
-              step="0.01"
-              min="0"
+              min={0}
               value={chiffreAffaires}
               onChange={(e) => setChiffreAffaires(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-brand-sage-medium"
-              placeholder="Ex: 30000"
+              className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
+              placeholder="Ex : 45000"
             />
           </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              type="submit"
-              className="bg-brand-sage-medium text-white px-5 py-2 rounded-xl font-semibold hover:bg-brand-sage-dark transition"
-              disabled={loading}
-            >
-              {loading ? 'Simulation en cours…' : 'Simuler'}
-            </button>
-            <button
-              type="button"
-              className="bg-transparent border border-gray-200 px-4 py-2 rounded-xl hover:bg-gray-50"
-              onClick={() => { setChiffreAffaires(''); setResult(null); setError(null); }}
-            >
-              Réinitialiser
-            </button>
-          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white text-sm font-medium px-4 py-2 disabled:opacity-60"
+          >
+            {loading ? 'Calcul en cours…' : 'Lancer la simulation'}
+          </button>
         </form>
 
-        {error && (
-          <div className="mt-4 text-red-600">{error}</div>
+        {erreur && (
+          <div className="mb-4 text-sm text-red-600">
+            {erreur}
+          </div>
         )}
 
-        {result && (
-          <div className="mt-6 bg-brand-sage-light/40 p-4 rounded-lg">
-            <h2 className="font-semibold text-lg mb-2">Résultat</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
-                <div className="text-sm text-gray-500">Cotisations (mensuelles)</div>
-                <div className="text-xl font-bold text-brand-sage-dark mt-2">{Number(result.cotisationsMensuelles ?? 0).toLocaleString()} €</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
-                <div className="text-sm text-gray-500">Revenu net annuel</div>
-                <div className="text-xl font-bold text-brand-sage-dark mt-2">{Number(result.revenuNetAnnuel ?? 0).toLocaleString()} €</div>
-              </div>
-              <div className="p-3 bg-white rounded-lg shadow-sm text-center">
-                <div className="text-sm text-gray-500">Revenu net après impôts (annuel)</div>
-                <div className="text-xl font-bold text-brand-sage-dark mt-2">{Number(result.revenuNetApresImpotsAnnuel ?? 0).toLocaleString()} €</div>
-              </div>
+        {resultat && (
+          <div className="space-y-3 text-sm">
+            <div className="flex justify-between">
+              <span className="text-slate-600">
+                Cotisations & contributions sociales
+              </span>
+              <span className="font-semibold">
+                {formatEuroMontant(resultat.cotisationsMensuelles, 'mois')}
+              </span>
             </div>
-            <p className="mt-3 text-sm text-gray-600">Les résultats sont fournis à titre indicatif et proviennent de l'API officielle. Vérifiez les détails avant toute décision.</p>
+            <div className="flex justify-between">
+              <span className="text-slate-600">
+                Revenu net (avant impôt)
+              </span>
+              <span className="font-semibold">
+                {formatEuroMontant(resultat.revenuNetAnnuel, 'an')}
+              </span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-slate-600">
+                Revenu net après impôt
+              </span>
+              <span className="font-semibold">
+                {formatEuroMontant(resultat.revenuNetApresImpotsAnnuel, 'an')}
+              </span>
+            </div>
           </div>
         )}
       </div>
