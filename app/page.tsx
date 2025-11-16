@@ -4,7 +4,6 @@ import { About } from '@/components/About';
 import { Expertise } from '@/components/Expertise';
 import { WhyUs } from '@/components/WhyUs';
 import { Services } from '@/components/Services';
-import { Values } from '@/components/Values';
 import { Video } from '@/components/Video';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
@@ -23,7 +22,6 @@ export default function Home() {
                 <Expertise />
                 <WhyUs />
                 <Services />
-                <Values />
                 <Video />
                 <Reviews />
                 <Instagram />
