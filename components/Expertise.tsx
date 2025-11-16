@@ -1,22 +1,22 @@
 
 import React from 'react';
-import { Building, Palette, LineChart } from 'lucide-react';
+import { Heart, MessageCircle, Smile } from 'lucide-react';
 
 const expertiseItems = [
     {
-        icon: <Building size={32} className="text-brand-sage-medium" />,
-        title: "Les associations",
-        description: "Accompagnement de structures à but lucratif ou non, avec une maîtrise des modèles économiques associatifs et des spécificités réglementaires."
+        icon: <Heart size={32} className="text-brand-sage-medium" />,
+        title: "Écoute",
+        description: "Une oreille attentive pour comprendre vos besoins uniques."
     },
     {
-        icon: <Palette size={32} className="text-brand-sage-medium" />,
-        title: "Le secteur culturel",
-        description: "Labels, structures culturelles et tiers-lieux, avec une expertise sur les crédits d’impôt spécifiques et les montages hybrides."
+        icon: <MessageCircle size={32} className="text-brand-sage-medium" />,
+        title: "Disponibilité",
+        description: "Des réponses claires et rapides à toutes vos questions."
     },
     {
-        icon: <LineChart size={32} className="text-brand-sage-medium" />,
-        title: "Stratégie d’entreprise",
-        description: "Accompagnement de groupes et sociétés à forts enjeux (énergies renouvelables, etc.) avec une approche stratégique de la fiscalité et du pilotage."
+        icon: <Smile size={32} className="text-brand-sage-medium" />,
+        title: "Bienveillance",
+        description: "Un accompagnement sans jugement, centré sur votre réussite."
     }
 ];
 

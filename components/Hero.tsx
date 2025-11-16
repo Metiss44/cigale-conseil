@@ -2,12 +2,24 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Heart, MessageCircle, Smile } from 'lucide-react';
+import { Building, Palette, LineChart } from 'lucide-react';
 
 const pillars = [
-    { icon: <Heart className="text-brand-sage-medium" />, title: "Écoute", text: "Une oreille attentive pour comprendre vos besoins uniques." },
-    { icon: <MessageCircle className="text-brand-sage-medium" />, title: "Disponibilité", text: "Des réponses claires et rapides à toutes vos questions." },
-    { icon: <Smile className="text-brand-sage-medium" />, title: "Bienveillance", text: "Un accompagnement sans jugement, centré sur votre réussite." }
+    {
+        icon: <Building className="text-brand-sage-medium" />,
+        title: "Les associations",
+        text: "Accompagnement de structures à but lucratif ou non, avec une maîtrise des modèles économiques associatifs et des spécificités réglementaires."
+    },
+    {
+        icon: <Palette className="text-brand-sage-medium" />,
+        title: "Le secteur culturel",
+        text: "Labels, structures culturelles et tiers-lieux, avec une expertise sur les crédits d’impôt spécifiques et les montages hybrides."
+    },
+    {
+        icon: <LineChart className="text-brand-sage-medium" />,
+        title: "Stratégie d’entreprise",
+        text: "Accompagnement de groupes et sociétés à forts enjeux (énergies renouvelables, etc.) avec une approche stratégique de la fiscalité et du pilotage."
+    }
 ];
 
 export const Hero: React.FC = () => {
