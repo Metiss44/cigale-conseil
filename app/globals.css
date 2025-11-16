@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hero background: desktop & mobile variants */
+.hero-bg {
+	background-image: url('https://cigale.matisscottard.com/illustrations/backgroundd-cigale.webp');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.08;
+	will-change: transform, opacity;
+}
+
+@media (max-width: 768px) {
+	.hero-bg {
+		background-image: url('https://cigale.matisscottard.com/illustrations/background-mobile-cigale.webp');
+		/* Make the mobile background vertical and fit height */
+		background-size: auto 100%;
+		background-position: center top;
+		opacity: 0.08;
+	}
+}
+
