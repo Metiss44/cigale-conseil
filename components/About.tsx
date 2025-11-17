@@ -52,7 +52,7 @@ export const About: React.FC = () => {
                             </div>
                         </div>
 
-                        <a href="https://www.linkedin.com/in/eva-perez-cigale-conseil" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-sm md:text-base text-brand-sage-medium hover:text-brand-sage-dark transition-colors group">
+                        <a href="https://www.linkedin.com/in/eva-perez-a62b6a138/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-sm md:text-base text-brand-sage-medium hover:text-brand-sage-dark transition-colors group">
                             <Linkedin className="mr-2 group-hover:scale-110 transition-transform" size={18} />
                             Voir mon profil LinkedIn
                         </a>

@@ -21,7 +21,7 @@ export const Contact: React.FC = () => {
                              <li className="flex items-center"><Phone className="text-brand-sage-medium mr-4" /> 06.68.85.00.35</li>
                             <li className="flex items-center"><Mail className="text-brand-sage-medium mr-4" /> e.perez@cigaleconseil.fr</li>
                             <li className="flex items-center"><MapPin className="text-brand-sage-medium mr-4" /> 215 rue du comté de Melgueil, 34000 Montpellier</li>
-                            <li className="flex items-center"><Linkedin className="text-brand-sage-medium mr-4" /> <a href="https://www.linkedin.com/in/eva-perez-cigale-conseil" target="_blank" rel="noopener noreferrer" className="hover:underline">Profil LinkedIn</a></li>
+                            <li className="flex items-center"><Linkedin className="text-brand-sage-medium mr-4" /> <a href="https://www.linkedin.com/in/eva-perez-a62b6a138/" target="_blank" rel="noopener noreferrer" className="hover:underline">Profil LinkedIn</a></li>
                         </ul>
                          <form className="mt-8 space-y-4">
                             <div className="grid sm:grid-cols-2 gap-4">
