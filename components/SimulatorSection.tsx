@@ -14,7 +14,6 @@ export const SimulatorSection: React.FC = () => {
   const [caAnnuel, setCaAnnuel] = useState<string>('');
   const [activite, setActivite] = useState<ActiviteMicro>('prestations_bnc');
   const [regimeFiscal, setRegimeFiscal] = useState<RegimeFiscal>('versement_liberatoire');
-  const [accre, setAccre] = useState<boolean>(false);
   const [tauxCfpOverride, setTauxCfpOverride] = useState<string>('');
 
   const [resultat, setResultat] = useState<SimulationMicroResultat | null>(null);
@@ -55,7 +54,6 @@ export const SimulatorSection: React.FC = () => {
       caAnnuel: ca,
       activite,
       regimeFiscal,
-      accre,
       tauxIrMoyen: tauxIrToPass,
       tauxCfpOverride: tauxCfp,
     };
@@ -109,13 +107,7 @@ export const SimulatorSection: React.FC = () => {
                 </select>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">ACRE</label>
-                <div className="flex items-center gap-2">
-                  <input id="accre" type="checkbox" checked={accre} onChange={(e) => setAccre(e.target.checked)} />
-                  <label htmlFor="accre" className="text-sm text-slate-600">Taux ACRE réduit</label>
-                </div>
-              </div>
+              {/* ACRE option temporarily removed */}
             </div>
 
             <div className="grid grid-cols-1 gap-3">
@@ -127,7 +119,7 @@ export const SimulatorSection: React.FC = () => {
 
             <div className="flex gap-3">
               <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white text-sm font-medium px-4 py-2">Lancer la simulation</button>
-              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setAccre(false); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-slate-200 text-sm px-4 py-2">Réinitialiser</button>
+              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-slate-200 text-sm px-4 py-2">Réinitialiser</button>
             </div>
           </form>
 

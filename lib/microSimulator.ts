@@ -11,7 +11,6 @@ export interface SimulationMicroInput {
   caAnnuel: number;
   activite: ActiviteMicro;
   regimeFiscal: RegimeFiscal;
-  accre?: boolean;
   tauxIrMoyen?: number; // ex : 0.11 = 11 %
   tauxCfpOverride?: number;
 }
@@ -55,14 +54,6 @@ const TAUX_SOCIAL_NORMAL: Record<ActiviteMicro, number> = {
   location_meuble_tourisme: 0.06,
 };
 
-const TAUX_SOCIAL_ACRE: Record<ActiviteMicro, number> = {
-  vente: 0.062,
-  prestations_bic: 0.106,
-  prestations_bnc: 0.123,
-  liberal_cipav: 0.139,
-  location_meuble_tourisme: 0.03,
-};
-
 const TAUX_VL: Record<ActiviteMicro, number> = {
   vente: 0.01,
   prestations_bic: 0.017,
@@ -94,7 +85,6 @@ export function simulerMicroEntreprise(
     caAnnuel,
     activite,
     regimeFiscal,
-    accre = false,
     tauxIrMoyen,
     tauxCfpOverride,
   } = input;
@@ -129,7 +119,7 @@ export function simulerMicroEntreprise(
     return zero;
   }
 
-  const tauxSocial = accre ? TAUX_SOCIAL_ACRE[activite] : TAUX_SOCIAL_NORMAL[activite];
+  const tauxSocial = TAUX_SOCIAL_NORMAL[activite];
   const tauxCfp = tauxCfpOverride ?? TAUX_CFP_DEFAULT[activite];
 
   const seuilFranchise =
