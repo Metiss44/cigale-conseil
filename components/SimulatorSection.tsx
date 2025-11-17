@@ -3,14 +3,20 @@
 
 import { useState } from 'react';
 
+type StatutType = 'auto-entrepreneur' | 'sasu' | 'sarl';
+
 type ResultatSimulation = {
-  cotisationsMensuelles: number;
-  revenuNetAnnuel: number;
-  revenuNetApresImpotsAnnuel: number;
+  cotisationsMensuelles?: number;
+  revenuNetAnnuel?: number;
+  revenuNetApresImpotsAnnuel?: number;
+  cotisations?: number;
+  revenuNet?: number;
+  revenuNetApresImpot?: number;
 };
 
 export const SimulatorSection: React.FC = () => {
-  const [chiffreAffaires, setChiffreAffaires] = useState<string>('');
+  const [statut, setStatut] = useState<StatutType>('auto-entrepreneur');
+  const [montant, setMontant] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [erreur, setErreur] = useState<string | null>(null);
   const [resultat, setResultat] = useState<ResultatSimulation | null>(null);
@@ -20,18 +26,32 @@ export const SimulatorSection: React.FC = () => {
     setErreur(null);
     setResultat(null);
 
-    const caNumber = Number(chiffreAffaires);
-    if (!caNumber || caNumber <= 0) {
-      setErreur("Merci de saisir un chiffre d'affaires annuel valide.");
+    const montantNumber = Number(montant);
+    if (!montantNumber || montantNumber <= 0) {
+      setErreur("Merci de saisir un montant valide.");
       return;
     }
 
     setLoading(true);
     try {
-      const res = await fetch('/api/urssaf/autoentrepreneur', {
+      let endpoint = '';
+      let body = {};
+
+      if (statut === 'auto-entrepreneur') {
+        endpoint = '/api/urssaf/autoentrepreneur';
+        body = { chiffreAffaires: montantNumber };
+      } else if (statut === 'sasu') {
+        endpoint = '/api/simulateur/sasu';
+        body = { remunerationTotale: montantNumber };
+      } else if (statut === 'sarl') {
+        endpoint = '/api/simulateur/sarl';
+        body = { remunerationTotale: montantNumber };
+      }
+
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chiffreAffaires: caNumber })
+        body: JSON.stringify(body)
       });
 
       const data = await res.json();
@@ -49,8 +69,8 @@ export const SimulatorSection: React.FC = () => {
     }
   }
 
-  function formatEuroMontant(montant: number, suffix?: string) {
-    if (montant === 0 || isNaN(montant)) return '-';
+  function formatEuroMontant(montant: number | undefined, suffix?: string) {
+    if (!montant || montant === 0 || isNaN(montant)) return '-';
     return (
       montant.toLocaleString('fr-FR', {
         minimumFractionDigits: 0,
@@ -59,29 +79,66 @@ export const SimulatorSection: React.FC = () => {
     );
   }
 
+  const getFieldLabel = () => {
+    if (statut === 'auto-entrepreneur') {
+      return "Chiffre d'affaires annuel (en €)";
+    }
+    return "Budget total annuel pour la rémunération (charges incluses, en €)";
+  };
+
+  const getTitle = () => {
+    if (statut === 'auto-entrepreneur') return 'Micro-entreprise (Auto-entrepreneur)';
+    if (statut === 'sasu') return 'SASU (Assimilé salarié)';
+    if (statut === 'sarl') return 'SARL (Gérant majoritaire - TNS)';
+    return '';
+  };
+
+  const getCotisationsLabel = () => {
+    if (statut === 'auto-entrepreneur') return 'Cotisations & contributions sociales';
+    return 'Charges sociales';
+  };
+
   return (
     <section id="simulateur" className="py-16 bg-brand-cream">
       <div className="container mx-auto px-6">
         <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-slate-100">
           <h2 className="text-2xl font-semibold mb-2">
-            Simulateur de revenus auto-entrepreneur
+            Simulateur de revenus
           </h2>
           <p className="text-sm text-slate-500 mb-6">
-            Calculez vos cotisations sociales et votre revenu net à partir de votre
-            chiffre d'affaires annuel. Calcul basé sur le moteur officiel de
-            Mon-entreprise / URSSAF (résultats indicatifs).
+            Estimez vos charges sociales et revenus nets selon votre statut juridique. 
+            Calculs basés sur le moteur officiel Mon-entreprise / URSSAF (résultats indicatifs).
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4 mb-6">
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">
-                Chiffre d'affaires annuel (en €)
+                Statut juridique
+              </label>
+              <select
+                value={statut}
+                onChange={(e) => {
+                  setStatut(e.target.value as StatutType);
+                  setResultat(null);
+                  setErreur(null);
+                }}
+                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
+              >
+                <option value="auto-entrepreneur">Micro-entreprise (Auto-entrepreneur)</option>
+                <option value="sasu">SASU (Assimilé salarié)</option>
+                <option value="sarl">SARL (Gérant majoritaire)</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">
+                {getFieldLabel()}
               </label>
               <input
                 type="number"
                 min={0}
-                value={chiffreAffaires}
-                onChange={(e) => setChiffreAffaires(e.target.value)}
+                value={montant}
+                onChange={(e) => setMontant(e.target.value)}
                 className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
                 placeholder="Ex : 45000"
               />
@@ -103,30 +160,47 @@ export const SimulatorSection: React.FC = () => {
           )}
 
           {resultat && (
-            <div className="space-y-3 text-sm">
-              <div className="flex justify-between">
-                <span className="text-slate-600">
-                  Cotisations & contributions sociales
-                </span>
-                <span className="font-semibold">
-                  {formatEuroMontant(resultat.cotisationsMensuelles, 'mois')}
-                </span>
+            <div className="space-y-4">
+              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide">
+                {getTitle()}
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600">
-                  Revenu net (avant impôt)
-                </span>
-                <span className="font-semibold">
-                  {formatEuroMontant(resultat.revenuNetAnnuel, 'an')}
-                </span>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-slate-600">
+                    {getCotisationsLabel()}
+                  </span>
+                  <span className="font-semibold">
+                    {formatEuroMontant(
+                      resultat.cotisationsMensuelles ?? resultat.cotisations,
+                      statut === 'auto-entrepreneur' ? 'mois' : 'an'
+                    )}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-600">
+                    Revenu net (avant impôt)
+                  </span>
+                  <span className="font-semibold">
+                    {formatEuroMontant(
+                      resultat.revenuNetAnnuel ?? resultat.revenuNet,
+                      'an'
+                    )}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-600">
+                    Revenu net après impôt
+                  </span>
+                  <span className="font-semibold">
+                    {formatEuroMontant(
+                      resultat.revenuNetApresImpotsAnnuel ?? resultat.revenuNetApresImpot,
+                      'an'
+                    )}
+                  </span>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-600">
-                  Revenu net après impôt
-                </span>
-                <span className="font-semibold">
-                  {formatEuroMontant(resultat.revenuNetApresImpotsAnnuel, 'an')}
-                </span>
+              <div className="mt-4 p-3 bg-slate-50 rounded-lg text-xs text-slate-600">
+                💡 Simulation indicative basée sur les barèmes URSSAF. Elle ne remplace pas un calcul personnalisé avec un expert-comptable.
               </div>
             </div>
           )}
