@@ -104,7 +104,7 @@ export async function POST(request: Request) {
     // Include raw API response for debugging so we can see why values are empty
     return NextResponse.json({ resultat, debug: data });
   } catch (error) {
-    console.error('Erreur interne simulateur URSSAF', error);
+    console.error('Erreur interne URSSAF', error);
     return NextResponse.json(
       { error: 'Erreur interne serveur' },
       { status: 500 }
