@@ -17,7 +17,7 @@ export const About: React.FC = () => {
                         
                         <div className="space-y-5 mb-8">
                             <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
-                                Je suis <strong className="text-brand-sage-dark">Eva Perez</strong>, experte-comptable diplômée, fondatrice d'un cabinet à taille humaine dédié aux entrepreneuses et aux projets à impact.
+                                Je suis <strong className="text-brand-sage-dark">Eva Perez</strong>, experte-comptable diplômée, fondatrice d'un cabinet à taille humaine dédié aux entrepreneurs et aux projets à impact.
                             </p>
 
                             <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
@@ -46,7 +46,7 @@ export const About: React.FC = () => {
                                     <Target className="text-brand-sage-medium mt-0.5 flex-shrink-0" size={22} />
                                     <div>
                                         <h3 className="font-semibold text-brand-sage-dark mb-1">Spécialisation</h3>
-                                        <p className="text-sm text-brand-sage-gray">Entrepreneuses, freelances et projets à impact</p>
+                                        <p className="text-sm text-brand-sage-gray">Entrepreneurs, freelances et projets à impact</p>
                                     </div>
                                 </div>
                             </div>

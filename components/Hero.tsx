@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
                             Expert comptable spécialisée dans l'accompagnement des sociétés engagées
                         </h1>
                         <p className="mt-5 md:mt-6 text-base md:text-lg text-brand-sage-gray max-w-lg mx-auto lg:mx-0">
-                            Cigale Conseil accompagne les entrepreneuses, freelances et structures engagées avec une comptabilité claire, pédagogique et alignée avec leurs valeurs.
+                            Cigale Conseil accompagne les entrepreneurs, freelances et structures engagées avec une comptabilité claire, pédagogique et alignée avec leurs valeurs.
                         </p>
                         <div className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center lg:justify-start">
                             <a href="#contact" className="bg-brand-sage-medium text-white px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-sage-dark shadow-lg transition-all duration-300 transform hover:scale-105">
