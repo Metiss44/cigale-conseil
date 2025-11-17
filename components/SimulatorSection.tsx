@@ -15,7 +15,6 @@ export const SimulatorSection: React.FC = () => {
   const [activite, setActivite] = useState<ActiviteMicro>('prestations_bnc');
   const [regimeFiscal, setRegimeFiscal] = useState<RegimeFiscal>('versement_liberatoire');
   const [accre, setAccre] = useState<boolean>(false);
-  const [tauxIrMoyen, setTauxIrMoyen] = useState<string>('11'); // percent by default
   const [tauxCfpOverride, setTauxCfpOverride] = useState<string>('');
 
   const [resultat, setResultat] = useState<SimulationMicroResultat | null>(null);
@@ -45,15 +44,19 @@ export const SimulatorSection: React.FC = () => {
       return;
     }
 
-    const tauxIr = parseDecimal(tauxIrMoyen) ?? 0.11;
+    // For 'classique' regime we DO NOT calculate IR here (insufficient data).
+    // We pass tauxIrMoyen = 0 to the simulator so it returns revenuImposable but
+    // an impot.montant = 0. For versement libératoire we let the function use
+    // the fixed VL rates.
     const tauxCfp = parseDecimal(tauxCfpOverride);
+    const tauxIrToPass = regimeFiscal === 'classique' ? 0 : undefined;
 
     const input: SimulationMicroInput = {
       caAnnuel: ca,
       activite,
       regimeFiscal,
       accre,
-      tauxIrMoyen: tauxIr,
+      tauxIrMoyen: tauxIrToPass,
       tauxCfpOverride: tauxCfp,
     };
 
@@ -115,11 +118,7 @@ export const SimulatorSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Taux IR moyen (en %, utilisé si régime classique)</label>
-                <input type="number" min={0} step="0.1" value={tauxIrMoyen} onChange={(e) => setTauxIrMoyen(e.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
-              </div>
+            <div className="grid grid-cols-1 gap-3">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Taux CFP (optionnel en %)</label>
                 <input type="number" min={0} step="0.01" value={tauxCfpOverride} onChange={(e) => setTauxCfpOverride(e.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" placeholder="laisser vide pour défaut" />
@@ -128,7 +127,7 @@ export const SimulatorSection: React.FC = () => {
 
             <div className="flex gap-3">
               <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white text-sm font-medium px-4 py-2">Lancer la simulation</button>
-              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setAccre(false); setTauxCfpOverride(''); setTauxIrMoyen('11'); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-slate-200 text-sm px-4 py-2">Réinitialiser</button>
+              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setAccre(false); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-slate-200 text-sm px-4 py-2">Réinitialiser</button>
             </div>
           </form>
 
@@ -146,10 +145,20 @@ export const SimulatorSection: React.FC = () => {
                   <span className="text-slate-600">Contribution formation professionnelle (CFP)</span>
                   <span className="font-semibold">{formatEuro(resultat.cfp)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-600">Impôt ({resultat.impot.type === 'versement_liberatoire' ? 'Versement libératoire' : 'Régime classique'})</span>
-                  <span className="font-semibold">{formatEuro(resultat.impot.montant)}</span>
-                </div>
+                {regimeFiscal === 'versement_liberatoire' ? (
+                  <div className="flex justify-between">
+                    <span className="text-slate-600">Impôt (Versement libératoire)</span>
+                    <span className="font-semibold">{formatEuro(resultat.impot.montant)}</span>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-2">
+                    <div className="flex justify-between">
+                      <span className="text-slate-600">Revenu imposable (après abattement)</span>
+                      <span className="font-semibold">{formatEuro(resultat.impot.revenuImposable)}</span>
+                    </div>
+                    <div className="text-xs text-slate-600">Ce revenu imposable doit être ajouté à vos autres revenus pour calculer l'impôt selon votre situation familiale et le barème progressif (non calculé ici).</div>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <span className="text-slate-600">Total prélèvements</span>
                   <span className="font-semibold">{formatEuro(resultat.totalPrelevements)}</span>
