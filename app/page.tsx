@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { WhyUs } from '@/components/WhyUs';
 import { Services } from '@/components/Services';
+import { SimulatorSection } from '@/components/SimulatorSection';
 import { Video } from '@/components/Video';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
@@ -20,6 +21,7 @@ export default function Home() {
                 <About />
                 <WhyUs />
                 <Services />
+                <SimulatorSection />
                 <Video />
                 <Reviews />
                 <Instagram />
