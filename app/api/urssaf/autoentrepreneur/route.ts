@@ -69,13 +69,40 @@ export async function POST(request: Request) {
     // L’API renvoie un tableau "evaluate" dans l’ordre des expressions
     const [cotisations, revenuNet, revenuNetApresImpots] = data.evaluate || [];
 
-    const resultat: ResultatSimulation = {
-      cotisationsMensuelles: cotisations?.nodeValue ?? 0,
-      revenuNetAnnuel: revenuNet?.nodeValue ?? 0,
-      revenuNetApresImpotsAnnuel: revenuNetApresImpots?.nodeValue ?? 0
+    // Helper to coerce different shapes into a number (tries several strategies)
+    const parseNode = (node: any): number => {
+      if (node == null) return 0;
+      // node could be a number, a string, or an object with nodeValue / value
+      const candidate = node.nodeValue ?? node.value ?? node;
+      if (candidate == null) return 0;
+      if (typeof candidate === 'number') return candidate;
+      if (typeof candidate === 'string') {
+        // extract first numeric substring (handles "1 234 €", "1234", "1 234,56")
+        const m = candidate.match(/[-+]?\d[\d\s\u202f\.,]*/);
+        if (!m) return 0;
+        let s = m[0];
+        // normalize spaces (including non-breaking) and replace comma with dot when appropriate
+        s = s.replace(/\u202f|\s/g, '');
+        // if both comma and dot present, assume dot is decimal sep and remove commas
+        if (s.includes(',') && s.includes('.')) {
+          s = s.replace(/,/g, '');
+        } else if (s.includes(',')) {
+          s = s.replace(/,/, '.');
+        }
+        const n = Number(s);
+        return Number.isFinite(n) ? n : 0;
+      }
+      return 0;
     };
 
-    return NextResponse.json(resultat);
+    const resultat: ResultatSimulation = {
+      cotisationsMensuelles: parseNode(cotisations),
+      revenuNetAnnuel: parseNode(revenuNet),
+      revenuNetApresImpotsAnnuel: parseNode(revenuNetApresImpots)
+    };
+
+    // Include raw API response for debugging so we can see why values are empty
+    return NextResponse.json({ resultat, debug: data });
   } catch (error) {
     console.error('Erreur interne simulateur URSSAF', error);
     return NextResponse.json(
