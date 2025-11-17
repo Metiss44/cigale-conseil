@@ -68,10 +68,11 @@ export const SimulatorSection: React.FC = () => {
   }
 
   return (
-    <section id="simulateur" className="py-16 bg-brand-cream">
+    <section id="simulateur" className="py-16 bg-sky-50">
       <div className="container mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center text-slate-800 mb-8">Simulateur — micro-entreprise</h2>
         <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-slate-100">
-          <h2 className="text-2xl font-semibold mb-2">Simulateur micro-entreprise</h2>
+          <h3 className="text-2xl font-semibold mb-2">Estimation rapide</h3>
           <p className="text-sm text-slate-500 mb-6">Estimez vos cotisations sociales, CFP et impôt (indication).</p>
 
           <form onSubmit={handleSubmit} className="space-y-4 mb-6">
