@@ -43,9 +43,9 @@ export const Header: React.FC = () => {
 
                     {/* Center: Logo */}
                     <a href="#accueil" className="flex items-center flex-1 lg:flex-none justify-center lg:justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                        <img 
-                            src="https://cigale.matisscottard.com/illustrations/logo-cigale.webp" 
-                            alt="Cigale Conseil Logo" 
+                        <img
+                            src={isScrolled ? 'https://cigale.matisscottard.com/illustrations/logo-ciagale-blanc.webp' : 'https://cigale.matisscottard.com/illustrations/logo-cigale.webp'}
+                            alt="Cigale Conseil Logo"
                             className={`transition-all duration-300 ${isScrolled ? 'h-10 md:h-14' : 'h-14 md:h-16'} w-auto`}
                         />
                     </a>
