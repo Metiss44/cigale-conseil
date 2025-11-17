@@ -45,7 +45,14 @@ export default function SimulateurAutoEntrepreneur() {
       if (!res.ok) {
         setErreur(data.error || 'Erreur lors du calcul.');
       } else {
-        setResultat(data as ResultatSimulation);
+        // backend may return { resultat, debug } while debugging
+        const payload = data.resultat ?? data;
+        setResultat(payload as ResultatSimulation);
+        if (data.debug) {
+          console.debug('URSSAF debug:', data.debug);
+          const hasValues = (payload?.cotisationsMensuelles || payload?.revenuNetAnnuel || payload?.revenuNetApresImpotsAnnuel);
+          if (!hasValues) setErreur('La simulation a retourné des résultats vides — voir la console pour le debug.');
+        }
       }
     } catch (err) {
       console.error(err);
