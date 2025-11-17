@@ -13,6 +13,7 @@ export const SimulatorSection: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [erreur, setErreur] = useState<string | null>(null);
   const [resultat, setResultat] = useState<ResultatSimulation | null>(null);
+  const [activite, setActivite] = useState<'service' | 'sales' | 'liberal'>('service');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -25,12 +26,17 @@ export const SimulatorSection: React.FC = () => {
       return;
     }
 
+    if (!activite) {
+      setErreur('Merci de sélectionner la nature de l\'activité.');
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch('/api/urssaf/autoentrepreneur', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chiffreAffaires: caNumber })
+        body: JSON.stringify({ chiffreAffaires: caNumber, activite })
       });
 
       const data = await res.json();
@@ -76,6 +82,19 @@ export const SimulatorSection: React.FC = () => {
                 className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-400"
                 placeholder="Ex : 45000"
               />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">Nature de l'activité</label>
+              <select
+                value={activite}
+                onChange={(e) => setActivite(e.target.value as any)}
+                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+              >
+                <option value="service">Prestations de service (BNC/BIC - ex : consultants)</option>
+                <option value="sales">Ventes de marchandises</option>
+                <option value="liberal">Professions libérales</option>
+              </select>
             </div>
 
             <div className="flex gap-3">
