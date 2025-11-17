@@ -71,26 +71,26 @@ export const SimulatorSection: React.FC = () => {
   <section id="simulateur" className="py-16 bg-brand-cream">
       <div className="container mx-auto px-6">
   <h2 className="text-3xl font-bold text-center text-brand-sage-dark mb-8">Simulateur — micro-entreprise</h2>
-        <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-slate-100">
+        <div className="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-brand-sage-light">
           <h3 className="text-2xl font-semibold mb-2 text-brand-sage-dark">Estimation rapide</h3>
-          <p className="text-sm text-slate-500 mb-6">Estimez vos cotisations sociales, CFP et impôt (indication).</p>
+          <p className="text-sm text-brand-sage-gray mb-6">Estimez vos cotisations sociales, CFP et impôt (indication).</p>
 
           <form onSubmit={handleSubmit} className="space-y-4 mb-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Chiffre d'affaires annuel (TTC)</label>
+              <label className="block text-sm font-medium text-brand-sage-dark mb-1">Chiffre d'affaires annuel (TTC)</label>
               <input
                 type="number"
                 min={0}
                 value={caAnnuel}
                 onChange={(e) => setCaAnnuel(e.target.value)}
-                className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+                className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium"
                 placeholder="Ex : 30000"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Nature de l'activité</label>
-              <select value={activite} onChange={(e) => setActivite(e.target.value as ActiviteMicro)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
+              <label className="block text-sm font-medium text-brand-sage-dark mb-1">Nature de l'activité</label>
+              <select value={activite} onChange={(e) => setActivite(e.target.value as ActiviteMicro)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
                 <option value="vente">Vente / Restauration / Hébergement</option>
                 <option value="prestations_bic">Prestations de service (BIC)</option>
                 <option value="prestations_bnc">Prestations (BNC)</option>
@@ -101,8 +101,8 @@ export const SimulatorSection: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Régime fiscal</label>
-                <select value={regimeFiscal} onChange={(e) => setRegimeFiscal(e.target.value as RegimeFiscal)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
+                <label className="block text-sm font-medium text-brand-sage-dark mb-1">Régime fiscal</label>
+                <select value={regimeFiscal} onChange={(e) => setRegimeFiscal(e.target.value as RegimeFiscal)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
                   <option value="versement_liberatoire">Versement libératoire</option>
                   <option value="classique">Régime classique</option>
                 </select>
@@ -113,14 +113,14 @@ export const SimulatorSection: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-3">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Taux CFP (optionnel en %)</label>
-                <input type="number" min={0} step="0.01" value={tauxCfpOverride} onChange={(e) => setTauxCfpOverride(e.target.value)} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" placeholder="laisser vide pour défaut" />
+                <label className="block text-sm font-medium text-brand-sage-dark mb-1">Taux CFP (optionnel en %)</label>
+                <input type="number" min={0} step="0.01" value={tauxCfpOverride} onChange={(e) => setTauxCfpOverride(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium" placeholder="laisser vide pour défaut" />
               </div>
             </div>
 
             <div className="flex gap-3">
-              <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-slate-900 text-white text-sm font-medium px-4 py-2">Lancer la simulation</button>
-              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-slate-200 text-sm px-4 py-2">Réinitialiser</button>
+              <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-brand-sage-medium text-white text-sm font-medium px-4 py-2 hover:bg-brand-sage-dark transition-colors">Lancer la simulation</button>
+              <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-brand-sage-light text-brand-sage-dark text-sm px-4 py-2 hover:bg-brand-sage-light transition-colors">Réinitialiser</button>
             </div>
           </form>
 
@@ -128,44 +128,44 @@ export const SimulatorSection: React.FC = () => {
 
           {resultat && (
             <div className="space-y-4">
-              <div className="text-xs font-medium text-slate-500 uppercase tracking-wide">Résultats</div>
+              <div className="text-xs font-medium text-brand-sage-gray uppercase tracking-wide">Résultats</div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Cotisations sociales</span>
-                  <span className="font-semibold">{formatEuro(resultat.cotisationsSociales)}</span>
+                  <span className="text-brand-sage-gray">Cotisations sociales</span>
+                  <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.cotisationsSociales)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Contribution formation professionnelle (CFP)</span>
-                  <span className="font-semibold">{formatEuro(resultat.cfp)}</span>
+                  <span className="text-brand-sage-gray">Contribution formation professionnelle (CFP)</span>
+                  <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.cfp)}</span>
                 </div>
                 {regimeFiscal === 'versement_liberatoire' ? (
                   <div className="flex justify-between">
-                    <span className="text-slate-600">Impôt (Versement libératoire)</span>
-                    <span className="font-semibold">{formatEuro(resultat.impot.montant)}</span>
+                    <span className="text-brand-sage-gray">Impôt (Versement libératoire)</span>
+                    <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.impot.montant)}</span>
                   </div>
                 ) : (
                   <div className="flex flex-col gap-2">
                     <div className="flex justify-between">
-                      <span className="text-slate-600">Revenu imposable (après abattement)</span>
-                      <span className="font-semibold">{formatEuro(resultat.impot.revenuImposable)}</span>
+                      <span className="text-brand-sage-gray">Revenu imposable (après abattement)</span>
+                      <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.impot.revenuImposable)}</span>
                     </div>
-                    <div className="text-xs text-slate-600">Ce revenu imposable doit être ajouté à vos autres revenus pour calculer l'impôt selon votre situation familiale et le barème progressif (non calculé ici).</div>
+                    <div className="text-xs text-brand-sage-gray">Ce revenu imposable doit être ajouté à vos autres revenus pour calculer l'impôt selon votre situation familiale et le barème progressif (non calculé ici).</div>
                   </div>
                 )}
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Total prélèvements</span>
-                  <span className="font-semibold">{formatEuro(resultat.totalPrelevements)}</span>
+                  <span className="text-brand-sage-gray">Total prélèvements</span>
+                  <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.totalPrelevements)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Net avant impôts</span>
-                  <span className="font-semibold">{formatEuro(resultat.netAvantImpots)}</span>
+                  <span className="text-brand-sage-gray">Net avant impôts</span>
+                  <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.netAvantImpots)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-600">Net après impôts</span>
-                  <span className="font-semibold">{formatEuro(resultat.netApresImpots)}</span>
+                  <span className="text-brand-sage-gray">Net après impôts</span>
+                  <span className="font-semibold text-brand-sage-dark">{formatEuro(resultat.netApresImpots)}</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 bg-slate-50 rounded-lg text-xs text-slate-600">💡 Simulation indicative. Ne remplace pas un calcul personnalisé.</div>
+              <div className="mt-4 p-3 bg-brand-sage-light/30 rounded-lg text-xs text-brand-sage-gray">💡 Simulation indicative. Ne remplace pas un calcul personnalisé.</div>
             </div>
           )}
         </div>

@@ -43,18 +43,6 @@ export const WhyUs: React.FC = () => {
                             </div>
                             <h3 className="text-xl font-bold text-brand-sage-dark mb-2">{item.title}</h3>
                             <p className="text-brand-sage-gray">{item.description}</p>
-
-                            {/* Vertical dotted separator for large screens (except after last column) */}
-                            {index !== whyUsItems.length - 1 && (
-                                <span className="hidden lg:block absolute top-6 bottom-6 right-0 w-px border-r border-dashed border-brand-sage-light/40" />
-                            )}
-
-                            {/* Horizontal dotted separator for small screens between items */}
-                            {index !== whyUsItems.length - 1 && (
-                                <div className="block lg:hidden mt-6">
-                                    <div className="h-px border-t border-dashed border-brand-sage-light/40" />
-                                </div>
-                            )}
                         </div>
                     ))}
                 </div>
