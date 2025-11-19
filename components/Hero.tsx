@@ -7,13 +7,13 @@ import { Building, Palette, LineChart } from 'lucide-react';
 const pillars = [
     {
         icon: <Building className="text-brand-sage-medium" />,
-        title: "Les associations",
-        text: "Accompagnement de structures à but lucratif ou non, avec une maîtrise des modèles économiques associatifs et des spécificités réglementaires."
+        title: "Gestion d’entreprise",
+        text: "Accompagnement de structures avec une maîtrise de modèles économiques complexes, et des montages financiers spécifiques."
     },
     {
         icon: <Palette className="text-brand-sage-medium" />,
-        title: "Le secteur culturel",
-        text: "Labels, structures culturelles et tiers-lieux, avec une expertise sur les crédits d’impôt spécifiques et les montages hybrides."
+        title: "Approche pédagogique",
+        text: "Approche pédagogique qui rend la comptabilité claire, accessible et intuitive, afin que chacun puisse comprendre et piloter sereinement son activité."
     },
     {
         icon: <LineChart className="text-brand-sage-medium" />,
