@@ -4,20 +4,21 @@
 
 /* Hero background: desktop & mobile variants */
 .hero-bg {
-	background-image: url('https://cigale.matisscottard.com/illustrations/backgroundd-cigale.webp');
-	background-size: cover;
+	/* background removed by request */
+	background-image: none;
+	background-size: none;
 	background-position: center;
-	opacity: 0.08;
-	will-change: transform, opacity;
+	opacity: 0;
+	will-change: none;
 }
 
 @media (max-width: 768px) {
 	.hero-bg {
-		background-image: url('https://cigale.matisscottard.com/illustrations/background-mobile-cigale.webp');
-		/* Make the mobile background vertical and fit height */
-		background-size: auto 100%;
+		/* mobile background removed */
+		background-image: none;
+		background-size: none;
 		background-position: center top;
-		opacity: 0.08;
+		opacity: 0;
 	}
 }
 
