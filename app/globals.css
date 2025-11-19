@@ -22,3 +22,29 @@
 	}
 }
 
+/* Sectors carousel: seamless auto-scrolling marquee */
+.sectors-carousel { background-clip: padding-box; }
+.sectors-track { display: flex; gap: 1.5rem; align-items: stretch; }
+
+@keyframes sectors-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.sectors-track {
+  will-change: transform;
+  animation: sectors-scroll 28s linear infinite;
+}
+
+.sector-card { display: flex; flex-direction: column; align-items: center; }
+
+/* Disable pointer events so the strip is non-interactive as requested */
+.sectors-carousel *, .sectors-carousel { pointer-events: none; }
+
+/* Small responsive tweaks */
+@media (max-width: 1024px) {
+  .sectors-track { gap: 1rem; }
+  .sector-card { width: 46vw; min-width: 220px; }
+}
+
+

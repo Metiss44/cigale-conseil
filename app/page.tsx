@@ -4,6 +4,7 @@ import { About } from '@/components/About';
 import { WhyUs } from '@/components/WhyUs';
 import { Services } from '@/components/Services';
 import { SimulatorSection } from '@/components/SimulatorSection';
+import { SectorsCarousel } from '@/components/SectorsCarousel';
 import { CompatibilityQuiz } from '@/components/CompatibilityQuiz';
 import { FAQ } from '@/components/FAQ';
 import { Video } from '@/components/Video';
@@ -23,6 +24,7 @@ export default function Home() {
                 <About />
                 <WhyUs />
                 <Services />
+                <SectorsCarousel />
                 <SimulatorSection />
                 <CompatibilityQuiz />
                 <Video />
