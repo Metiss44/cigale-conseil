@@ -57,34 +57,34 @@ const services = [
 ];
 
 export const Services: React.FC = () => {
-  // Start with the second service centered. Keep all 4 visible on desktop.
-  const [order, setOrder] = useState<number[]>(() => [0, 1, 2, 3]);
-  const [activeCard, setActiveCard] = useState<number>(order[1]);
+  // Start with the middle service centered. Keep all 5 visible on desktop.
+  const [order, setOrder] = useState<number[]>(() => [0, 1, 2, 3, 4]);
+  const [activeCard, setActiveCard] = useState<number>(order[2]);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  // Four-slot arrangement for desktop with tighter overlap. Slot index 1 is the focused (center) slot.
+  // Five-slot arrangement for desktop with center slot index 2 being focused.
   const desktopSlots = [
-    { translateX: -260, translateY: 30, rotate: -10, scale: 0.82, zIndex: 10 },
-    { translateX: 0, translateY: 0, rotate: 0, scale: 1.16, zIndex: 50 }, // focused center
-    { translateX: 200, translateY: 10, rotate: 6, scale: 0.94, zIndex: 25 },
-    { translateX: 420, translateY: 30, rotate: 10, scale: 0.8, zIndex: 5 },
+    { translateX: -560, translateY: 40, rotate: -12, scale: 0.82, zIndex: 10 },
+    { translateX: -280, translateY: 10, rotate: -6, scale: 0.96, zIndex: 25 },
+    { translateX: 0, translateY: 0, rotate: 0, scale: 1.14, zIndex: 60 }, // focused center
+    { translateX: 280, translateY: 10, rotate: 6, scale: 0.96, zIndex: 25 },
+    { translateX: 560, translateY: 40, rotate: 12, scale: 0.82, zIndex: 8 },
   ] as const;
 
   const focusCard = (index: number) => {
     setActiveCard(index);
     setOrder((prev) => {
-      // Keep the second position (index 1) as the primary focused slot.
-      if (prev[1] === index) return prev;
+      // Keep the middle position (index 2) as the primary focused slot.
+      if (prev[2] === index) return prev;
       const next = [...prev];
       const clickedPos = prev.indexOf(index);
       if (clickedPos === -1) {
-        // If somehow the clicked card isn't in the visible order (edge-case), bring it into the focused slot
-        // by replacing the focused slot with the clicked index.
-        next[1] = index;
+        // Edge-case: bring the clicked card into the focused slot
+        next[2] = index;
         return next;
       }
-      // Swap the clicked position with the focused slot (position 1)
-      [next[clickedPos], next[1]] = [next[1], next[clickedPos]];
+      // Swap the clicked position with the focused slot (position 2)
+      [next[clickedPos], next[2]] = [next[2], next[clickedPos]];
       return next;
     });
   };
@@ -126,7 +126,7 @@ export const Services: React.FC = () => {
 
         {/* Desktop: 3-card fan / carousel */}
         <div className="hidden lg:block mt-14">
-          <div className="relative h-[560px] max-w-5xl mx-auto perspective-800">
+          <div className="relative h-[560px] max-w-7xl mx-auto perspective-800">
             {/* Left arrow */}
             <button
               onClick={() => focusCard((activeCard - 1 + services.length) % services.length)}
