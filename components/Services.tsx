@@ -9,6 +9,7 @@ const services = [
     icon: 'https://cigale.matisscottard.com/illustrations/icone-1.webp',
     title: "Création et lancement d'activité",
     subtitle: 'Premiers pas et structuration',
+    price: '800€ HT (hors débours)',
     bullets: [
       'Choix du statut juridique',
       'Prévisionnel financier',
@@ -19,6 +20,7 @@ const services = [
     icon: 'https://cigale.matisscottard.com/illustrations/icone-2.webp',
     title: 'Suivi comptable et fiscal',
     subtitle: 'Sécuriser la gestion au quotidien',
+    price: '200€/mois HT',
     bullets: [
       'Tenue de comptabilité',
       'Déclarations fiscales',
@@ -29,16 +31,18 @@ const services = [
     icon: 'https://cigale.matisscottard.com/illustrations/icone-3.webp',
     title: 'Conseil et stratégie',
     subtitle: 'Décisions éclairées pour grandir',
+    price: '150€/h HT',
     bullets: ['Optimisation fiscale', 'Analyse de rentabilité', 'Conseils en gestion'],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-4.webp',
-    title: 'Pilotage et outils',
-    subtitle: 'Outils pour piloter votre activité',
+    icon: 'https://cigale.matisscottard.com/illustrations/icone-5.webp',
+    title: "Appel coaching",
+    subtitle: '45min de visio pour identifier la cause réelle du blocage et trouver des solutions concrètes',
+    price: '80€ HT',
     bullets: [
-      'Mise en place de tableaux de bord',
-      'Formation aux outils de gestion',
-      'Suivi de trésorerie',
+      '45 minutes de visio',
+      "Identifier la cause du blocage",
+      'Plan d’actions concrets à court terme',
     ],
   },
 ];
@@ -152,22 +156,23 @@ export const Services: React.FC = () => {
                   onClick={() => focusCard(svcIndex)}
                 >
                   <div className={`w-[360px] bg-white rounded-2xl border border-brand-sage-light overflow-hidden ${isActive ? 'shadow-lg' : 'shadow-sm'} transition` }>
-                      <div className="p-6 flex items-center justify-center bg-gradient-to-br from-brand-sage-light to-brand-cream">
-                        <img src={svc.icon} alt="icon" className="w-32 h-32 object-contain" />
+                          <div className="p-6 flex items-center justify-center bg-gradient-to-br from-brand-sage-light to-brand-cream">
+                            <img src={svc.icon} alt="icon" className="w-32 h-32 object-contain" />
+                          </div>
+                          <div className="px-6 pb-6 text-center">
+                            <h3 className="text-xl md:text-2xl font-bold text-brand-sage-dark mb-1">{svc.title}</h3>
+                            {svc.price && <div className="text-brand-sage-medium font-semibold mb-2">{svc.price}</div>}
+                            <p className="text-sm text-brand-sage-gray mb-4">{svc.subtitle}</p>
+                            <ul className="text-left mx-auto inline-block space-y-2">
+                            {svc.bullets.map((b, i) => (
+                              <li key={i} className="flex items-start gap-3 text-sm text-brand-sage-dark">
+                                <span className="text-brand-sage-medium">•</span>
+                                <span className="text-brand-sage-gray">{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <div className="px-6 pb-6 text-center">
-                        <h3 className="text-xl md:text-2xl font-bold text-brand-sage-dark mb-2">{svc.title}</h3>
-                        <p className="text-sm text-brand-sage-gray mb-4">{svc.subtitle}</p>
-                        <ul className="text-left mx-auto inline-block space-y-2">
-                        {svc.bullets.map((b, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-brand-sage-dark">
-                            <span className="text-brand-sage-medium">•</span>
-                            <span className="text-brand-sage-gray">{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
                 </div>
               );
             })}
@@ -197,6 +202,7 @@ export const Services: React.FC = () => {
                       <img src={svc.icon} alt="icon" className="w-24 h-24 object-contain" />
                     </div>
                     <h3 className="text-xl font-bold text-brand-sage-dark mb-2 text-center">{svc.title}</h3>
+                    {svc.price && <div className="text-center text-brand-sage-medium font-semibold mb-2">{svc.price}</div>}
                     <p className="text-sm text-brand-sage-gray italic text-center mb-4">{svc.subtitle}</p>
                     <ul className="space-y-2 text-left">
                       {svc.bullets.map((b, idx) => (
