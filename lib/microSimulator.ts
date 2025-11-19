@@ -11,6 +11,10 @@ export interface SimulationMicroInput {
   caAnnuel: number;
   activite: ActiviteMicro;
   regimeFiscal: RegimeFiscal;
+  // Mode de calcul de la base imposable pour l'IR : 'forfait' (abattement) ou 'reel' (charges réelles)
+  irBaseMode?: 'forfait' | 'reel';
+  // Si irBaseMode === 'reel', montant annuel des charges à déduire (euros)
+  chargesAnnuel?: number;
   tauxIrMoyen?: number; // ex : 0.11 = 11 %
   tauxCfpOverride?: number;
 }
@@ -67,7 +71,8 @@ const ABATTEMENT_IR: Record<ActiviteMicro, number> = {
   prestations_bic: 0.5,
   prestations_bnc: 0.34,
   liberal_cipav: 0.34,
-  location_meuble_tourisme: 0.5,
+  // Mise à jour pour revenus 2025 : abattement location meublée tourisme = 30%
+  location_meuble_tourisme: 0.3,
 };
 
 const TAUX_CFP_DEFAULT: Record<ActiviteMicro, number> = {
@@ -85,6 +90,8 @@ export function simulerMicroEntreprise(
     caAnnuel,
     activite,
     regimeFiscal,
+    irBaseMode = 'forfait',
+    chargesAnnuel,
     tauxIrMoyen,
     tauxCfpOverride,
   } = input;
@@ -152,7 +159,16 @@ export function simulerMicroEntreprise(
       revenuImposable: 0,
     };
   } else {
-    const baseImposable = caAnnuel * (1 - abattementIr);
+    // Calcul de la base imposable selon le mode choisi
+    let baseImposable: number;
+    if (irBaseMode === 'reel') {
+      const charges = typeof chargesAnnuel === 'number' && chargesAnnuel > 0 ? chargesAnnuel : 0;
+      // Option pédagogique : on plafonne le revenu imposable à 0 pour simplifier l'affichage
+      baseImposable = Math.max(0, caAnnuel - charges);
+    } else {
+      baseImposable = caAnnuel * (1 - abattementIr);
+    }
+
     const tauxIrEffectif = tauxIrMoyen ?? 0.11;
     const montant = baseImposable * tauxIrEffectif;
     impot = {

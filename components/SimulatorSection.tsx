@@ -14,6 +14,8 @@ export const SimulatorSection: React.FC = () => {
   const [caAnnuel, setCaAnnuel] = useState<string>('');
   const [activite, setActivite] = useState<ActiviteMicro>('prestations_bnc');
   const [regimeFiscal, setRegimeFiscal] = useState<RegimeFiscal>('versement_liberatoire');
+  const [irBaseMode, setIrBaseMode] = useState<'forfait' | 'reel'>('forfait');
+  const [chargesAnnuel, setChargesAnnuel] = useState<string>('');
   const [tauxCfpOverride, setTauxCfpOverride] = useState<string>('');
 
   const [resultat, setResultat] = useState<SimulationMicroResultat | null>(null);
@@ -50,10 +52,22 @@ export const SimulatorSection: React.FC = () => {
     const tauxCfp = parseDecimal(tauxCfpOverride);
     const tauxIrToPass = regimeFiscal === 'classique' ? 0 : undefined;
 
+    // parse charges as an annual euro amount (not a percent)
+    function parseEuros(input: string | number | undefined): number | undefined {
+      if (input == null || input === '') return undefined;
+      const n = typeof input === 'number' ? input : Number(String(input).replace(',', '.'));
+      if (Number.isNaN(n)) return undefined;
+      return n;
+    }
+
+    const chargesVal = parseEuros(chargesAnnuel);
+
     const input: SimulationMicroInput = {
       caAnnuel: ca,
       activite,
       regimeFiscal,
+      irBaseMode: irBaseMode,
+      chargesAnnuel: chargesVal,
       tauxIrMoyen: tauxIrToPass,
       tauxCfpOverride: tauxCfp,
     };
@@ -108,8 +122,22 @@ export const SimulatorSection: React.FC = () => {
                 </select>
               </div>
 
-              {/* ACRE option temporarily removed */}
+              <div>
+                <label className="block text-sm font-medium text-brand-sage-dark mb-1">Méthode de calcul IR</label>
+                <select value={irBaseMode} onChange={(e) => setIrBaseMode(e.target.value as 'forfait'|'reel')} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
+                  <option value="forfait">Abattement forfaitaire</option>
+                  <option value="reel">Régime réel (simulation IR)</option>
+                </select>
+              </div>
             </div>
+
+            {irBaseMode === 'reel' && (
+              <div>
+                <label className="block text-sm font-medium text-brand-sage-dark mb-1">Montant des charges (annuel)</label>
+                <input type="number" min={0} step="0.01" value={chargesAnnuel} onChange={(e) => setChargesAnnuel(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium" placeholder="Ex : 12000" />
+                <div className="text-xs text-brand-sage-gray mt-1">Indique le total ANNUEL des charges professionnelles réellement supportées. Ce champ sert uniquement à simuler l'impact sur l'impôt (IR). Les cotisations URSSAF restent calculées sur le chiffre d'affaires en micro‑régime.</div>
+              </div>
+            )}
 
             <div className="grid grid-cols-1 gap-3">
               <div>
