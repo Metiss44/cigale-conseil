@@ -4,6 +4,7 @@ import { About } from '@/components/About';
 import { WhyUs } from '@/components/WhyUs';
 import { Services } from '@/components/Services';
 import { SimulatorSection } from '@/components/SimulatorSection';
+import { CompatibilityQuiz } from '@/components/CompatibilityQuiz';
 import { Video } from '@/components/Video';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
@@ -22,6 +23,7 @@ export default function Home() {
                 <WhyUs />
                 <Services />
                 <SimulatorSection />
+                <CompatibilityQuiz />
                 <Video />
                 <Reviews />
                 <Instagram />
