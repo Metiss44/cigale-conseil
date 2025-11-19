@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const services = [
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-1.webp',
+    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/1.webp',
     title: "Création et lancement d'activité",
     subtitle: 'Premiers pas et structuration',
     price: '800 € HT (hors débours)',
@@ -17,7 +17,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-2.webp',
+    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/2.webp',
     title: 'Suivi comptable et fiscal',
     subtitle: 'Sécuriser la gestion au quotidien',
     price: '200 €/mois HT',
@@ -28,14 +28,14 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-3.webp',
+    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/3.webp',
     title: 'Conseil et stratégie',
     subtitle: 'Décisions éclairées pour grandir',
     price: '150 €/l\'heure HT',
     bullets: ['Optimisation fiscale', 'Analyse de rentabilité', 'Conseils en gestion'],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-4.webp',
+    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/4.webp',
     title: 'Pilotage et outils',
     subtitle: 'Outils pour piloter votre activité',
     bullets: [
@@ -45,7 +45,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icone-5.webp',
+    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/5.webp',
     title: 'Appel coaching',
     subtitle: '45min de visio',
     price: '80 € HT',
@@ -64,11 +64,11 @@ export const Services: React.FC = () => {
 
   // Five-slot arrangement for desktop with center slot index 2 being focused.
   const desktopSlots = [
-    { translateX: -560, translateY: 40, rotate: -12, scale: 0.82, zIndex: 10 },
-    { translateX: -280, translateY: 10, rotate: -6, scale: 0.96, zIndex: 25 },
-    { translateX: 0, translateY: 0, rotate: 0, scale: 1.14, zIndex: 60 }, // focused center
-    { translateX: 280, translateY: 10, rotate: 6, scale: 0.96, zIndex: 25 },
-    { translateX: 560, translateY: 40, rotate: 12, scale: 0.82, zIndex: 8 },
+    { translateX: -480, translateY: 36, rotate: -10, scale: 0.86, zIndex: 12 },
+    { translateX: -240, translateY: 12, rotate: -5, scale: 0.98, zIndex: 28 },
+    { translateX: 0, translateY: 0, rotate: 0, scale: 1.12, zIndex: 64 }, // focused center
+    { translateX: 240, translateY: 12, rotate: 5, scale: 0.98, zIndex: 28 },
+    { translateX: 480, translateY: 36, rotate: 10, scale: 0.86, zIndex: 12 },
   ] as const;
 
   const focusCard = (index: number) => {
@@ -164,9 +164,9 @@ export const Services: React.FC = () => {
                   }}
                   onClick={() => focusCard(svcIndex)}
                 >
-                  <div className={`w-[360px] bg-white rounded-2xl border border-brand-sage-light overflow-hidden ${isActive ? 'shadow-lg' : 'shadow-sm'} transition` }>
+                  <div className={`w-[320px] bg-white rounded-2xl border border-brand-sage-light overflow-hidden ${isActive ? 'shadow-lg' : 'shadow-sm'} transition` }>
                       <div className="p-6 flex items-center justify-center bg-gradient-to-br from-brand-sage-light to-brand-cream">
-                        <img src={svc.icon} alt="icon" className="w-32 h-32 object-contain" />
+                        <img src={svc.icon} alt="icon" className="w-28 h-28 object-contain" />
                       </div>
                       <div className="px-6 pb-6 text-center">
                         <h3 className="text-xl md:text-2xl font-bold text-brand-sage-dark mb-1">{svc.title}</h3>
