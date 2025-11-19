@@ -25,10 +25,10 @@ export default function Home() {
                 <Services />
                 <SimulatorSection />
                 <CompatibilityQuiz />
-                <FAQ />
                 <Video />
                 <Reviews />
                 <Instagram />
+                <FAQ />
                 <Contact />
             </main>
             <FooterWrapper />
