@@ -53,7 +53,7 @@ export const Header: React.FC = () => {
                     {/* Right: CTA */}
                     <div className="hidden lg:flex items-center">
                         <a
-                            href="https://www.pennylane.com/fr"
+                            href="https://app.pennylane.com/auth/login"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`mr-4 px-4 py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 whitespace-nowrap ${isScrolled ? 'bg-transparent text-brand-cream border border-white/20 hover:opacity-90' : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'}`}
@@ -110,7 +110,7 @@ export const Header: React.FC = () => {
                         </a>
                     ))}
                     <a
-                        href="https://www.pennylane.com/fr"
+                        href="https://app.pennylane.com/auth/login"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
