@@ -52,6 +52,14 @@ export const Header: React.FC = () => {
 
                     {/* Right: CTA */}
                     <div className="hidden lg:flex items-center">
+                        <a
+                            href="https://www.pennylane.com/fr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`mr-4 px-4 py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 whitespace-nowrap ${isScrolled ? 'bg-transparent text-brand-cream border border-white/20 hover:opacity-90' : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'}`}
+                        >
+                            Pennylane
+                        </a>
                         <a 
                             href="#contact" 
                             className={`px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
@@ -101,6 +109,15 @@ export const Header: React.FC = () => {
                             {link.label}
                         </a>
                     ))}
+                    <a
+                        href="https://www.pennylane.com/fr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className="mt-4 text-lg bg-white text-brand-sage-dark px-6 py-3 rounded-xl shadow-md hover:bg-brand-sage-light transition"
+                    >
+                        Pennylane
+                    </a>
                     <a 
                         href="#contact" 
                         onClick={() => setIsOpen(false)} 
