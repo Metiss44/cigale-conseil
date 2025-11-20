@@ -7,14 +7,14 @@ export const About: React.FC = () => {
         <section id="a-propos" className="bg-brand-sage-light py-12 md:py-20 lg:py-28 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-                <div className="lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
-                    <div className="bg-gradient-to-br from-brand-pink-medium/40 to-brand-pink-soft rounded-2xl p-3 md:p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                        <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
+                    <div className="lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
+                        <div className="bg-gradient-to-br from-brand-pink-medium/40 to-brand-pink-soft rounded-2xl p-3 md:p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
+                        </div>
                     </div>
-                </div>
                     <div className="lg:col-span-3">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-blue-main">vos valeurs</span></h2>
-                        
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br /> aligné avec <span className="text-brand-blue-main">vos valeurs</span></h2>
+
                         <div className="space-y-5 mb-8">
                             <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
                                 Je suis <strong className="text-brand-sage-dark">Eva Perez</strong>, experte-comptable diplômée, fondatrice d'un cabinet à taille humaine dédié aux entrepreneurs et aux projets à impact.
@@ -33,7 +33,7 @@ export const About: React.FC = () => {
                         <div className="grid sm:grid-cols-2 gap-4 mb-8">
                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-start gap-3">
-                                    <MapPin className="text-brand-blue-main mt-0.5 flex-shrink-0" size={22} />
+                                    <MapPin className="text-brand-orange mt-0.5 flex-shrink-0" size={22} />
                                     <div>
                                         <h3 className="font-semibold text-brand-sage-dark mb-1">Montpellier & France entière</h3>
                                         <p className="text-sm text-brand-sage-gray">Accompagnement 100% digital, partout en France</p>
@@ -43,7 +43,7 @@ export const About: React.FC = () => {
 
                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-start gap-3">
-                                    <Target className="text-brand-blue-main mt-0.5 flex-shrink-0" size={22} />
+                                    <Target className="text-brand-orange mt-0.5 flex-shrink-0" size={22} />
                                     <div>
                                         <h3 className="font-semibold text-brand-sage-dark mb-1">Spécialisation</h3>
                                         <p className="text-sm text-brand-sage-gray">Entrepreneurs, freelances et projets à impact</p>

@@ -181,7 +181,7 @@ export const Services: React.FC = () => {
                       <ul className="text-left space-y-3 bg-brand-sage-light/10 p-4 rounded-2xl">
                         {svc.bullets.map((b, i) => (
                           <li key={i} className="flex items-start gap-3 text-sm text-brand-sage-dark font-medium">
-                            <span className="text-brand-blue-main mt-1">•</span>
+                            <span className="text-brand-orange mt-1">•</span>
                             <span className="text-brand-sage-gray/90">{b}</span>
                           </li>
                         ))}
@@ -199,7 +199,7 @@ export const Services: React.FC = () => {
               <button
                 key={i}
                 onClick={() => focusCard(i)}
-                className={`h-3 rounded-full transition-all ${i === activeCard ? 'bg-brand-blue-main w-8' : 'bg-gray-300 w-3'}`}
+                className={`h-3 rounded-full transition-all ${i === activeCard ? 'bg-brand-orange w-8' : 'bg-gray-300 w-3'}`}
                 aria-label={`Aller à l'étape ${i + 1}`}
               />
             ))}
@@ -222,7 +222,7 @@ export const Services: React.FC = () => {
                     <ul className="space-y-2 text-left">
                       {svc.bullets.map((b, idx) => (
                         <li key={idx} className="flex items-start gap-3 text-sm">
-                          <span className="text-brand-sage-medium">•</span>
+                          <span className="text-brand-orange">•</span>
                           <span className="text-brand-sage-gray">{b}</span>
                         </li>
                       ))}
@@ -250,7 +250,7 @@ export const Services: React.FC = () => {
 
             <div className="flex gap-2">
               {services.map((_, i) => (
-                <div key={i} className={`${i === activeCard ? 'w-8 bg-brand-blue-main' : 'w-2 bg-gray-300'} h-2.5 rounded-full transition-all`} />
+                <div key={i} className={`${i === activeCard ? 'w-8 bg-brand-orange' : 'w-2 bg-gray-300'} h-2.5 rounded-full transition-all`} />
               ))}
             </div>
 

@@ -11,12 +11,12 @@ const pillars = [
         text: "Accompagnement de structures avec une maîtrise de modèles économiques complexes, et des montages financiers spécifiques."
     },
     {
-        icon: <Palette className="text-brand-blue-main" />,
+        icon: <Palette className="text-brand-orange" />,
         title: "Approche pédagogique",
         text: "Approche pédagogique qui rend la comptabilité claire, accessible et intuitive, afin que chacun puisse comprendre et piloter sereinement son activité."
     },
     {
-        icon: <LineChart className="text-brand-blue-main" />,
+        icon: <LineChart className="text-brand-orange" />,
         title: "Stratégie d'entreprise",
         text: "Accompagnement de groupes et sociétés à forts enjeux (énergies renouvelables, etc.) avec une approche stratégique de la fiscalité et du pilotage."
     }

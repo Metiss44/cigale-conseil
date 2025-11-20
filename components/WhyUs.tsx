@@ -36,11 +36,11 @@ export const WhyUs: React.FC = () => {
                 </div>
                 <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {whyUsItems.map((item, index) => (
-                        <div key={index} className="group relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-brand-pink-soft/30">
+                        <div key={index} className="group relative bg-white p-8 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-brand-orange/20">
                             {/* Icon image */}
                             <div className="flex justify-center mb-6">
                                 <div className="relative">
-                                    <div className="absolute inset-0 bg-brand-pink-soft/20 rounded-full blur-xl group-hover:bg-brand-pink-soft/40 transition-colors duration-500"></div>
+                                    <div className="absolute inset-0 bg-brand-orange/10 rounded-full blur-xl group-hover:bg-brand-orange/30 transition-colors duration-500"></div>
                                     <img src={item.image} alt={item.title} className="relative w-20 h-20 object-contain transform group-hover:scale-110 transition-transform duration-500" />
                                 </div>
                             </div>

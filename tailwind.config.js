@@ -19,6 +19,7 @@ module.exports = {
         'brand-pink-main': '#986573',
         'brand-pink-medium': '#B07A87',
         'brand-pink-soft': '#BC9AA4',
+        'brand-orange': '#fa623f',
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
