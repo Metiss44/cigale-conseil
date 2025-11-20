@@ -3,13 +3,13 @@
 import React from 'react';
 
 const partners = [
-  { role: 'Assureur', name: 'AXA', url: 'https://agence.axa.fr/distributeur/0004596504' },
-  { role: 'Gestionnaire de patrimoine', name: 'Finspira', url: '' },
-  { role: 'Avocat', name: 'Maître Biot', url: 'https://biot-avocat.com/?utm_source=gmb' },
-  { role: 'Commissaire aux comptes', name: 'Sophie Berthon', url: 'https://berthon-audit.fr/' },
-  { role: 'Graphiste', name: 'Studio Pousse', url: 'https://studio-pousse.fr/' },
-  { role: 'Site internet', name: 'Cigale Conseil (ce site)', url: '#' },
-  { role: 'Gestionnaire de paiement', name: 'Conseil Expert Paie', url: 'https://www.conseilexpertpaie.fr/' },
+  { role: 'Assureur', name: 'AXA', url: 'https://agence.axa.fr/distributeur/0004596504', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/axa.webp' },
+  { role: 'Gestionnaire de patrimoine', name: 'Finspira', url: '', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/finspira.webp' },
+  { role: 'Avocat', name: 'Maître Biot', url: 'https://biot-avocat.com/?utm_source=gmb', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/maitre-biot.webp' },
+  { role: 'Commissaire aux comptes', name: 'Sophie Berthon', url: 'https://berthon-audit.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/berthon.webp' },
+  { role: 'Graphiste', name: 'Studio Pousse', url: 'https://studio-pousse.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/studio-pousse.webp' },
+  { role: 'Site internet', name: 'Cigale Conseil (ce site)', url: '#', logo: '' },
+  { role: 'Gestionnaire de paiement', name: 'Conseil Expert Paie', url: 'https://www.conseilexpertpaie.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/conseil-expert.webp' },
 ];
 
 export const Partners: React.FC = () => {
@@ -30,9 +30,15 @@ export const Partners: React.FC = () => {
               rel={p.url ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-4 bg-white rounded-xl p-4 border border-brand-sage-light hover:shadow-lg transition"
             >
-              <div className="w-16 h-16 bg-brand-sage-light rounded-md flex items-center justify-center overflow-hidden">
-                {/* logo placeholder - upload logos later */}
-                <span className="text-xs text-brand-sage-dark">Logo</span>
+              <div className="w-16 h-16 rounded-md flex items-center justify-center overflow-hidden bg-white">
+                {p.logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain p-1" />
+                ) : (
+                  <div className="w-full h-full bg-brand-sage-light flex items-center justify-center">
+                    <span className="text-xs text-brand-sage-dark">Logo</span>
+                  </div>
+                )}
               </div>
               <div>
                 <div className="text-sm font-semibold text-brand-sage-dark">{p.name}</div>
@@ -42,7 +48,7 @@ export const Partners: React.FC = () => {
           ))}
         </div>
 
-        <p className="mt-4 text-xs text-center text-brand-sage-gray">Logos et visuels à venir — je les ajouterai dès que vous me les fournirez.</p>
+        <p className="mt-4 text-xs text-center text-brand-sage-gray">Logos ajoutés — me dire si vous préférez un fond ou un cadre différent.</p>
       </div>
     </section>
   );
