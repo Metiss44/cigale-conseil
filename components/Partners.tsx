@@ -30,13 +30,13 @@ export const Partners: React.FC = () => {
               rel={p.url ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-4 bg-white rounded-xl p-4 border border-brand-sage-light hover:shadow-lg transition"
             >
-              <div className="w-16 h-16 rounded-md flex items-center justify-center overflow-hidden bg-white">
+              <div className="w-16 h-16 rounded-md flex items-center justify-center overflow-hidden bg-brand-sage-dark">
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain p-1" />
                 ) : (
-                  <div className="w-full h-full bg-brand-sage-light flex items-center justify-center">
-                    <span className="text-xs text-brand-sage-dark">Logo</span>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <span className="text-xs text-white">Logo</span>
                   </div>
                 )}
               </div>
@@ -48,7 +48,7 @@ export const Partners: React.FC = () => {
           ))}
         </div>
 
-        <p className="mt-4 text-xs text-center text-brand-sage-gray">Logos ajoutés — me dire si vous préférez un fond ou un cadre différent.</p>
+        
       </div>
     </section>
   );
