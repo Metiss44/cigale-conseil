@@ -21,26 +21,26 @@ export const Partners: React.FC = () => {
           <p className="mt-2 text-sm text-brand-sage-gray">Collaborations de confiance — prestataires recommandés</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 auto-rows-fr">
           {partners.map((p) => (
             <a
               key={p.name}
               href={p.url || '#'}
               target={p.url ? '_blank' : undefined}
               rel={p.url ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-4 bg-white rounded-xl p-4 border border-brand-sage-light hover:shadow-lg transition"
+              className="aspect-square flex flex-col items-center justify-center gap-4 bg-white rounded-xl p-6 border border-brand-sage-light hover:shadow-lg transition"
             >
-              <div className="w-16 h-16 rounded-md flex items-center justify-center overflow-hidden bg-brand-sage-dark">
+              <div className="w-24 h-24 rounded-md flex items-center justify-center overflow-hidden bg-brand-sage-dark p-2">
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain p-1" />
+                  <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
                     <span className="text-xs text-white">Logo</span>
                   </div>
                 )}
               </div>
-              <div>
+              <div className="text-center">
                 <div className="text-sm font-semibold text-brand-sage-dark">{p.name}</div>
                 <div className="text-xs text-brand-sage-gray">{p.role}</div>
               </div>
