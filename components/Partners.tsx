@@ -13,6 +13,9 @@ const partners = [
 ];
 
 export const Partners: React.FC = () => {
+  const firstRow = partners.slice(0, 4);
+  const secondRow = partners.slice(4);
+
   return (
     <section id="partenaires" className="py-16 bg-brand-cream">
       <div className="container mx-auto px-6">
@@ -22,13 +25,13 @@ export const Partners: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-          {partners.map((p) => (
+          {firstRow.map((p) => (
             <a
               key={p.name}
               href={p.url || '#'}
               target={p.url ? '_blank' : undefined}
               rel={p.url ? 'noopener noreferrer' : undefined}
-              className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg p-4 hover:bg-brand-sage-medium hover:shadow-md transition"
+              className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg py-4 px-3 hover:bg-brand-sage-medium hover:shadow-md transition"
             >
               <div className="w-28 h-28 rounded-md flex items-center justify-center overflow-hidden p-2">
                 {p.logo ? (
@@ -48,7 +51,37 @@ export const Partners: React.FC = () => {
           ))}
         </div>
 
-        
+        {secondRow.length > 0 && (
+          <div className="mt-4 max-w-max mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {secondRow.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.url || '#'}
+                  target={p.url ? '_blank' : undefined}
+                  rel={p.url ? 'noopener noreferrer' : undefined}
+                  className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg py-4 px-3 hover:bg-brand-sage-medium hover:shadow-md transition"
+                >
+                  <div className="w-28 h-28 rounded-md flex items-center justify-center overflow-hidden p-2">
+                    {p.logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <span className="text-sm text-white">Logo</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="text-center">
+                    <div className="text-xs font-semibold text-white">{p.name}</div>
+                    <div className="text-[10px] text-brand-cream opacity-80">{p.role}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );
