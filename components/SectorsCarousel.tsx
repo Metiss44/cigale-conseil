@@ -3,12 +3,12 @@
 import React from 'react';
 
 const sectors = [
-  { key: 'restaurants', title: 'Restaurants' },
-  { key: 'consultants', title: 'Consultants' },
-  { key: 'associations', title: 'Associations' },
-  { key: 'commercants', title: 'Commerçants' },
-  { key: 'artisans', title: 'Artisans' },
-  { key: 'prestataires', title: 'Prestataires de services' },
+  { key: 'restaurants', title: 'Restaurants', img: 'https://cigale.matisscottard.com/illustrations/metiers/restaurant.webp' },
+  { key: 'consultants', title: 'Consultants', img: 'https://cigale.matisscottard.com/illustrations/metiers/consultant.webp' },
+  { key: 'associations', title: 'Associations', img: 'https://cigale.matisscottard.com/illustrations/metiers/association.webp' },
+  { key: 'commercants', title: 'Commerçants', img: 'https://cigale.matisscottard.com/illustrations/metiers/commercant.webp' },
+  { key: 'artisans', title: 'Artisans', img: 'https://cigale.matisscottard.com/illustrations/metiers/artisan.webp' },
+  { key: 'prestataires', title: 'Prestataires de services', img: 'https://cigale.matisscottard.com/illustrations/metiers/prestataire.webp' },
 ];
 
 export const SectorsCarousel: React.FC = () => {
@@ -29,12 +29,8 @@ export const SectorsCarousel: React.FC = () => {
               <div key={rep} className="sectors-group flex items-stretch gap-6 px-6 py-8">
                 {sectors.map((s) => (
                   <div key={s.key + rep} className="sector-card flex-shrink-0 w-56 md:w-64 lg:w-72">
-                    <div className="h-36 md:h-40 flex items-center justify-center rounded-lg bg-gradient-to-br from-brand-sage-light to-brand-cream shadow-sm mx-2">
-                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                        <rect x="1" y="1" width="22" height="22" rx="6" fill="white" opacity="0.06" />
-                        <circle cx="12" cy="8" r="3" stroke="#6B7280" strokeWidth="1.2" />
-                        <path d="M4 20c1.333-3 6-4 8-4s6.667 1 8 4" stroke="#6B7280" strokeWidth="1.2" strokeLinecap="round" />
-                      </svg>
+                    <div className="h-36 md:h-40 flex items-center justify-center rounded-lg bg-gradient-to-br from-brand-sage-light to-brand-cream shadow-sm overflow-hidden mx-2">
+                      <img src={s.img} alt={`${s.title} illustration`} className="w-28 h-28 md:w-32 md:h-32 object-contain" />
                     </div>
                     <div className="mt-4 text-center">
                       <h3 className="text-sm md:text-base font-semibold text-brand-sage-dark">{s.title}</h3>
