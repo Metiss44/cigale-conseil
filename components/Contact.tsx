@@ -25,17 +25,17 @@ export const Contact: React.FC = () => {
                         </ul>
                          <form className="mt-8 space-y-4">
                             <div className="grid sm:grid-cols-2 gap-4">
-                                <input type="text" placeholder="Prénom" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-sage-medium"/>
-                                <input type="text" placeholder="Nom" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-sage-medium"/>
+                                <input type="text" placeholder="Prénom" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-blue-soft"/>
+                                <input type="text" placeholder="Nom" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-blue-soft"/>
                             </div>
-                            <input type="email" placeholder="Email" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-sage-medium"/>
-                            <input type="text" placeholder="Type de structure" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-sage-medium"/>
-                            <textarea placeholder="Votre message" rows={4} className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-sage-medium"></textarea>
+                            <input type="email" placeholder="Email" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-blue-soft"/>
+                            <input type="text" placeholder="Type de structure" className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-blue-soft"/>
+                            <textarea placeholder="Votre message" rows={4} className="w-full p-3 rounded-md border-gray-300 focus:ring-brand-blue-soft"></textarea>
                             <div className="flex items-center">
-                                <input type="checkbox" id="rgpd" className="h-4 w-4 text-brand-sage-medium focus:ring-brand-sage-medium border-gray-300 rounded"/>
+                                <input type="checkbox" id="rgpd" className="h-4 w-4 text-brand-blue-main focus:ring-brand-blue-soft border-gray-300 rounded"/>
                                 <label htmlFor="rgpd" className="ml-2 block text-sm text-brand-sage-gray">J'accepte la politique de confidentialité.</label>
                             </div>
-                            <button type="submit" className="w-full bg-brand-sage-medium text-white p-3 rounded-full font-semibold hover:bg-brand-sage-dark shadow-lg transition-colors">Envoyer</button>
+                            <button type="submit" className="w-full bg-brand-blue-main text-white p-3 rounded-full font-semibold hover:bg-brand-blue-soft shadow-lg transition-colors">Envoyer</button>
                         </form>
                     </div>
                     <div className="min-h-[400px]">

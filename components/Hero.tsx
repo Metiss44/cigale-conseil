@@ -43,10 +43,10 @@ export const Hero: React.FC = () => {
                             Cigale Conseil accompagne les entrepreneurs, freelances et structures engagées avec une comptabilité claire, pédagogique et alignée avec leurs valeurs.
                         </p>
                         <div className="mt-7 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4 items-center justify-center lg:justify-start">
-                            <a href="#contact" className="bg-brand-sage-medium text-white px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-sage-dark shadow-lg transition-all duration-300 transform hover:scale-105">
+                            <a href="#contact" className="bg-brand-blue-main text-white px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-blue-soft shadow-lg transition-all duration-300 transform hover:scale-105">
                                 Prendre RDV
                             </a>
-                            <a href="#a-propos" className="bg-transparent border-2 border-brand-sage-medium text-brand-sage-medium px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-sage-light transition-colors duration-300">
+                            <a href="#a-propos" className="bg-transparent border-2 border-brand-blue-soft text-brand-blue-main px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-pink-soft transition-colors duration-300">
                                 Découvrir mon approche
                             </a>
                         </div>

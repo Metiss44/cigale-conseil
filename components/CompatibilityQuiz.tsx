@@ -44,7 +44,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q1', true)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q1 === true
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >
@@ -54,7 +54,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q1', false)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q1 === false
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >
@@ -73,7 +73,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q2', true)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q2 === true
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >
@@ -126,7 +126,7 @@ export const CompatibilityQuiz: React.FC = () => {
                             <div className="text-center">
                                 <button
                                     onClick={handleSubmit}
-                                    className="bg-brand-sage-medium text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-sage-dark transition-colors shadow-lg"
+                                    className="bg-brand-blue-main text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-blue-soft transition-colors shadow-lg"
                                 >
                                     Voir le résultat
                                 </button>
@@ -149,7 +149,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                         </p>
                                         <a
                                             href="#services"
-                                            className="inline-block bg-brand-sage-medium text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-sage-dark transition-colors shadow-lg"
+                                            className="inline-block bg-brand-blue-main text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-blue-soft transition-colors shadow-lg"
                                         >
                                             Découvrir mes services
                                         </a>

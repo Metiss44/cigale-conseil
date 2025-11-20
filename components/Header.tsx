@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
                                 className={`text-sm md:text-base font-medium transition-colors whitespace-nowrap ${
                                     isScrolled 
                                         ? 'text-brand-cream hover:text-white' 
-                                        : 'text-brand-sage-dark hover:text-brand-sage-medium'
+                                        : 'text-brand-sage-dark hover:text-brand-blue-main'
                                 }`}
                             >
                                 {link.label}
@@ -62,11 +62,7 @@ export const Header: React.FC = () => {
                         </a>
                         <a 
                             href="#contact" 
-                            className={`px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
-                                isScrolled
-                                    ? 'bg-brand-sage-medium text-white hover:bg-white hover:text-brand-sage-dark'
-                                    : 'bg-brand-sage-medium text-white hover:bg-brand-sage-dark'
-                            }`}
+                            className="px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap bg-brand-blue-main text-white hover:bg-brand-blue-soft"
                         >
                             Prendre RDV
                         </a>
@@ -109,7 +105,7 @@ export const Header: React.FC = () => {
                             {link.label}
                         </a>
                     ))}
-                    <a
+                    <a 
                         href="https://app.pennylane.com/auth/login"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -121,7 +117,7 @@ export const Header: React.FC = () => {
                     <a 
                         href="#contact" 
                         onClick={() => setIsOpen(false)} 
-                        className="mt-8 bg-brand-sage-medium text-white px-8 py-3 rounded-xl text-lg shadow-lg hover:bg-white hover:text-brand-sage-dark transition"
+                        className="mt-8 bg-brand-blue-main text-white px-8 py-3 rounded-xl text-lg shadow-lg hover:bg-brand-blue-soft transition"
                     >
                         Prendre RDV
                     </a>

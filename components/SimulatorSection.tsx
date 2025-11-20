@@ -97,14 +97,14 @@ export const SimulatorSection: React.FC = () => {
                 min={0}
                 value={caAnnuel}
                 onChange={(e) => setCaAnnuel(e.target.value)}
-                className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium"
+                className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft"
                 placeholder="Ex : 30000"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-brand-sage-dark mb-1">Nature de l'activité</label>
-              <select value={activite} onChange={(e) => setActivite(e.target.value as ActiviteMicro)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
+              <select value={activite} onChange={(e) => setActivite(e.target.value as ActiviteMicro)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft">
                 <option value="vente">Vente / Restauration / Hébergement</option>
                 <option value="prestations_bic">Prestations de service (BIC)</option>
                 <option value="prestations_bnc">Prestations (BNC)</option>
@@ -116,7 +116,7 @@ export const SimulatorSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-sm font-medium text-brand-sage-dark mb-1">Régime fiscal</label>
-                <select value={regimeFiscal} onChange={(e) => setRegimeFiscal(e.target.value as RegimeFiscal)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
+                <select value={regimeFiscal} onChange={(e) => setRegimeFiscal(e.target.value as RegimeFiscal)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft">
                   <option value="versement_liberatoire">Versement libératoire</option>
                   <option value="classique">Régime classique</option>
                 </select>
@@ -124,7 +124,7 @@ export const SimulatorSection: React.FC = () => {
 
               <div>
                 <label className="block text-sm font-medium text-brand-sage-dark mb-1">Méthode de calcul IR</label>
-                <select value={irBaseMode} onChange={(e) => setIrBaseMode(e.target.value as 'forfait'|'reel')} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium">
+                <select value={irBaseMode} onChange={(e) => setIrBaseMode(e.target.value as 'forfait'|'reel')} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft">
                   <option value="forfait">Abattement forfaitaire</option>
                   <option value="reel">Régime réel (simulation IR)</option>
                 </select>
@@ -134,7 +134,7 @@ export const SimulatorSection: React.FC = () => {
             {irBaseMode === 'reel' && (
               <div>
                 <label className="block text-sm font-medium text-brand-sage-dark mb-1">Montant des charges (annuel)</label>
-                <input type="number" min={0} step="0.01" value={chargesAnnuel} onChange={(e) => setChargesAnnuel(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium" placeholder="Ex : 12000" />
+                <input type="number" min={0} step="0.01" value={chargesAnnuel} onChange={(e) => setChargesAnnuel(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft" placeholder="Ex : 12000" />
                 <div className="text-xs text-brand-sage-gray mt-1">Indique le total ANNUEL des charges professionnelles réellement supportées. Ce champ sert uniquement à simuler l'impact sur l'impôt (IR). Les cotisations URSSAF restent calculées sur le chiffre d'affaires en micro‑régime.</div>
               </div>
             )}
@@ -142,12 +142,12 @@ export const SimulatorSection: React.FC = () => {
             <div className="grid grid-cols-1 gap-3">
               <div>
                 <label className="block text-sm font-medium text-brand-sage-dark mb-1">Taux CFP (optionnel en %)</label>
-                <input type="number" min={0} step="0.01" value={tauxCfpOverride} onChange={(e) => setTauxCfpOverride(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-sage-medium focus:border-brand-sage-medium" placeholder="laisser vide pour défaut" />
+                <input type="number" min={0} step="0.01" value={tauxCfpOverride} onChange={(e) => setTauxCfpOverride(e.target.value)} className="w-full rounded-lg border border-brand-sage-light px-3 py-2 text-sm focus:ring-brand-blue-soft focus:border-brand-blue-soft" placeholder="laisser vide pour défaut" />
               </div>
             </div>
 
             <div className="flex gap-3">
-              <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-brand-sage-medium text-white text-sm font-medium px-4 py-2 hover:bg-brand-sage-dark transition-colors">Lancer la simulation</button>
+              <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-brand-blue-main text-white text-sm font-medium px-4 py-2 hover:bg-brand-blue-soft transition-colors">Lancer la simulation</button>
               <button type="button" onClick={() => { setCaAnnuel(''); setResultat(null); setErreur(null); setTauxCfpOverride(''); }} className="inline-flex items-center justify-center rounded-lg bg-transparent border border-brand-sage-light text-brand-sage-dark text-sm px-4 py-2 hover:bg-brand-sage-light transition-colors">Réinitialiser</button>
             </div>
           </form>
