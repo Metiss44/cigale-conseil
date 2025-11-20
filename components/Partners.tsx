@@ -21,28 +21,28 @@ export const Partners: React.FC = () => {
           <p className="mt-2 text-sm text-brand-sage-gray">Collaborations de confiance — prestataires recommandés</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 auto-rows-fr">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
           {partners.map((p) => (
             <a
               key={p.name}
               href={p.url || '#'}
               target={p.url ? '_blank' : undefined}
               rel={p.url ? 'noopener noreferrer' : undefined}
-              className="aspect-square flex flex-col items-center justify-center gap-4 bg-white rounded-xl p-6 border border-brand-sage-light hover:shadow-lg transition"
+              className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg p-4 hover:bg-brand-sage-medium hover:shadow-md transition"
             >
-              <div className="w-24 h-24 rounded-md flex items-center justify-center overflow-hidden bg-brand-sage-dark p-2">
+              <div className="w-20 h-20 rounded-md flex items-center justify-center overflow-hidden bg-white p-2">
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain" />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-xs text-white">Logo</span>
+                  <div className="w-full h-full flex items-center justify-center bg-brand-sage-light">
+                    <span className="text-xs text-brand-sage-dark">Logo</span>
                   </div>
                 )}
               </div>
               <div className="text-center">
-                <div className="text-sm font-semibold text-brand-sage-dark">{p.name}</div>
-                <div className="text-xs text-brand-sage-gray">{p.role}</div>
+                <div className="text-xs font-semibold text-white">{p.name}</div>
+                <div className="text-[10px] text-brand-cream opacity-80">{p.role}</div>
               </div>
             </a>
           ))}
