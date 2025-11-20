@@ -92,7 +92,7 @@ export const FAQ: React.FC = () => {
                     <p className="text-brand-sage-gray mb-4">Une autre question ?</p>
                     <a
                         href="#contact"
-                        className="inline-block bg-brand-blue-main text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-blue-soft transition-colors shadow-lg"
+                        className="inline-block bg-brand-sage-medium text-white px-8 py-3 rounded-xl font-semibold hover:bg-brand-sage-dark transition-colors shadow-lg"
                     >
                         Contactez-moi
                     </a>

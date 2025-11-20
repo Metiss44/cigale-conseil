@@ -171,7 +171,7 @@ export const Services: React.FC = () => {
                       <div className="px-6 pb-6 text-center">
                         <h3 className="text-xl md:text-2xl font-bold text-brand-sage-dark mb-1">{svc.title}</h3>
                         {svc.price && (
-                          <div className="text-brand-sage-medium font-semibold text-lg mb-2">{svc.price}</div>
+                          <div className="text-brand-blue-main font-semibold text-lg mb-2">{svc.price}</div>
                         )}
                         <p className="text-sm text-brand-sage-gray mb-4">{svc.subtitle}</p>
                         <ul className="text-left mx-auto inline-block space-y-2">
@@ -195,7 +195,7 @@ export const Services: React.FC = () => {
               <button
                 key={i}
                 onClick={() => focusCard(i)}
-                className={`h-3 rounded-full transition-all ${i === activeCard ? 'bg-brand-sage-medium w-8' : 'bg-gray-300 w-3'}`}
+                className={`h-3 rounded-full transition-all ${i === activeCard ? 'bg-brand-blue-main w-8' : 'bg-gray-300 w-3'}`}
                 aria-label={`Aller à l'étape ${i + 1}`}
               />
             ))}
@@ -213,7 +213,7 @@ export const Services: React.FC = () => {
                       <img src={svc.icon} alt="icon" className="w-24 h-24 object-contain" />
                     </div>
                     <h3 className="text-xl font-bold text-brand-sage-dark mb-1 text-center">{svc.title}</h3>
-                    {svc.price && <div className="text-brand-sage-medium font-semibold text-base mb-2 text-center">{svc.price}</div>}
+                    {svc.price && <div className="text-brand-blue-main font-semibold text-base mb-2 text-center">{svc.price}</div>}
                     <p className="text-sm text-brand-sage-gray italic text-center mb-4">{svc.subtitle}</p>
                     <ul className="space-y-2 text-left">
                       {svc.bullets.map((b, idx) => (
@@ -238,7 +238,7 @@ export const Services: React.FC = () => {
                 const el = scrollRef.current;
                 el?.querySelectorAll('[data-card-index]')[newIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
               }}
-              className="w-12 h-12 rounded-full bg-brand-sage-medium text-white flex items-center justify-center shadow-md hover:scale-105 transition"
+              className="w-12 h-12 rounded-full bg-brand-blue-main text-white flex items-center justify-center shadow-md hover:scale-105 hover:bg-brand-blue-soft transition"
               aria-label="Précédent"
             >
               <ChevronLeft size={20} />
@@ -246,7 +246,7 @@ export const Services: React.FC = () => {
 
             <div className="flex gap-2">
               {services.map((_, i) => (
-                <div key={i} className={`${i === activeCard ? 'w-8 bg-brand-sage-medium' : 'w-2 bg-gray-300'} h-2.5 rounded-full transition-all`} />
+                <div key={i} className={`${i === activeCard ? 'w-8 bg-brand-blue-main' : 'w-2 bg-gray-300'} h-2.5 rounded-full transition-all`} />
               ))}
             </div>
 
@@ -257,7 +257,7 @@ export const Services: React.FC = () => {
                 const el = scrollRef.current;
                 el?.querySelectorAll('[data-card-index]')[newIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
               }}
-              className="w-12 h-12 rounded-full bg-brand-sage-medium text-white flex items-center justify-center shadow-md hover:scale-105 transition"
+              className="w-12 h-12 rounded-full bg-brand-blue-main text-white flex items-center justify-center shadow-md hover:scale-105 hover:bg-brand-blue-soft transition"
               aria-label="Suivant"
             >
               <ChevronRight size={20} />

@@ -83,7 +83,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q2', false)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q2 === false
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >
@@ -102,7 +102,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q3', true)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q3 === true
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >
@@ -112,7 +112,7 @@ export const CompatibilityQuiz: React.FC = () => {
                                     onClick={() => handleAnswer('q3', false)}
                                     className={`flex-1 py-3 px-6 rounded-lg font-medium transition-all ${
                                         answers.q3 === false
-                                            ? 'bg-brand-sage-dark text-white'
+                                            ? 'bg-brand-blue-main text-white'
                                             : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'
                                     }`}
                                 >

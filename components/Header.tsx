@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
                                 className={`text-sm md:text-base font-medium transition-colors whitespace-nowrap ${
                                     isScrolled 
                                         ? 'text-brand-cream hover:text-white' 
-                                        : 'text-brand-sage-dark hover:text-brand-blue-main'
+                                        : 'text-brand-sage-dark hover:text-brand-sage-medium'
                                 }`}
                             >
                                 {link.label}
@@ -62,7 +62,11 @@ export const Header: React.FC = () => {
                         </a>
                         <a 
                             href="#contact" 
-                            className="px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap bg-brand-blue-main text-white hover:bg-brand-blue-soft"
+                            className={`px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
+                                isScrolled
+                                    ? 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
+                                    : 'bg-brand-blue-main text-white hover:bg-brand-blue-soft shadow-md'
+                            }`}
                         >
                             Prendre RDV
                         </a>
@@ -105,7 +109,7 @@ export const Header: React.FC = () => {
                             {link.label}
                         </a>
                     ))}
-                    <a 
+                    <a
                         href="https://app.pennylane.com/auth/login"
                         target="_blank"
                         rel="noopener noreferrer"

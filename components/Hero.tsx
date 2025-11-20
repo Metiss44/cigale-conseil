@@ -6,18 +6,18 @@ import { Building, Palette, LineChart } from 'lucide-react';
 
 const pillars = [
     {
-        icon: <Building className="text-brand-sage-medium" />,
-        title: "Gestion d’entreprise",
+        icon: <Building className="text-brand-blue-main" />,
+        title: "Gestion d'entreprise",
         text: "Accompagnement de structures avec une maîtrise de modèles économiques complexes, et des montages financiers spécifiques."
     },
     {
-        icon: <Palette className="text-brand-sage-medium" />,
+        icon: <Palette className="text-brand-blue-main" />,
         title: "Approche pédagogique",
         text: "Approche pédagogique qui rend la comptabilité claire, accessible et intuitive, afin que chacun puisse comprendre et piloter sereinement son activité."
     },
     {
-        icon: <LineChart className="text-brand-sage-medium" />,
-        title: "Stratégie d’entreprise",
+        icon: <LineChart className="text-brand-blue-main" />,
+        title: "Stratégie d'entreprise",
         text: "Accompagnement de groupes et sociétés à forts enjeux (énergies renouvelables, etc.) avec une approche stratégique de la fiscalité et du pilotage."
     }
 ];
@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
                             <a href="#contact" className="bg-brand-blue-main text-white px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-blue-soft shadow-lg transition-all duration-300 transform hover:scale-105">
                                 Prendre RDV
                             </a>
-                            <a href="#a-propos" className="bg-transparent border-2 border-brand-blue-soft text-brand-blue-main px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-pink-soft transition-colors duration-300">
+                            <a href="#a-propos" className="bg-transparent border-2 border-brand-blue-main text-brand-blue-main px-6 md:px-8 py-2 md:py-3 rounded-xl font-semibold text-sm md:text-base hover:bg-brand-pink-soft/30 transition-colors duration-300">
                                 Découvrir mon approche
                             </a>
                         </div>

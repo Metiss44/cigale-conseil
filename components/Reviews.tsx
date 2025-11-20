@@ -9,7 +9,7 @@ export const Reviews: React.FC = () => {
     }, []);
 
     return (
-        <section id="avis" className="container mx-auto px-6 py-20 md:py-28">
+        <section id="avis" className="container mx-auto px-6 py-20 md:py-28 bg-brand-pink-soft/15 rounded-3xl">
             <div className="text-center max-w-3xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-sage-dark">Ce que mes clients en disent</h2>
                 <p className="mt-4 text-lg text-brand-sage-gray">

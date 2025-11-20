@@ -13,7 +13,7 @@ export const About: React.FC = () => {
                     </div>
                 </div>
                     <div className="lg:col-span-3">
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-sage-medium">vos valeurs</span></h2>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br/> aligné avec <span className="text-brand-blue-main">vos valeurs</span></h2>
                         
                         <div className="space-y-5 mb-8">
                             <p className="text-base md:text-lg text-brand-sage-gray leading-relaxed">
@@ -33,7 +33,7 @@ export const About: React.FC = () => {
                         <div className="grid sm:grid-cols-2 gap-4 mb-8">
                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-start gap-3">
-                                    <MapPin className="text-brand-sage-medium mt-0.5 flex-shrink-0" size={22} />
+                                    <MapPin className="text-brand-blue-main mt-0.5 flex-shrink-0" size={22} />
                                     <div>
                                         <h3 className="font-semibold text-brand-sage-dark mb-1">Montpellier & France entière</h3>
                                         <p className="text-sm text-brand-sage-gray">Accompagnement 100% digital, partout en France</p>
@@ -43,7 +43,7 @@ export const About: React.FC = () => {
 
                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-5 border border-brand-sage-light/30 shadow-sm hover:shadow-md transition-shadow">
                                 <div className="flex items-start gap-3">
-                                    <Target className="text-brand-sage-medium mt-0.5 flex-shrink-0" size={22} />
+                                    <Target className="text-brand-blue-main mt-0.5 flex-shrink-0" size={22} />
                                     <div>
                                         <h3 className="font-semibold text-brand-sage-dark mb-1">Spécialisation</h3>
                                         <p className="text-sm text-brand-sage-gray">Entrepreneurs, freelances et projets à impact</p>
@@ -52,7 +52,7 @@ export const About: React.FC = () => {
                             </div>
                         </div>
 
-                        <a href="https://www.linkedin.com/in/eva-perez-a62b6a138/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-sm md:text-base text-brand-sage-medium hover:text-brand-sage-dark transition-colors group">
+                        <a href="https://www.linkedin.com/in/eva-perez-a62b6a138/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-sm md:text-base text-brand-blue-main hover:text-brand-blue-soft transition-colors group">
                             <Linkedin className="mr-2 group-hover:scale-110 transition-transform" size={18} />
                             Voir mon profil LinkedIn
                         </a>

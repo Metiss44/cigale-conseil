@@ -13,7 +13,6 @@ module.exports = {
         'brand-sage-medium': '#728f78',
         'brand-sage-dark': '#536a56',
         'brand-sage-gray': '#878d7d',
-        /* New accents */
         'brand-blue-main': '#192683',
         'brand-blue-soft': '#6A72AE',
         'brand-pink-main': '#986573',
