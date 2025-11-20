@@ -17,7 +17,6 @@ export const SectorsCarousel: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-brand-sage-dark">Secteurs d'activité</h2>
-          <p className="mt-2 text-sm text-brand-sage-gray">Exemples de métiers — aperçu rapide</p>
         </div>
 
         {/* Full-bleed auto-scrolling strip (no boxed background) */}
