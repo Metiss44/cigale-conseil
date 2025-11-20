@@ -2,20 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens as CSS variables for runtime usage */
-:root {
-	/* Greens (existing) */
-	--brand-cream: #fefded;
-	--brand-sage-light: #dbe4ce;
-	--brand-sage-medium: #728f78;
-	--brand-sage-dark: #536a56;
-	--brand-sage-gray: #878d7d;
+::selection {
+  background-color: #dbe4ce; /* brand-sage-light */
+  color: #536a56; /* brand-sage-dark */
+}
 
-	/* New accents (blue / pink) */
-	--brand-blue-main: #192683;
-	--brand-blue-soft: #6A72AE;
-	--brand-pink-main: #986573;
-	--brand-pink-soft: #BC9AA4;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Hero background: desktop & mobile variants */

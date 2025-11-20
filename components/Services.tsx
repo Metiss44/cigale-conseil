@@ -164,21 +164,24 @@ export const Services: React.FC = () => {
                   }}
                   onClick={() => focusCard(svcIndex)}
                 >
-                  <div className={`w-[320px] bg-white rounded-2xl border border-brand-sage-light overflow-hidden ${isActive ? 'shadow-lg' : 'shadow-sm'} transition` }>
-                      <div className="p-6 flex items-center justify-center bg-gradient-to-br from-brand-sage-light to-brand-cream">
-                        <img src={svc.icon} alt="icon" className="w-28 h-28 object-contain" />
+                  <div className={`w-[340px] bg-white rounded-3xl border border-brand-sage-light/20 overflow-hidden ${isActive ? 'shadow-2xl ring-1 ring-brand-sage-light/30' : 'shadow-lg opacity-90'} transition-all duration-500`}>
+                    <div className="pt-8 pb-4 flex items-center justify-center bg-gradient-to-b from-brand-cream/50 to-transparent">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-brand-sage-light/20 rounded-full blur-xl transform scale-110"></div>
+                        <img src={svc.icon} alt="icon" className="relative w-24 h-24 object-contain drop-shadow-sm" />
                       </div>
-                      <div className="px-6 pb-6 text-center">
-                        <h3 className="text-xl md:text-2xl font-bold text-brand-sage-dark mb-1">{svc.title}</h3>
-                        {svc.price && (
-                          <div className="text-brand-blue-main font-semibold text-lg mb-2">{svc.price}</div>
-                        )}
-                        <p className="text-sm text-brand-sage-gray mb-4">{svc.subtitle}</p>
-                        <ul className="text-left mx-auto inline-block space-y-2">
+                    </div>
+                    <div className="px-8 pb-8 text-center">
+                      <h3 className="text-2xl font-bold text-brand-sage-dark mb-2">{svc.title}</h3>
+                      {svc.price && (
+                        <div className="text-brand-blue-main font-bold text-lg mb-3 bg-brand-blue-main/5 py-1 px-4 rounded-full inline-block">{svc.price}</div>
+                      )}
+                      <p className="text-sm text-brand-sage-gray mb-6 leading-relaxed">{svc.subtitle}</p>
+                      <ul className="text-left space-y-3 bg-brand-sage-light/10 p-4 rounded-2xl">
                         {svc.bullets.map((b, i) => (
-                          <li key={i} className="flex items-start gap-3 text-sm text-brand-sage-dark">
-                            <span className="text-brand-sage-medium">•</span>
-                            <span className="text-brand-sage-gray">{b}</span>
+                          <li key={i} className="flex items-start gap-3 text-sm text-brand-sage-dark font-medium">
+                            <span className="text-brand-blue-main mt-1">•</span>
+                            <span className="text-brand-sage-gray/90">{b}</span>
                           </li>
                         ))}
                       </ul>

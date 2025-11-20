@@ -18,10 +18,10 @@ export const Header: React.FC = () => {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-[100]">
-            <div className={`transition-all duration-300 ${
+            <div className={`transition-all duration-500 ease-in-out ${
                 isScrolled 
-                    ? 'mx-3 sm:mx-auto my-2 max-w-5xl px-4 py-2 md:px-6 md:py-3 rounded-lg md:rounded-2xl bg-brand-sage-dark/85 backdrop-blur-md shadow-lg' 
-                    : 'max-w-7xl mx-auto px-6 pt-6 pb-5 bg-transparent'
+                    ? 'mx-4 sm:mx-auto my-4 max-w-5xl px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-brand-sage-dark/90 backdrop-blur-xl shadow-2xl border border-white/10' 
+                    : 'max-w-7xl mx-auto px-6 pt-8 pb-6 bg-transparent'
             }`}>
                 <nav className="flex justify-between items-center gap-4 md:gap-6">
                     {/* Left: Navigation */}
@@ -51,21 +51,25 @@ export const Header: React.FC = () => {
                     </a>
 
                     {/* Right: CTA */}
-                    <div className="hidden lg:flex items-center">
+                    <div className="hidden lg:flex items-center gap-4">
                         <a
                             href="https://app.pennylane.com/auth/login"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`mr-4 px-4 py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 whitespace-nowrap ${isScrolled ? 'bg-transparent text-brand-cream border border-white/20 hover:opacity-90' : 'bg-white text-brand-sage-dark border border-brand-sage-light hover:bg-brand-sage-light'}`}
+                            className={`px-5 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${
+                                isScrolled 
+                                    ? 'text-brand-cream hover:bg-white/10' 
+                                    : 'bg-white/80 backdrop-blur-sm text-brand-sage-dark border border-brand-sage-light hover:bg-white hover:shadow-md'
+                            }`}
                         >
                             Pennylane
                         </a>
                         <a 
                             href="#contact" 
-                            className={`px-5 py-1.5 md:px-6 md:py-2 rounded-lg md:rounded-xl font-semibold text-sm transition-all duration-300 whitespace-nowrap ${
+                            className={`px-6 py-2 rounded-xl font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${
                                 isScrolled
                                     ? 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
-                                    : 'bg-brand-blue-main text-white hover:bg-brand-blue-soft shadow-md'
+                                    : 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
                             }`}
                         >
                             Prendre RDV
