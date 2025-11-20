@@ -21,22 +21,22 @@ export const Partners: React.FC = () => {
           <p className="mt-2 text-sm text-brand-sage-gray">Collaborations de confiance — prestataires recommandés</p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 md:flex md:flex-wrap md:justify-center md:gap-8 max-w-5xl mx-auto">
           {partners.map((p) => (
             <a
               key={p.name}
               href={p.url || '#'}
               target={p.url ? '_blank' : undefined}
               rel={p.url ? 'noopener noreferrer' : undefined}
-              className="flex flex-col items-center justify-center gap-3 p-4 transition-transform hover:scale-105"
+              className="flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-4 transition-transform hover:scale-105"
             >
-              <div className="w-28 h-28 flex items-center justify-center overflow-hidden p-2">
+              <div className={`w-24 h-24 md:w-28 md:h-28 flex items-center justify-center overflow-hidden ${p.name === 'Matiss Cottard' ? 'p-3 md:p-2' : 'p-2'}`}>
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={p.logo}
                     alt={`${p.name} logo`}
-                    className={`w-full h-full transition-all duration-300 ${p.name === 'Matiss Cottard' ? 'object-cover rounded-full' : 'object-contain'}`}
+                    className={`w-full h-full transition-all duration-300 ${p.name === 'Matiss Cottard' ? 'object-cover rounded-full shadow-sm' : 'object-contain'}`}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
