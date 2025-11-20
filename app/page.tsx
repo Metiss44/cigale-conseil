@@ -11,6 +11,7 @@ import { Video } from '@/components/Video';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
 import { Contact } from '@/components/Contact';
+import Partners from '@/components/Partners';
 import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
 
@@ -30,6 +31,7 @@ export default function Home() {
                 <Video />
                 <Reviews />
                 <Instagram />
+                <Partners />
                 <FAQ />
                 <Contact />
             </main>
