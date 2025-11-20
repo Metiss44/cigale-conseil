@@ -30,13 +30,13 @@ export const Partners: React.FC = () => {
               rel={p.url ? 'noopener noreferrer' : undefined}
               className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg p-4 hover:bg-brand-sage-medium hover:shadow-md transition"
             >
-              <div className="w-20 h-20 rounded-md flex items-center justify-center overflow-hidden p-2">
+              <div className="w-28 h-28 rounded-md flex items-center justify-center overflow-hidden p-2">
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-xs text-white">Logo</span>
+                    <span className="text-sm text-white">Logo</span>
                   </div>
                 )}
               </div>
