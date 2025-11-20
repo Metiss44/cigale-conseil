@@ -46,7 +46,7 @@ export const FAQ: React.FC = () => {
     };
 
     return (
-        <section id="faq" className="py-20 md:py-28 bg-brand-sage-light">
+        <section id="faq" className="py-20 md:py-28 bg-brand-pink-soft/25">
             <div className="container mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-brand-sage-dark">FAQ – Vos questions fréquentes</h2>
@@ -59,17 +59,19 @@ export const FAQ: React.FC = () => {
                     {faqItems.map((item, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-xl shadow-md border border-brand-sage-light overflow-hidden transition-all duration-300"
+                            className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${
+                                openIndex === index ? 'border-2 border-brand-pink-medium' : 'border border-brand-sage-light'
+                            }`}
                         >
                             <button
                                 onClick={() => toggleQuestion(index)}
-                                className="w-full flex items-center justify-between p-6 text-left hover:bg-brand-cream transition-colors"
+                                className="w-full flex items-center justify-between p-6 text-left hover:bg-brand-pink-soft/20 transition-colors"
                             >
                                 <h3 className="text-lg md:text-xl font-semibold text-brand-sage-dark pr-4">
                                     {item.question}
                                 </h3>
                                 <ChevronDown
-                                    className={`flex-shrink-0 text-brand-sage-medium transition-transform duration-300 ${
+                                    className={`flex-shrink-0 text-brand-pink-main transition-transform duration-300 ${
                                         openIndex === index ? 'rotate-180' : ''
                                     }`}
                                     size={24}

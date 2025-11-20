@@ -54,10 +54,10 @@ export const Hero: React.FC = () => {
 
                     {/* Right side - Image shifted right (center on mobile) */}
                     <div className="relative mx-auto lg:ml-auto lg:mr-0 max-w-md">
-                        <div className="bg-brand-sage-light rounded-2xl p-3 md:p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <div className="bg-gradient-to-br from-brand-pink-soft to-brand-pink-medium/30 rounded-2xl p-3 md:p-4 shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                              <img src="https://cigale.matisscottard.com/illustrations/photo-eva-1.webp" alt="Eva Perez, experte-comptable" className="rounded-xl w-full h-auto" />
                         </div>
-                        <div className="absolute -bottom-3 md:-bottom-4 left-1/2 -translate-x-1/2 md:left-auto md:-left-4 md:translate-x-0 bg-brand-cream px-3 md:px-4 py-1 md:py-2 rounded-xl shadow-md text-xs md:text-sm text-brand-sage-dark font-semibold">
+                        <div className="absolute -bottom-3 md:-bottom-4 left-1/2 -translate-x-1/2 md:left-auto md:-left-4 md:translate-x-0 bg-brand-pink-soft border border-brand-pink-medium px-3 md:px-4 py-1 md:py-2 rounded-xl shadow-md text-xs md:text-sm text-brand-sage-dark font-semibold">
                             Eva Perez – Experte-comptable diplômée
                         </div>
                     </div>

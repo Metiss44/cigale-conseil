@@ -36,7 +36,7 @@ export const WhyUs: React.FC = () => {
                 </div>
                 <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {whyUsItems.map((item, index) => (
-                        <div key={index} className="relative bg-brand-cream p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
+                        <div key={index} className="relative bg-white border-2 border-brand-pink-medium/40 p-6 rounded-lg shadow-md hover:shadow-xl hover:border-brand-pink-main transition-all duration-300 text-center">
                             {/* Icon image */}
                             <div className="flex justify-center mb-4">
                                 <img src={item.image} alt={item.title} className="w-24 h-24 object-contain" />
