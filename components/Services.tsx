@@ -38,6 +38,7 @@ const services = [
     icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/4.webp',
     title: 'Pilotage et outils',
     subtitle: 'Outils pour piloter votre activité',
+    price: 'Sur devis',
     bullets: [
       'Mise en place de tableaux de bord',
       'Formation aux outils de gestion',
