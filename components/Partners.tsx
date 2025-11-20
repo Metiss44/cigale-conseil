@@ -8,7 +8,7 @@ const partners = [
   { role: 'Avocat', name: 'Maître Biot', url: 'https://biot-avocat.com/?utm_source=gmb', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/maitre-biot.webp' },
   { role: 'Commissaire aux comptes', name: 'Sophie Berthon', url: 'https://berthon-audit.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/berthon.webp' },
   { role: 'Graphiste', name: 'Studio Pousse', url: 'https://studio-pousse.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/studio-pousse.webp' },
-  { role: 'Site internet', name: 'Cigale Conseil (ce site)', url: '#', logo: '' },
+  { role: 'Web designer', name: 'Matiss Cottard', url: 'https://matisscottard.com', logo: 'https://cdn.matisscottard.com/photos-equipe/photo-matiss-equipe.webp' },
   { role: 'Gestionnaire de paiement', name: 'Conseil Expert Paie', url: 'https://www.conseilexpertpaie.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/conseil-expert.webp' },
 ];
 
@@ -21,34 +21,38 @@ export const Partners: React.FC = () => {
           <p className="mt-2 text-sm text-brand-sage-gray">Collaborations de confiance — prestataires recommandés</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto justify-center">
+        <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
           {partners.map((p) => (
             <a
               key={p.name}
               href={p.url || '#'}
               target={p.url ? '_blank' : undefined}
               rel={p.url ? 'noopener noreferrer' : undefined}
-              className="flex flex-col items-center justify-center gap-3 bg-brand-sage-dark rounded-lg px-2 py-4 hover:bg-brand-sage-medium hover:shadow-md transition"
+              className="flex flex-col items-center justify-center gap-3 p-4 transition-transform hover:scale-105"
             >
-              <div className="w-28 h-28 rounded-md flex items-center justify-center overflow-hidden p-2">
+              <div className="w-28 h-28 flex items-center justify-center overflow-hidden p-2">
                 {p.logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={p.logo} alt={`${p.name} logo`} className="w-full h-full object-contain" />
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    className={`w-full h-full transition-all duration-300 ${p.name === 'Matiss Cottard' ? 'object-cover rounded-full' : 'object-contain'}`}
+                  />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
-                    <span className="text-sm text-white">Logo</span>
+                    <span className="text-sm text-brand-sage-dark">Logo</span>
                   </div>
                 )}
               </div>
               <div className="text-center">
-                <div className="text-xs font-semibold text-white">{p.name}</div>
-                <div className="text-[10px] text-brand-cream opacity-80">{p.role}</div>
+                <div className="text-xs font-semibold text-brand-sage-dark">{p.name}</div>
+                <div className="text-[10px] text-brand-sage-gray">{p.role}</div>
               </div>
             </a>
           ))}
         </div>
 
-        
+
       </div>
     </section>
   );

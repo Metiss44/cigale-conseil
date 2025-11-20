@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #dbe4ce; /* brand-sage-light */
-  color: #536a56; /* brand-sage-dark */
+	background-color: #dbe4ce;
+	/* brand-sage-light */
+	color: #536a56;
+	/* brand-sage-dark */
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /* Hero background: desktop & mobile variants */
@@ -34,29 +36,51 @@ body {
 
 /* Sectors carousel: seamless auto-scrolling marquee */
 /* Full-width sectors carousel */
-.sectors-carousel { width: 100%; overflow: hidden; }
-.sectors-track { display: flex; gap: 1.5rem; align-items: stretch; min-width: max-content; }
+/* Sectors carousel: seamless auto-scrolling marquee */
+.sectors-carousel {
+	width: 100%;
+	overflow-x: auto;
+	/* Allow native scrolling */
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
 
-/* animate by moving half the track (we duplicate the group in the DOM) */
-@keyframes sectors-scroll {
-	from { transform: translateX(0); }
-	to { transform: translateX(-50%); }
+.sectors-carousel::-webkit-scrollbar {
+	display: none;
+	/* Chrome, Safari and Opera */
 }
 
 .sectors-track {
-	will-change: transform;
-	animation: sectors-scroll 28s linear infinite;
+	display: flex;
+	gap: 1.5rem;
+	align-items: stretch;
+	min-width: max-content;
 }
 
-.sectors-group { display: flex; }
-.sector-card { display: flex; flex-direction: column; align-items: center; }
+.sectors-group {
+	display: flex;
+	gap: 1.5rem;
+}
 
-/* Keep non-interactive behavior unless changed later */
-.sectors-carousel *, .sectors-carousel { pointer-events: none; }
+.sector-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 @media (max-width: 1024px) {
-	.sectors-track { gap: 1rem; }
-	.sector-card { width: 46vw; min-width: 220px; }
+	.sectors-track {
+		gap: 1rem;
+	}
+
+	.sectors-group {
+		gap: 1rem;
+	}
+
+	.sector-card {
+		width: 46vw;
+		min-width: 220px;
+	}
 }
-
-
