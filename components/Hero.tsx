@@ -36,6 +36,7 @@ export const Hero: React.FC = () => {
                     {/* Left side - Text content, aligned with menu (center on mobile) */}
                     <div className="lg:pr-8 text-center lg:text-left">
                         <p className="font-medium text-brand-sage-gray mb-3 text-xs md:text-sm">Cabinet d'expertise comptable – Montpellier & France entière</p>
+                        <p className="text-xs md:text-sm text-brand-blue-main font-medium">Inscrite à l'Ordre des experts-comptables d'Occitanie</p>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-sage-dark leading-tight max-w-lg mx-auto lg:mx-0">
                             Expert comptable spécialisée dans l'accompagnement des sociétés engagées
                         </h1>
