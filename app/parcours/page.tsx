@@ -19,7 +19,7 @@ export default function ParcoursPage() {
                     </div>
 
                     {/* Title with gradient */}
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight">
                         <span className="bg-gradient-to-r from-brand-sage-dark via-brand-orange to-brand-sage-dark bg-clip-text text-transparent animate-fadeIn">
                             Mon Parcours
                         </span>
