@@ -14,6 +14,7 @@ const services = [
       'Choix du statut juridique',
       'Prévisionnel financier',
       'Démarches d\'immatriculation',
+      'Accompagnement personnalisé',
     ],
   },
   {
@@ -24,7 +25,10 @@ const services = [
     bullets: [
       'Tenue de comptabilité',
       'Déclarations fiscales',
-      'Bilan annuel',
+      'Logiciel de facturation inclus',
+      'Bilan annuel + compte de résultat',
+      'Conseil de l\'expert comptable',
+      'Rendez vous de suivi compris',
     ],
   },
   {
@@ -32,7 +36,12 @@ const services = [
     title: 'Conseil et stratégie',
     subtitle: 'Décisions éclairées pour grandir',
     price: '150 €/l\'heure HT',
-    bullets: ['Optimisation fiscale', 'Analyse de rentabilité', 'Conseils en gestion'],
+    bullets: [
+      'Optimisation fiscale',
+      'Analyse de rentabilité',
+      'Conseils en gestion',
+      'Analyse de votre forme juridique',
+    ],
   },
   {
     icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/4.webp',

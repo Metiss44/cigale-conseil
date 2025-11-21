@@ -2,11 +2,7 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { WhyUs } from '@/components/WhyUs';
-import { Services } from '@/components/Services';
-import { SectorsCarousel } from '@/components/SectorsCarousel';
-import { CompatibilityQuiz } from '@/components/CompatibilityQuiz';
 import { FAQ } from '@/components/FAQ';
-import { Video } from '@/components/Video';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
 import { Contact } from '@/components/Contact';
@@ -23,10 +19,6 @@ export default function Home() {
                 <Hero />
                 <About />
                 <WhyUs />
-                <Services />
-                <SectorsCarousel />
-                <CompatibilityQuiz />
-                <Video />
                 <Reviews />
                 <Instagram />
                 <Partners />

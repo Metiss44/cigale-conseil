@@ -11,15 +11,16 @@ export const Video: React.FC = () => {
                 <p className="mt-4 text-lg text-brand-sage-gray max-w-2xl mx-auto">
                     C'est pourquoi je m'engage à rendre ces sujets accessibles, pour que vous puissiez piloter votre activité en toute confiance.
                 </p>
-                <div className="mt-12 aspect-video max-w-4xl mx-auto">
-                     <iframe 
-                        className="w-full h-full rounded-2xl shadow-2xl" 
-                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                        title="Vidéo pédagogique" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowFullScreen>
-                    </iframe>
+                <div className="mt-12 aspect-[9/16] max-w-sm mx-auto relative rounded-2xl overflow-hidden">
+                    <video
+                        className="w-full h-full object-cover"
+                        poster="https://cigale.matisscottard.com/illustrations/miniature-video-fiscale.webp"
+                        controls
+                        playsInline
+                    >
+                        <source src="https://cigale.matisscottard.com/video-fiiscal.mp4" type="video/mp4" />
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
                 </div>
             </div>
         </section>
