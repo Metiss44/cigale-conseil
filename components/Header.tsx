@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
                             Pennylane
                         </a>
                         <a
-                            href="#contact"
+                            href="/#contact"
                             className={`px-6 py-2 rounded-xl font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isScrolled
                                 ? 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
                                 : 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
@@ -236,7 +236,7 @@ export const Header: React.FC = () => {
                         Pennylane
                     </a>
                     <a
-                        href="#contact"
+                        href="/#contact"
                         onClick={() => setIsOpen(false)}
                         className="mt-8 bg-brand-blue-main text-white px-8 py-3 rounded-xl text-lg shadow-lg hover:bg-brand-blue-soft transition"
                     >
