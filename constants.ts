@@ -5,15 +5,16 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-    { href: "/services", label: "Services" },
-    { href: "/parcours", label: "Parcours" },
+    { href: "/services", label: "Mes services" },
+    { href: "/parcours", label: "Mon parcours" },
     {
         href: "#",
         label: "Simulateurs",
         submenu: [
-            { href: "/simulateurs/auto-entrepreneur", label: "Auto-Entrepreneur" },
+            { href: "/simulateurs/entreprise-individuelle", label: "Entreprise Individuelle" },
             { href: "/simulateurs/eurl", label: "EURL" },
             { href: "/simulateurs/sasu", label: "SASU" },
+            { href: "/simulateurs/frais-kilometriques", label: "Frais Kilométriques" },
         ]
     },
     { href: "#faq", label: "FAQ" },

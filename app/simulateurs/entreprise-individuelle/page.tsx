@@ -54,10 +54,10 @@ export default function SimulateurAutoEntrepreneur() {
                         {/* Header Section */}
                         <div className="text-center mb-8">
                             <h1 className="text-4xl md:text-5xl font-bold text-brand-sage-dark mb-4">
-                                Simulateur Auto-Entrepreneur
+                                Simulateur Entreprise Individuelle
                             </h1>
                             <p className="text-lg md:text-xl text-brand-sage-gray max-w-3xl mx-auto">
-                                Estimez vos cotisations sociales et votre revenu net en tant qu'auto-entrepreneur.
+                                Estimez vos cotisations sociales et votre revenu net en tant qu'entrepreneur individuel.
                                 Outil officiel fourni par l'URSSAF.
                             </p>
                         </div>

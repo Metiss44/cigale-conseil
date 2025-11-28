@@ -9,7 +9,7 @@ const faqItems = [
         answer: "Les échanges se font par mail, téléphone ou visio, selon vos préférences. Pas besoin d'attendre la fin de l'année : on communique dès que nécessaire, en toute simplicité."
     },
     {
-        question: "Quels outils utilise Cigale Conseil ?",
+        question: "Quel logiciel comptable utilise Cigale Conseil ?",
         answer: "J'utilise Pennylane, un outil collaboratif simple et intuitif qui vous permet de suivre vos factures, vos dépenses et votre comptabilité en temps réel. Tout est centralisé, sécurisé et accessible depuis votre ordinateur ou votre téléphone."
     },
     {
@@ -59,9 +59,8 @@ export const FAQ: React.FC = () => {
                     {faqItems.map((item, index) => (
                         <div
                             key={index}
-                            className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${
-                                openIndex === index ? 'border-2 border-brand-pink-medium' : 'border border-brand-sage-light'
-                            }`}
+                            className={`bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-2 border-brand-pink-medium' : 'border border-brand-sage-light'
+                                }`}
                         >
                             <button
                                 onClick={() => toggleQuestion(index)}
@@ -71,16 +70,14 @@ export const FAQ: React.FC = () => {
                                     {item.question}
                                 </h3>
                                 <ChevronDown
-                                    className={`flex-shrink-0 text-brand-pink-main transition-transform duration-300 ${
-                                        openIndex === index ? 'rotate-180' : ''
-                                    }`}
+                                    className={`flex-shrink-0 text-brand-pink-main transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''
+                                        }`}
                                     size={24}
                                 />
                             </button>
                             <div
-                                className={`transition-all duration-300 ease-in-out ${
-                                    openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                                } overflow-hidden`}
+                                className={`transition-all duration-300 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                    } overflow-hidden`}
                             >
                                 <div className="px-6 pb-6 text-base md:text-lg text-brand-sage-gray leading-relaxed">
                                     {item.answer}

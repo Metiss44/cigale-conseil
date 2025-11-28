@@ -3,6 +3,7 @@ import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
 import { Video } from '@/components/Video';
 import { SectorsCarousel } from '@/components/SectorsCarousel';
+import { ExpertiseDomains } from '@/components/ExpertiseDomains';
 
 export default function ParcoursPage() {
     return (
@@ -42,8 +43,8 @@ export default function ParcoursPage() {
                 </div>
 
                 <div className="space-y-24 md:space-y-32">
+                    <ExpertiseDomains />
                     <Video />
-                    <SectorsCarousel />
                 </div>
             </main>
             <FooterWrapper />

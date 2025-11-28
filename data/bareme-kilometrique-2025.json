@@ -1,0 +1,482 @@
+{
+    "last_update": "2025-04-25",
+    "currency": "EUR",
+    "unit": "km",
+    "note": "Barème kilométrique 2025 d'après texte fourni. d = distance annuelle professionnelle en kilomètres.",
+    "vehicles": {
+        "car_thermal_hybrid_hydrogen": {
+            "label": "Voitures thermiques, à hydrogène et hybrides",
+            "distance_bands": [
+                {
+                    "id": "0-5000",
+                    "min_km": 0,
+                    "max_km": 5000
+                },
+                {
+                    "id": "5001-20000",
+                    "min_km": 5001,
+                    "max_km": 20000
+                },
+                {
+                    "id": "20001+",
+                    "min_km": 20001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "3 CV et moins",
+                    "min_cv": 1,
+                    "max_cv": 3,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.529,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.316,
+                            "b": 1065
+                        },
+                        "20001+": {
+                            "a": 0.370,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "4 CV",
+                    "min_cv": 4,
+                    "max_cv": 4,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.606,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.340,
+                            "b": 1330
+                        },
+                        "20001+": {
+                            "a": 0.407,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "5 CV",
+                    "min_cv": 5,
+                    "max_cv": 5,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.636,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.357,
+                            "b": 1395
+                        },
+                        "20001+": {
+                            "a": 0.427,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "6 CV",
+                    "min_cv": 6,
+                    "max_cv": 6,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.665,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.374,
+                            "b": 1457
+                        },
+                        "20001+": {
+                            "a": 0.447,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "7 CV et plus",
+                    "min_cv": 7,
+                    "max_cv": null,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.697,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.394,
+                            "b": 1515
+                        },
+                        "20001+": {
+                            "a": 0.470,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "car_electric": {
+            "label": "Voitures 100% électriques",
+            "distance_bands": [
+                {
+                    "id": "0-5000",
+                    "min_km": 0,
+                    "max_km": 5000
+                },
+                {
+                    "id": "5001-20000",
+                    "min_km": 5001,
+                    "max_km": 20000
+                },
+                {
+                    "id": "20001+",
+                    "min_km": 20001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "3 CV et moins",
+                    "min_cv": 1,
+                    "max_cv": 3,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.635,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.379,
+                            "b": 1278
+                        },
+                        "20001+": {
+                            "a": 0.444,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "4 CV",
+                    "min_cv": 4,
+                    "max_cv": 4,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.727,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.408,
+                            "b": 1596
+                        },
+                        "20001+": {
+                            "a": 0.488,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "5 CV",
+                    "min_cv": 5,
+                    "max_cv": 5,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.763,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.428,
+                            "b": 1674
+                        },
+                        "20001+": {
+                            "a": 0.512,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "6 CV",
+                    "min_cv": 6,
+                    "max_cv": 6,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.798,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.449,
+                            "b": 1748
+                        },
+                        "20001+": {
+                            "a": 0.536,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "7 CV et plus",
+                    "min_cv": 7,
+                    "max_cv": null,
+                    "coefficients": {
+                        "0-5000": {
+                            "a": 0.836,
+                            "b": 0
+                        },
+                        "5001-20000": {
+                            "a": 0.473,
+                            "b": 1818
+                        },
+                        "20001+": {
+                            "a": 0.564,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "motorcycle_thermal": {
+            "label": "Motos / scooters > 50 cm3 thermiques",
+            "distance_bands": [
+                {
+                    "id": "0-3000",
+                    "min_km": 0,
+                    "max_km": 3000
+                },
+                {
+                    "id": "3001-6000",
+                    "min_km": 3001,
+                    "max_km": 6000
+                },
+                {
+                    "id": "6001+",
+                    "min_km": 6001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "1 ou 2 CV",
+                    "min_cv": 1,
+                    "max_cv": 2,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.395,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.099,
+                            "b": 891
+                        },
+                        "6001+": {
+                            "a": 0.248,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "3 à 5 CV",
+                    "min_cv": 3,
+                    "max_cv": 5,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.468,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.082,
+                            "b": 1158
+                        },
+                        "6001+": {
+                            "a": 0.275,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "Plus de 5 CV",
+                    "min_cv": 6,
+                    "max_cv": null,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.606,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.079,
+                            "b": 1583
+                        },
+                        "6001+": {
+                            "a": 0.343,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "motorcycle_electric": {
+            "label": "Motos / scooters > 50 cm3 100% électriques",
+            "distance_bands": [
+                {
+                    "id": "0-3000",
+                    "min_km": 0,
+                    "max_km": 3000
+                },
+                {
+                    "id": "3001-6000",
+                    "min_km": 3001,
+                    "max_km": 6000
+                },
+                {
+                    "id": "6001+",
+                    "min_km": 6001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "1 ou 2 CV",
+                    "min_cv": 1,
+                    "max_cv": 2,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.474,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.119,
+                            "b": 1069
+                        },
+                        "6001+": {
+                            "a": 0.298,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "3 à 5 CV",
+                    "min_cv": 3,
+                    "max_cv": 5,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.562,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.098,
+                            "b": 1390
+                        },
+                        "6001+": {
+                            "a": 0.330,
+                            "b": 0
+                        }
+                    }
+                },
+                {
+                    "label": "Plus de 5 CV",
+                    "min_cv": 6,
+                    "max_cv": null,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.727,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.095,
+                            "b": 1900
+                        },
+                        "6001+": {
+                            "a": 0.412,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "moped_thermal": {
+            "label": "Cyclomoteurs thermiques (≤ 50 cm3)",
+            "distance_bands": [
+                {
+                    "id": "0-3000",
+                    "min_km": 0,
+                    "max_km": 3000
+                },
+                {
+                    "id": "3001-6000",
+                    "min_km": 3001,
+                    "max_km": 6000
+                },
+                {
+                    "id": "6001+",
+                    "min_km": 6001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "50 cc et moins",
+                    "min_cv": 0,
+                    "max_cv": 0,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.315,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.079,
+                            "b": 711
+                        },
+                        "6001+": {
+                            "a": 0.198,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        },
+        "moped_electric": {
+            "label": "Cyclomoteurs 100% électriques (≤ 50 cm3)",
+            "distance_bands": [
+                {
+                    "id": "0-3000",
+                    "min_km": 0,
+                    "max_km": 3000
+                },
+                {
+                    "id": "3001-6000",
+                    "min_km": 3001,
+                    "max_km": 6000
+                },
+                {
+                    "id": "6001+",
+                    "min_km": 6001,
+                    "max_km": null
+                }
+            ],
+            "power_bands": [
+                {
+                    "label": "50 cc et moins",
+                    "min_cv": 0,
+                    "max_cv": 0,
+                    "coefficients": {
+                        "0-3000": {
+                            "a": 0.378,
+                            "b": 0
+                        },
+                        "3001-6000": {
+                            "a": 0.095,
+                            "b": 853
+                        },
+                        "6001+": {
+                            "a": 0.238,
+                            "b": 0
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

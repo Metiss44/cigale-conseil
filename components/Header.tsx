@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
                 <nav className="flex justify-between items-center gap-4 md:gap-6">
                     {/* Left: Navigation */}
                     <div className={`hidden lg:flex items-center ${isScrolled ? 'gap-2 xl:gap-3' : 'gap-4 xl:gap-6'}`}>
-                        {navLinks.map((link) => (
+                        {navLinks.filter(link => !isScrolled || (link.label !== 'FAQ' && link.label !== 'Contact')).map((link) => (
                             <div
                                 key={link.label}
                                 className="relative group"
@@ -95,16 +95,18 @@ export const Header: React.FC = () => {
                                                     >
                                                         <div className="flex items-center gap-3">
                                                             <span className="text-2xl">
-                                                                {sublink.label === 'Auto-Entrepreneur' && '👤'}
+                                                                {sublink.label === 'Entreprise Individuelle' && '👤'}
                                                                 {sublink.label === 'EURL' && '🏢'}
                                                                 {sublink.label === 'SASU' && '💼'}
+                                                                {sublink.label === 'Frais Kilométriques' && '🚗'}
                                                             </span>
                                                             <div>
                                                                 <div className="font-semibold">{sublink.label}</div>
                                                                 <div className="text-xs text-brand-sage-gray">
-                                                                    {sublink.label === 'Auto-Entrepreneur' && 'Simulateur officiel URSSAF'}
+                                                                    {sublink.label === 'Entreprise Individuelle' && 'Simulateur officiel URSSAF'}
                                                                     {sublink.label === 'EURL' && 'Gérant majoritaire'}
                                                                     {sublink.label === 'SASU' && 'Assimilé salarié'}
+                                                                    {sublink.label === 'Frais Kilométriques' && 'Barème fiscal 2025'}
                                                                 </div>
                                                             </div>
                                                         </div>

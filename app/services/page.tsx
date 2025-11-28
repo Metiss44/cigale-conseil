@@ -5,6 +5,8 @@ import { Services } from '@/components/Services';
 import { CompatibilityQuiz } from '@/components/CompatibilityQuiz';
 import { ExpertiseDomains } from '@/components/ExpertiseDomains';
 
+import { SectorsCarousel } from '@/components/SectorsCarousel';
+
 export default function ServicesPage() {
     return (
         <div className="min-h-screen font-sans relative overflow-x-hidden">
@@ -43,6 +45,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="space-y-24 md:space-y-32">
+                    <SectorsCarousel />
                     <CompatibilityQuiz />
                     <Services />
                     <ExpertiseDomains />
