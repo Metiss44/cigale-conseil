@@ -42,7 +42,7 @@ export default function ParcoursPage() {
                     </div>
                 </div>
 
-                <div className="space-y-24 md:space-y-32">
+                <div>
                     <ExpertiseDomains />
                     <Video />
                 </div>
