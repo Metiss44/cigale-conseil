@@ -48,7 +48,6 @@ export default function ServicesPage() {
                     <SectorsCarousel />
                     <CompatibilityQuiz />
                     <Services />
-                    <ExpertiseDomains />
                 </div>
             </main>
             <FooterWrapper />

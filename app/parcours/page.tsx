@@ -10,7 +10,7 @@ export default function ParcoursPage() {
         <div className="min-h-screen font-sans relative overflow-x-hidden">
             <CicadaBackground />
             <Header />
-            <main className="pt-32 pb-20">
+            <main className="pt-32">
                 {/* Parcours Hero Section */}
                 <div className="text-center max-w-5xl mx-auto px-6 mb-24 md:mb-32">
                     {/* Badge */}
