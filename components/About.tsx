@@ -7,7 +7,15 @@ export const About: React.FC = () => {
         <section id="a-propos" className="bg-brand-sage-light py-12 md:py-20 lg:py-28 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-                    <div className="lg:col-span-3">
+                    {/* Image - Left on desktop, Second on mobile */}
+                    <div className="order-2 lg:order-1 lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
+                        <div className="bg-gradient-to-br from-brand-pink-medium/40 to-brand-pink-soft rounded-2xl p-3 md:p-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
+                        </div>
+                    </div>
+
+                    {/* Text - Right on desktop, First on mobile */}
+                    <div className="order-1 lg:order-2 lg:col-span-3">
                         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-sage-dark mb-6 md:mb-8">Un cabinet comptable à taille humaine, <br /> aligné avec <span className="text-brand-blue-main">vos valeurs</span></h2>
 
                         <div className="space-y-5 mb-8">
@@ -51,11 +59,6 @@ export const About: React.FC = () => {
                             <Linkedin className="mr-2 group-hover:scale-110 transition-transform" size={18} />
                             Voir mon profil LinkedIn
                         </a>
-                    </div>
-                    <div className="lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
-                        <div className="bg-gradient-to-br from-brand-pink-medium/40 to-brand-pink-soft rounded-2xl p-3 md:p-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
-                        </div>
                     </div>
                 </div>
             </div>
