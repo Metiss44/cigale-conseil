@@ -6,7 +6,6 @@ import { FAQ } from '@/components/FAQ';
 import { Reviews } from '@/components/Reviews';
 import { Instagram } from '@/components/Instagram';
 import { Contact } from '@/components/Contact';
-import { CalendlyTest } from '@/components/CalendlyTest';
 import Partners from '@/components/Partners';
 import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
@@ -24,7 +23,6 @@ export default function Home() {
                 <Instagram />
                 <Partners />
                 <FAQ />
-                <CalendlyTest />
                 <Contact />
             </main>
             <FooterWrapper />

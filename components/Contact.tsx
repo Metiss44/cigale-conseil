@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
                         {mounted && (
                             <div 
                                 className="calendly-inline-widget" 
-                                data-url="https://calendly.com/naomienegouai" 
+                                data-url="https://calendly.com/e-perez-cigaleconseil" 
                                 style={{ minWidth: '320px', height: '700px' }}
                             />
                         )}
