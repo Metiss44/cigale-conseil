@@ -9,14 +9,32 @@ export const Contact: React.FC = () => {
     useEffect(() => {
         setMounted(true);
         
-        // Load Calendly script
+        const initCalendly = () => {
+            if ((window as any).Calendly && document.querySelector('.calendly-inline-widget')) {
+                (window as any).Calendly.initInlineWidget({
+                    url: 'https://calendly.com/e-perez-cigaleconseil',
+                    parentElement: document.querySelector('.calendly-inline-widget'),
+                    prefill: {},
+                    utm: {}
+                });
+            }
+        };
+
         const script = document.createElement('script');
         script.src = 'https://assets.calendly.com/assets/external/widget.js';
         script.async = true;
+        script.onload = initCalendly;
         document.body.appendChild(script);
-        
+
+        // If the script is already present (cached), call init
+        if ((window as any).Calendly) {
+            initCalendly();
+        }
+
         return () => {
-            document.body.removeChild(script);
+            if (document.body.contains(script)) {
+                document.body.removeChild(script);
+            }
         };
     }, []);
 
@@ -63,8 +81,7 @@ export const Contact: React.FC = () => {
                         {mounted && (
                             <div 
                                 className="calendly-inline-widget" 
-                                data-url="https://calendly.com/e-perez-cigaleconseil" 
-                                style={{ minWidth: '320px', height: '700px' }}
+                                data-url="https://calendly.com/e-perez-cigaleconseil"
                             />
                         )}
                     </div>
