@@ -2,13 +2,22 @@
 
 import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Linkedin } from 'lucide-react';
-import { TemporaryCalendar } from '@/components/TemporaryCalendar';
 
 export const Contact: React.FC = () => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         setMounted(true);
+        
+        // Load Calendly script
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        document.body.appendChild(script);
+        
+        return () => {
+            document.body.removeChild(script);
+        };
     }, []);
 
     return (
@@ -51,7 +60,13 @@ export const Contact: React.FC = () => {
                     </div>
                     <div className="min-h-[400px]">
                         <h3 className="text-2xl font-bold text-brand-sage-dark mb-6 text-center lg:text-left">Réserver un rendez-vous en ligne</h3>
-                        <TemporaryCalendar />
+                        {mounted && (
+                            <div 
+                                className="calendly-inline-widget" 
+                                data-url="https://calendly.com/e-perez-cigaleconseil" 
+                                style={{ minWidth: '320px', height: '700px' }}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

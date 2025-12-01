@@ -15,12 +15,6 @@ export default function ServicesPage() {
             <main className="pt-32 pb-20">
                 {/* Services Hero Section */}
                 <div className="text-center max-w-5xl mx-auto px-6 mb-24 md:mb-32">
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-blue-main/10 to-brand-sage-light/50 border border-brand-blue-main/20 mb-8 animate-fadeIn">
-                        <span className="w-2 h-2 bg-brand-blue-main rounded-full animate-pulse"></span>
-                        <span className="text-sm font-medium text-brand-blue-main">Solutions professionnelles</span>
-                    </div>
-
                     {/* Title with gradient */}
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight">
                         <span className="bg-gradient-to-r from-brand-sage-dark via-brand-blue-main to-brand-sage-dark bg-clip-text text-transparent animate-fadeIn">
@@ -28,13 +22,15 @@ export default function ServicesPage() {
                         </span>
                     </h1>
 
-                    {/* Subtitle */}
-                    <p className="text-xl md:text-2xl text-brand-sage-gray max-w-3xl mx-auto leading-relaxed mb-8 animate-fadeIn opacity-90">
-                        Des solutions sur mesure pour chaque étape de votre vie d'entrepreneur.
-                    </p>
-                    <p className="text-lg md:text-xl text-brand-sage-gray/80 max-w-2xl mx-auto leading-relaxed animate-fadeIn">
-                        Du lancement à la gestion quotidienne, je suis à vos côtés pour transformer vos ambitions en réalité.
-                    </p>
+                    {/* Intro text */}
+                    <div className="max-w-3xl mx-auto mt-12">
+                        <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed">
+                            J'ai créé le travail de mes rêves : réaliser mon métier, qui est le conseil aux entreprises (autour de la comptabilité, fiscalité), avec l'envie d'accompagner correctement mes clients.
+                        </p>
+                        <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mt-4">
+                            En apportant une approche moderne : payé pas pour de l'administratif, mais plutot pour du conseil et de l'accompagnement. L'utilisation de logiciels performants vous rendre egalement autonome, vous pouvez enfin gérer sans stress.
+                        </p>
+                    </div>
 
                     {/* Decorative line */}
                     <div className="flex items-center justify-center gap-3 mt-12">

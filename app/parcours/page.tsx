@@ -13,12 +13,6 @@ export default function ParcoursPage() {
             <main className="pt-32">
                 {/* Parcours Hero Section */}
                 <div className="text-center max-w-5xl mx-auto px-6 mb-24 md:mb-32">
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-orange/10 to-brand-cream border border-brand-orange/20 mb-8 animate-fadeIn">
-                        <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
-                        <span className="text-sm font-medium text-brand-orange">Expérience & vision</span>
-                    </div>
-
                     {/* Title with gradient */}
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight">
                         <span className="bg-gradient-to-r from-brand-sage-dark via-brand-orange to-brand-sage-dark bg-clip-text text-transparent animate-fadeIn">
@@ -26,13 +20,18 @@ export default function ParcoursPage() {
                         </span>
                     </h1>
 
-                    {/* Subtitle */}
-                    <p className="text-xl md:text-2xl text-brand-sage-gray max-w-3xl mx-auto leading-relaxed mb-8 animate-fadeIn opacity-90">
-                        Une expertise construite sur le terrain, pour mieux comprendre vos réalités.
-                    </p>
-                    <p className="text-lg md:text-xl text-brand-sage-gray/80 max-w-2xl mx-auto leading-relaxed animate-fadeIn">
-                        Découvrez comment mon expérience peut vous aider à relever vos défis entrepreneuriaux.
-                    </p>
+                    {/* Intro text */}
+                    <div className="max-w-3xl mx-auto mt-12">
+                        <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mb-4">
+                            Depuis 2016, j'accompagne les entrepreneurs, associations et structures collaboratives avec une approche à la fois rigoureuse et humaine. Mon cheminement dans l'expertise comptable m'a amenée à évoluer dans des univers très variés - des TPE aux groupes de sociétés jusqu'aux structures hydrides collaboratives.
+                        </p>
+                        <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mb-4">
+                            Chez Cigale conseil, je crois que la comptabilité ne se résume pas à des chiffres, mais qu'elle repose avant tout sur une relation humaine, sincère et durable.
+                        </p>
+                        <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed">
+                            Etre à vos côtés, c'est aussi comprendre vos parcours, vos ambitions et vos doutes. Cette proximité, je la cultive avec bienveillance et transparence, pour que chacun se sente accompagné avec clarté, sécurité et sérénité.
+                        </p>
+                    </div>
 
                     {/* Decorative line */}
                     <div className="flex items-center justify-center gap-3 mt-12">
