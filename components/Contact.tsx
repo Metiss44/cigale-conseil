@@ -77,7 +77,7 @@ export const Contact: React.FC = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    formId: 'contact-cigale-v1',
+                    formId: 'contact',
                     sourceUrl: window.location.href,
                     fields: {
                         firstName: formData.firstName,

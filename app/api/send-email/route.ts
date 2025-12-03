@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
 
     // Build email templates
     const templateData = {
-      formId,
+      formId: 'contact',
       fields: sanitizedFields,
       sourceUrl,
     };
@@ -143,7 +143,11 @@ export async function POST(request: NextRequest) {
 
     // Build subject
     const firstName = sanitizedFields.firstName || sanitizedFields.prenom || '';
-    const subject = `[Contact Cigale Conseil] Nouveau message${firstName ? ` de ${firstName}` : ''}`;
+    const lastName = sanitizedFields.lastName || sanitizedFields.nom || '';
+    const fullName = [firstName, lastName].filter(Boolean).join(' ');
+    const subject = fullName 
+      ? `Nouveau message de ${fullName}` 
+      : 'Nouveau message depuis Cigale Conseil';
 
     // Prepare email parameters
     const destination = process.env.SES_TO_EMAIL!;

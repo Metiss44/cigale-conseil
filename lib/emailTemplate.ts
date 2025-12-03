@@ -87,7 +87,14 @@ interface EmailTemplateData {
 
 export function buildHtmlTemplate(data: EmailTemplateData): string {
   const { formId, fields, sourceUrl } = data;
-  const timestamp = new Date().toISOString();
+  const timestamp = new Date().toLocaleString('fr-FR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
 
   const fieldRows = Object.entries(fields)
     .map(([key, value]) => {
@@ -97,11 +104,13 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
       
       return `
         <tr>
-          <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 600; color: #374151; width: 200px;">
-            ${emoji} ${escapeHtml(label)}
-          </td>
-          <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; color: #1f2937;">
-            ${escapedValue}
+          <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
+            <div style="color: #6b7280; font-size: 13px; margin-bottom: 4px;">
+              ${emoji} ${escapeHtml(label)}
+            </div>
+            <div style="color: #1f2937; font-size: 15px; line-height: 1.5;">
+              ${escapedValue}
+            </div>
           </td>
         </tr>
       `;
@@ -114,54 +123,42 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nouveau message - ${escapeHtml(formId)}</title>
+  <title>Nouveau message</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f9fafb;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f9fafb; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f3f4f6; padding: 40px 20px;">
     <tr>
       <td align="center">
-        <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);">
+        <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
           <!-- Header -->
           <tr>
-            <td style="background: linear-gradient(135deg, #4f7d7d 0%, #6b8e8e 100%); padding: 30px 40px; text-align: center;">
-              <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700;">
-                Cigale Conseil
+            <td style="background-color: #f9fafb; padding: 32px 32px 24px 32px; border-bottom: 1px solid #e5e7eb;">
+              <h1 style="margin: 0 0 8px 0; color: #111827; font-size: 22px; font-weight: 600;">
+                📧 Nouveau message depuis Cigale Conseil
               </h1>
-              <p style="margin: 8px 0 0 0; color: #e8f5f0; font-size: 14px;">
-                Nouveau message — ${escapeHtml(formId)}
+              <p style="margin: 0; color: #6b7280; font-size: 14px;">
+                ${escapeHtml(fields.firstName || 'Un visiteur')} ${escapeHtml(fields.lastName || '')} vous a contacté
               </p>
             </td>
           </tr>
           
           <!-- Content -->
           <tr>
-            <td style="padding: 40px;">
-              <h2 style="margin: 0 0 24px 0; color: #111827; font-size: 20px; font-weight: 600;">
-                📬 Détails du message
-              </h2>
-              
-              <table role="presentation" style="width: 100%; border-collapse: collapse; border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden;">
+            <td style="padding: 0;">
+              <table role="presentation" style="width: 100%; border-collapse: collapse;">
                 ${fieldRows}
               </table>
             </td>
           </tr>
           
-          <!-- Meta -->
-          <tr>
-            <td style="padding: 0 40px 40px 40px;">
-              <div style="background-color: #f9fafb; padding: 20px; border-radius: 6px; font-size: 13px; color: #6b7280;">
-                <p style="margin: 0 0 8px 0;"><strong>📄 Formulaire :</strong> ${escapeHtml(formId)}</p>
-                ${sourceUrl ? `<p style="margin: 0 0 8px 0;"><strong>🌐 Page d'origine :</strong> ${escapeHtml(sourceUrl)}</p>` : ''}
-                <p style="margin: 0;"><strong>🕒 Horodatage :</strong> ${escapeHtml(timestamp)}</p>
-              </div>
-            </td>
-          </tr>
-          
           <!-- Footer -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 20px 40px; text-align: center; border-top: 1px solid #e5e7eb;">
-              <p style="margin: 0; font-size: 12px; color: #9ca3af;">
-                © ${new Date().getFullYear()} Cigale Conseil - Expert-comptable
+            <td style="background-color: #f9fafb; padding: 24px 32px; border-top: 1px solid #e5e7eb;">
+              <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280;">
+                Ce message a été envoyé via le formulaire de contact du site ${sourceUrl ? escapeHtml(sourceUrl.split('/')[2] || 'Cigale Conseil') : 'Cigale Conseil'}
+              </p>
+              <p style="margin: 0; font-size: 13px; color: #9ca3af;">
+                Date : ${escapeHtml(timestamp)}
               </p>
             </td>
           </tr>
@@ -175,35 +172,36 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
 }
 
 export function buildTextTemplate(data: EmailTemplateData): string {
-  const { formId, fields, sourceUrl } = data;
-  const timestamp = new Date().toISOString();
+  const { fields, sourceUrl } = data;
+  const timestamp = new Date().toLocaleString('fr-FR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+
+  const fullName = [fields.firstName, fields.lastName].filter(Boolean).join(' ') || 'Nom complet';
 
   const fieldLines = Object.entries(fields)
     .map(([key, value]) => {
       const emoji = emojiForField(key);
       const label = labelForField(key);
-      return `${emoji} ${label}: ${value}`;
+      return `${emoji} ${label}\n${value}\n`;
     })
     .join('\n');
 
   return `
-═══════════════════════════════════════
-CIGALE CONSEIL - Nouveau message
-═══════════════════════════════════════
+📧 Nouveau message depuis Cigale Conseil
 
-Formulaire: ${formId}
-${sourceUrl ? `Page d'origine: ${sourceUrl}` : ''}
-Horodatage: ${timestamp}
-
-───────────────────────────────────────
-DÉTAILS DU MESSAGE
-───────────────────────────────────────
+${fullName} vous a contacté
 
 ${fieldLines}
 
-───────────────────────────────────────
-© ${new Date().getFullYear()} Cigale Conseil
-Expert-comptable
-═══════════════════════════════════════
+─────────────────────────────────
+Ce message a été envoyé via le formulaire de contact du site ${sourceUrl ? sourceUrl.split('/')[2] || 'Cigale Conseil' : 'Cigale Conseil'}
+
+Date : ${timestamp}
   `.trim();
 }
