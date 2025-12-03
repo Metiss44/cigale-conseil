@@ -132,11 +132,11 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
         <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
           <!-- Header -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 32px 32px 24px 32px; border-bottom: 1px solid #e5e7eb;">
-              <h1 style="margin: 0 0 8px 0; color: #111827; font-size: 22px; font-weight: 600;">
+            <td style="background: linear-gradient(135deg, #4f7d7d 0%, #6b8e8e 100%); padding: 32px 32px 24px 32px;">
+              <h1 style="margin: 0 0 8px 0; color: #ffffff; font-size: 22px; font-weight: 600;">
                 📧 Nouveau message depuis Cigale Conseil
               </h1>
-              <p style="margin: 0; color: #6b7280; font-size: 14px;">
+              <p style="margin: 0; color: #e8f5f0; font-size: 14px;">
                 ${escapeHtml(fields.firstName || 'Un visiteur')} ${escapeHtml(fields.lastName || '')} vous a contacté
               </p>
             </td>
