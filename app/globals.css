@@ -88,12 +88,3 @@ body {
 		min-width: 220px;
 	}
 }
-
-/* Elfsight Widget Overrides */
-/* Force stars to be yellow */
-.eapps-google-reviews-inner-star svg path,
-.eapps-google-reviews-star-icon svg path,
-.es-review-star svg path,
-[class*="Star__Icon"] svg path {
-	fill: #FFD700 !important;
-}
