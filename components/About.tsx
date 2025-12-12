@@ -10,7 +10,7 @@ export const About: React.FC = () => {
                     {/* Image - Left on desktop, Second on mobile */}
                     <div className="order-2 lg:order-1 lg:col-span-2 relative h-auto max-w-[280px] mx-auto lg:max-w-[360px]">
                         <div className="bg-gradient-to-br from-brand-pink-medium/40 to-brand-pink-soft rounded-2xl p-3 md:p-4 shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <img src="https://cigale.matisscottard.com/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
+                            <img src="https://cdn.cigaleconseil.fr/illustrations/photo-eva-2.webp" alt="Eva Perez" className="rounded-xl w-full h-auto object-cover" />
                         </div>
                     </div>
 

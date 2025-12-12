@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Cigale Conseil - Expertise comptable engagée',
   description: 'Cabinet d\'expertise comptable fondé par Eva Perez, spécialisé dans l\'accompagnement des entrepreneurs, projets engagés, associations et le secteur culturel.',
   icons: {
-    icon: 'https://cigale.matisscottard.com/illustrations/favicon-cigale-conseil.png',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/favicon-cigale-conseil.png',
   },
 };
 

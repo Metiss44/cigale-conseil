@@ -3,12 +3,12 @@
 import React from 'react';
 
 const sectors = [
-  { key: 'restaurants', title: 'Restaurants', img: 'https://cigale.matisscottard.com/illustrations/metiers/restaurant.webp' },
-  { key: 'consultants', title: 'Consultants', img: 'https://cigale.matisscottard.com/illustrations/metiers/consultant.webp' },
-  { key: 'associations', title: 'Associations', img: 'https://cigale.matisscottard.com/illustrations/metiers/association.webp' },
-  { key: 'commercants', title: 'Commerçants', img: 'https://cigale.matisscottard.com/illustrations/metiers/commercant.webp' },
-  { key: 'artisans', title: 'Artisans', img: 'https://cigale.matisscottard.com/illustrations/metiers/artisan.webp' },
-  { key: 'prestataires', title: 'Prestataires de services', img: 'https://cigale.matisscottard.com/illustrations/metiers/prestataire.webp' },
+  { key: 'restaurants', title: 'Restaurants', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/restaurant.webp' },
+  { key: 'consultants', title: 'Consultants', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/consultant.webp' },
+  { key: 'associations', title: 'Associations', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/association.webp' },
+  { key: 'commercants', title: 'Commerçants', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/commercant.webp' },
+  { key: 'artisans', title: 'Artisans', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/artisan.webp' },
+  { key: 'prestataires', title: 'Prestataires de services', img: 'https://cdn.cigaleconseil.fr/illustrations/metiers/prestataire.webp' },
 ];
 
 export const SectorsCarousel: React.FC = () => {

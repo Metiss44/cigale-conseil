@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cigale.matisscottard.com', 'cdn.matisscottard.com'],
+    domains: ['cdn.cigaleconseil.fr', 'cdn.matisscottard.com'],
   },
 }
 

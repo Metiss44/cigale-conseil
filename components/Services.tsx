@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const services = [
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/1.webp',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/icones-cigale-conseil/1.webp',
     title: "Création et lancement d'activité",
     subtitle: 'Premiers pas et structuration',
     price: '800 € HT (hors débours)',
@@ -19,7 +19,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/2.webp',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/icones-cigale-conseil/2.webp',
     title: 'Suivi comptable et fiscal',
     subtitle: 'Sécuriser la gestion au quotidien',
     price: '200 €/mois HT',
@@ -33,7 +33,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/3.webp',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/icones-cigale-conseil/3.webp',
     title: 'Conseil et stratégie',
     subtitle: 'Décisions éclairées pour grandir',
     price: '150 €/l\'heure HT',
@@ -45,7 +45,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/4.webp',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/icones-cigale-conseil/4.webp',
     title: 'Pilotage et outils',
     subtitle: 'Outils pour piloter votre activité',
     price: 'Sur devis',
@@ -56,7 +56,7 @@ const services = [
     ],
   },
   {
-    icon: 'https://cigale.matisscottard.com/illustrations/icones-cigale-conseil/5.webp',
+    icon: 'https://cdn.cigaleconseil.fr/illustrations/icones-cigale-conseil/5.webp',
     title: 'Appel coaching',
     subtitle: '45min de visio',
     price: '80 € HT',

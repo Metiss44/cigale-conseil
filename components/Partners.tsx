@@ -4,13 +4,13 @@ import React from 'react';
 import Image from 'next/image';
 
 const partners = [
-  { role: 'Assureur', name: 'AXA', url: 'https://agence.axa.fr/distributeur/0004596504', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/axa.webp' },
-  { role: 'Gestionnaire de patrimoine', name: 'Finspira', url: '', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/finspira.webp' },
-  { role: 'Avocat', name: 'Maître Biot', url: 'https://biot-avocat.com/?utm_source=gmb', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/maitre-biot.webp' },
-  { role: 'Commissaire aux comptes', name: 'Sophie Berthon', url: 'https://berthon-audit.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/berthon.webp' },
-  { role: 'Graphiste', name: 'Studio Pousse', url: 'https://studio-pousse.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/studio-pousse.webp' },
+  { role: 'Assureur', name: 'AXA', url: 'https://agence.axa.fr/distributeur/0004596504', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/axa.webp' },
+  { role: 'Gestionnaire de patrimoine', name: 'Finspira', url: '', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/finspira.webp' },
+  { role: 'Avocat', name: 'Maître Biot', url: 'https://biot-avocat.com/?utm_source=gmb', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/maitre-biot.webp' },
+  { role: 'Commissaire aux comptes', name: 'Sophie Berthon', url: 'https://berthon-audit.fr/', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/berthon.webp' },
+  { role: 'Graphiste', name: 'Studio Pousse', url: 'https://studio-pousse.fr/', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/studio-pousse.webp' },
   { role: 'Web designer', name: 'Matiss Cottard', url: 'https://matisscottard.com', logo: 'https://cdn.matisscottard.com/photos-equipe/photo-matiss-equipe.webp' },
-  { role: 'Gestionnaire de paiement', name: 'Conseil Expert Paie', url: 'https://www.conseilexpertpaie.fr/', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/conseil-expert.webp' },
+  { role: 'Gestionnaire de paiement', name: 'Conseil Expert Paie', url: 'https://www.conseilexpertpaie.fr/', logo: 'https://cdn.cigaleconseil.fr/illustrations/partenaires/conseil-expert.webp' },
 ];
 
 export const Partners: React.FC = () => {

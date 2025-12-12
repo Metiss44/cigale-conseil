@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ openModal }) => {
                 <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
                     <div>
                         <Image
-                            src="https://cigale.matisscottard.com/illustrations/logo-ciagale-blanc.webp"
+                            src="https://cdn.cigaleconseil.fr/illustrations/logo-ciagale-blanc.webp"
                             alt="Cigale Conseil Logo"
                             width={200}
                             height={56}

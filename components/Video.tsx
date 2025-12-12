@@ -21,11 +21,11 @@ export const Video: React.FC = () => {
                             <div className="aspect-[9/16] relative rounded-2xl overflow-hidden shadow-lg">
                                 <video
                                     className="w-full h-full object-cover"
-                                    poster="https://cigale.matisscottard.com/illustrations/miniature-video-fiscale.webp"
+                                    poster="https://cdn.cigaleconseil.fr/illustrations/miniature-video-fiscale.webp"
                                     controls
                                     playsInline
                                 >
-                                    <source src="https://cigale.matisscottard.com/video-fiiscal.mp4" type="video/mp4" />
+                                    <source src="https://cdn.cigaleconseil.fr/video-fiiscal.mp4" type="video/mp4" />
                                     Votre navigateur ne supporte pas la lecture de vidéos.
                                 </video>
                             </div>

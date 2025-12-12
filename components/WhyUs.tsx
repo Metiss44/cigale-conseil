@@ -3,22 +3,22 @@ import React from 'react';
 
 const whyUsItems = [
     {
-        image: 'https://cigale.matisscottard.com/illustrations/pourquoi.webp',
+        image: 'https://cdn.cigaleconseil.fr/illustrations/pourquoi.webp',
         title: "Expertise humaine",
         description: "Une approche technique rigoureuse, toujours délivrée avec pédagogie et douceur."
     },
     {
-        image: 'https://cigale.matisscottard.com/illustrations/pourquoi-2.webp',
+        image: 'https://cdn.cigaleconseil.fr/illustrations/pourquoi-2.webp',
         title: "Valeurs partagées",
         description: "Nous accompagnons des projets qui nous ressemblent et qui œuvrent pour un futur plus juste."
     },
     {
-        image: 'https://cigale.matisscottard.com/illustrations/pourquoi-3.webp',
+        image: 'https://cdn.cigaleconseil.fr/illustrations/pourquoi-3.webp',
         title: "Partenaire de confiance",
         description: "Plus qu'une prestataire, une alliée engagée dans la réussite et la pérennité de votre projet."
     },
     {
-        image: 'https://cigale.matisscottard.com/illustrations/pourquoi-4.webp',
+        image: 'https://cdn.cigaleconseil.fr/illustrations/pourquoi-4.webp',
         title: "Relationnel sincère",
         description: "L'écoute et la bienveillance sont au cœur de chaque échange pour une collaboration sereine."
     }

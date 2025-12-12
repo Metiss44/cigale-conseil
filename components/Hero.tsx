@@ -51,7 +51,7 @@ export const Hero: React.FC = () => {
                     <div className="relative mx-auto lg:ml-auto lg:mr-0 max-w-md perspective-1000">
                         <div className="relative z-10 bg-gradient-to-br from-brand-pink-soft to-brand-pink-medium/30 rounded-[2rem] p-2 shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-700 ease-out hover:scale-[1.02]">
                             <Image
-                                src="https://cigale.matisscottard.com/illustrations/photo-eva-1.webp"
+                                src="https://cdn.cigaleconseil.fr/illustrations/photo-eva-1.webp"
                                 alt="Eva Perez, experte-comptable"
                                 width={600}
                                 height={750}

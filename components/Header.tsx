@@ -124,7 +124,7 @@ export const Header: React.FC = () => {
                     {/* Center: Logo */}
                     <a href="/#accueil" className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                         <Image
-                            src={isScrolled ? 'https://cigale.matisscottard.com/illustrations/logo-ciagale-blanc.webp' : 'https://cigale.matisscottard.com/illustrations/logo-cigale.webp'}
+                            src={isScrolled ? 'https://cdn.cigaleconseil.fr/illustrations/logo-ciagale-blanc.webp' : 'https://cdn.cigaleconseil.fr/illustrations/logo-cigale.webp'}
                             alt="Cigale Conseil Logo"
                             width={240}
                             height={80}
