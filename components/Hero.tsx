@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Wifi } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -15,10 +16,12 @@ export const Hero: React.FC = () => {
         <section id="accueil" className="relative pt-32 md:pt-36 pb-12 md:pb-20 overflow-hidden">
             {/* Pastel Leaves Background Overlay */}
             <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
-                <img
+                <Image
                     src="/backgrounds/pastel-leaves-hero.png"
                     alt=""
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                 />
             </div>
 
@@ -47,7 +50,14 @@ export const Hero: React.FC = () => {
                     {/* Right side - Image shifted right (center on mobile) */}
                     <div className="relative mx-auto lg:ml-auto lg:mr-0 max-w-md perspective-1000">
                         <div className="relative z-10 bg-gradient-to-br from-brand-pink-soft to-brand-pink-medium/30 rounded-[2rem] p-2 shadow-2xl transform rotate-2 hover:rotate-0 transition-all duration-700 ease-out hover:scale-[1.02]">
-                            <img src="https://cigale.matisscottard.com/illustrations/photo-eva-1.webp" alt="Eva Perez, experte-comptable" className="rounded-[1.8rem] w-full h-auto object-cover shadow-inner" />
+                            <Image
+                                src="https://cigale.matisscottard.com/illustrations/photo-eva-1.webp"
+                                alt="Eva Perez, experte-comptable"
+                                width={600}
+                                height={750}
+                                className="rounded-[1.8rem] w-full h-auto object-cover shadow-inner"
+                                priority
+                            />
                         </div>
                         {/* Decorative elements behind */}
                         <div className="absolute top-10 -right-6 w-full h-full bg-brand-sage-light/30 rounded-[2rem] -z-10 rotate-6" />

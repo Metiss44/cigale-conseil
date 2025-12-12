@@ -17,6 +17,6 @@ export const navLinks: NavLink[] = [
             { href: "/simulateurs/frais-kilometriques", label: "Frais Kilométriques" },
         ]
     },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#faq", label: "FAQ" },
+    { href: "/#contact", label: "Contact" },
 ];

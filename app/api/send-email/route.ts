@@ -145,8 +145,8 @@ export async function POST(request: NextRequest) {
     const firstName = sanitizedFields.firstName || sanitizedFields.prenom || '';
     const lastName = sanitizedFields.lastName || sanitizedFields.nom || '';
     const fullName = [firstName, lastName].filter(Boolean).join(' ');
-    const subject = fullName 
-      ? `Nouveau message de ${fullName}` 
+    const subject = fullName
+      ? `Nouveau message de ${fullName}`
       : 'Nouveau message depuis Cigale Conseil';
 
     // Prepare email parameters
@@ -193,7 +193,6 @@ export async function POST(request: NextRequest) {
           messageId: result.MessageId,
           formId,
           recipient: destination,
-          clientIp,
         });
 
         return NextResponse.json({

@@ -9,6 +9,10 @@
 	/* brand-sage-dark */
 }
 
+html {
+	scroll-padding-top: 100px;
+}
+
 body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

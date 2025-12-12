@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const services = [
@@ -178,7 +179,13 @@ export const Services: React.FC = () => {
                     <div className="pt-8 pb-4 flex items-center justify-center bg-gradient-to-b from-brand-cream/50 to-transparent">
                       <div className="relative">
                         <div className="absolute inset-0 bg-brand-sage-light/20 rounded-full blur-xl transform scale-110"></div>
-                        <img src={svc.icon} alt="icon" className="relative w-24 h-24 object-contain drop-shadow-sm" />
+                        <Image
+                          src={svc.icon}
+                          alt="icon"
+                          width={96}
+                          height={96}
+                          className="relative w-24 h-24 object-contain drop-shadow-sm"
+                        />
                       </div>
                     </div>
                     <div className="px-8 pb-8 text-center">
@@ -223,7 +230,13 @@ export const Services: React.FC = () => {
                 <div key={i} data-card-index className="flex-shrink-0 w-[85vw] max-w-[380px] snap-center">
                   <div className="bg-white rounded-2xl border border-brand-sage-light p-6 shadow-lg h-full">
                     <div className="flex items-center justify-center mb-4">
-                      <img src={svc.icon} alt="icon" className="w-24 h-24 object-contain" />
+                      <Image
+                        src={svc.icon}
+                        alt="icon"
+                        width={96}
+                        height={96}
+                        className="w-24 h-24 object-contain"
+                      />
                     </div>
                     <h3 className="text-xl font-bold text-brand-sage-dark mb-1 text-center">{svc.title}</h3>
                     {svc.price && <div className="text-brand-blue-main font-semibold text-base mb-2 text-center">{svc.price}</div>}

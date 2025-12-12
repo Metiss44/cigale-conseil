@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { HashScrollFix } from '@/components/HashScrollFix';
 
 export const metadata: Metadata = {
   title: 'Cigale Conseil - Expertise comptable engagée',
@@ -30,6 +31,7 @@ export default function RootLayout({
         />
 
         {children}
+        <HashScrollFix />
       </body>
     </html>
   );

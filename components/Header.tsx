@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { navLinks } from '../constants';
 
@@ -122,9 +123,11 @@ export const Header: React.FC = () => {
 
                     {/* Center: Logo */}
                     <a href="/#accueil" className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
-                        <img
+                        <Image
                             src={isScrolled ? 'https://cigale.matisscottard.com/illustrations/logo-ciagale-blanc.webp' : 'https://cigale.matisscottard.com/illustrations/logo-cigale.webp'}
                             alt="Cigale Conseil Logo"
+                            width={240}
+                            height={80}
                             className={`transition-all duration-300 ${isScrolled ? 'h-12 md:h-16' : 'h-16 md:h-[4.5rem]'} w-auto`}
                         />
                     </a>

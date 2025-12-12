@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 const partners = [
   { role: 'Assureur', name: 'AXA', url: 'https://agence.axa.fr/distributeur/0004596504', logo: 'https://cigale.matisscottard.com/illustrations/partenaires/axa.webp' },
@@ -30,13 +31,14 @@ export const Partners: React.FC = () => {
               rel={p.url ? 'noopener noreferrer' : undefined}
               className="flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-4 transition-transform hover:scale-105"
             >
-              <div className={`w-24 h-24 md:w-28 md:h-28 flex items-center justify-center overflow-hidden ${p.name === 'Matiss Cottard' ? 'p-3 md:p-2' : 'p-2'}`}>
+              <div className={`relative w-24 h-24 md:w-28 md:h-28 flex items-center justify-center overflow-hidden ${p.name === 'Matiss Cottard' ? 'p-3 md:p-2' : 'p-2'}`}>
                 {p.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
+                  <Image
                     src={p.logo}
                     alt={`${p.name} logo`}
-                    className={`w-full h-full transition-all duration-300 ${p.name === 'Matiss Cottard' ? 'object-cover rounded-full shadow-sm' : 'object-contain'}`}
+                    fill
+                    className={`transition-all duration-300 ${p.name === 'Matiss Cottard' ? 'object-cover rounded-full shadow-sm' : 'object-contain'}`}
+                    sizes="(max-width: 768px) 96px, 112px"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">
