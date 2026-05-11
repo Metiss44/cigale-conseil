@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { ServerClient } from 'postmark';
 import { buildHtmlTemplate, buildTextTemplate } from '@/lib/emailTemplate';
 
 // Rate limiting - simple in-memory store (use Redis in production)
@@ -105,11 +105,9 @@ export async function POST(request: NextRequest) {
 
     // Check environment variables
     const requiredEnvVars = [
-      'AWS_REGION',
-      'AWS_ACCESS_KEY_ID',
-      'AWS_SECRET_ACCESS_KEY',
-      'SES_FROM_EMAIL',
-      'SES_TO_EMAIL',
+      'POSTMARK_SERVER_TOKEN',
+      'POSTMARK_FROM_EMAIL',
+      'POSTMARK_TO_EMAIL',
     ];
 
     for (const envVar of requiredEnvVars) {
@@ -122,14 +120,8 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Initialize SES client
-    const sesClient = new SESClient({
-      region: process.env.AWS_REGION!,
-      credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-      },
-    });
+    // Initialize Postmark client
+    const postmarkClient = new ServerClient(process.env.POSTMARK_SERVER_TOKEN!);
 
     // Build email templates
     const templateData = {
@@ -150,33 +142,16 @@ export async function POST(request: NextRequest) {
       : 'Nouveau message depuis Cigale Conseil';
 
     // Prepare email parameters
-    const destination = process.env.SES_TO_EMAIL!;
+    const destination = process.env.POSTMARK_TO_EMAIL!;
     const replyTo = sanitizedFields.email || undefined;
 
     const params = {
-      Source: process.env.SES_FROM_EMAIL!,
-      Destination: {
-        ToAddresses: [destination],
-      },
-      Message: {
-        Subject: {
-          Data: subject,
-          Charset: 'UTF-8',
-        },
-        Body: {
-          Html: {
-            Data: htmlBody,
-            Charset: 'UTF-8',
-          },
-          Text: {
-            Data: textBody,
-            Charset: 'UTF-8',
-          },
-        },
-      },
-      ...(replyTo && {
-        ReplyToAddresses: [replyTo],
-      }),
+      From: process.env.POSTMARK_FROM_EMAIL!,
+      To: destination,
+      Subject: subject,
+      HtmlBody: htmlBody,
+      TextBody: textBody,
+      ReplyTo: replyTo,
     };
 
     // Send email with retry logic
@@ -185,12 +160,11 @@ export async function POST(request: NextRequest) {
 
     for (let attempt = 0; attempt < maxRetries; attempt++) {
       try {
-        const command = new SendEmailCommand(params);
-        const result = await sesClient.send(command);
+        const result = await postmarkClient.sendEmail(params);
 
         // Success
         console.log('Email sent successfully', {
-          messageId: result.MessageId,
+          messageId: result.MessageID,
           formId,
           recipient: destination,
         });
@@ -199,7 +173,7 @@ export async function POST(request: NextRequest) {
           ok: true,
           message: 'Email envoyé avec succès',
           meta: {
-            messageId: result.MessageId,
+            messageId: result.MessageID,
           },
         });
       } catch (error) {
@@ -210,8 +184,9 @@ export async function POST(request: NextRequest) {
           attempt: attempt + 1,
         });
 
-        // If it's a client error (4xx), don't retry
-        if (lastError.name === 'MessageRejected' || lastError.name === 'InvalidParameterValue') {
+        // If it's a client error (4xx) usually Postmark throws specific error code
+        // For Postmark, we might want to check if error.code exists, but let's just break on 4xx equivalent or specific Postmark errors (like InactiveRecipient)
+        if (lastError.name === 'PostmarkError' && (lastError as any).code >= 400 && (lastError as any).code < 500) {
           break;
         }
 

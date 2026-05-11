@@ -104,7 +104,7 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
       
       return `
         <tr>
-          <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;">
+          <td style="padding: 16px 20px; border-bottom: 1px solid #e5e7eb;" class="content-cell">
             <div style="color: #6b7280; font-size: 13px; margin-bottom: 4px;">
               ${emoji} ${escapeHtml(label)}
             </div>
@@ -124,15 +124,22 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nouveau message</title>
+  <style>
+    @media only screen and (max-width: 480px) {
+      .container { width: 100% !important; padding: 20px 10px !important; }
+      .header, .footer { padding: 24px 20px !important; }
+      .content-cell { padding: 12px 16px !important; }
+    }
+  </style>
 </head>
 <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f3f4f6;">
-  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f3f4f6; padding: 40px 20px;">
+  <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f3f4f6; padding: 40px 20px;" class="container">
     <tr>
       <td align="center">
         <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
           <!-- Header -->
           <tr>
-            <td style="background: linear-gradient(135deg, #4f7d7d 0%, #6b8e8e 100%); padding: 32px 32px 24px 32px;">
+            <td style="background: linear-gradient(135deg, #4f7d7d 0%, #6b8e8e 100%); padding: 32px 32px 24px 32px;" class="header">
               <h1 style="margin: 0 0 8px 0; color: #ffffff; font-size: 22px; font-weight: 600;">
                 📧 Nouveau message depuis Cigale Conseil
               </h1>
@@ -153,7 +160,7 @@ export function buildHtmlTemplate(data: EmailTemplateData): string {
           
           <!-- Footer -->
           <tr>
-            <td style="background-color: #f9fafb; padding: 24px 32px; border-top: 1px solid #e5e7eb;">
+            <td style="background-color: #f9fafb; padding: 24px 32px; border-top: 1px solid #e5e7eb;" class="footer">
               <p style="margin: 0 0 8px 0; font-size: 13px; color: #6b7280;">
                 Ce message a été envoyé via le formulaire de contact du site ${sourceUrl ? escapeHtml(sourceUrl.split('/')[2] || 'Cigale Conseil') : 'Cigale Conseil'}
               </p>
