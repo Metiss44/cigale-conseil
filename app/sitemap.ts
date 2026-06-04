@@ -2,43 +2,50 @@ import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://cigaleconseil.fr';
+    const lastModified = new Date('2026-06-04');
 
     return [
         {
             url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
+            lastModified,
+            changeFrequency: 'monthly',
             priority: 1,
         },
         {
             url: `${baseUrl}/services`,
-            lastModified: new Date(),
+            lastModified,
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/parcours`,
+            lastModified,
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
             url: `${baseUrl}/simulateurs/sasu`,
-            lastModified: new Date(),
+            lastModified,
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.7,
         },
         {
             url: `${baseUrl}/simulateurs/eurl`,
-            lastModified: new Date(),
+            lastModified,
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.7,
         },
         {
             url: `${baseUrl}/simulateurs/entreprise-individuelle`,
-            lastModified: new Date(),
+            lastModified,
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.7,
         },
         {
             url: `${baseUrl}/simulateurs/frais-kilometriques`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
+            lastModified,
+            changeFrequency: 'yearly',
+            priority: 0.7,
         },
     ];
 }

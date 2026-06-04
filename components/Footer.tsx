@@ -20,7 +20,11 @@ export const Footer: React.FC<FooterProps> = ({ openModal }) => {
                             height={56}
                             className="h-14 w-auto mx-auto md:mx-0"
                         />
-                        <p className="mt-4 text-sm text-brand-sage-light">e.perez@cigaleconseil.fr<br />Montpellier, France</p>
+                        <p className="mt-4 text-sm text-brand-sage-light">
+                            e.perez@cigaleconseil.fr<br />
+                            215 rue du comté de Melgueil, 34000 Montpellier<br />
+                            SIREN 945 022 846
+                        </p>
                     </div>
                     <div>
                         <h4 className="font-bold mb-4">Navigation</h4>
@@ -33,13 +37,14 @@ export const Footer: React.FC<FooterProps> = ({ openModal }) => {
                     <div>
                         <h4 className="font-bold mb-4">Suivez-moi</h4>
                         <div className="flex justify-center md:justify-start space-x-4">
-                            <a href="#" className="text-brand-sage-light hover:text-white"><Instagram /></a>
-                            <a href="#" className="text-brand-sage-light hover:text-white"><Linkedin /></a>
+                            <a href="https://www.instagram.com/cigaleconseil/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Cigale Conseil" className="text-brand-sage-light hover:text-white"><Instagram /></a>
+                            <a href="https://www.linkedin.com/in/eva-perez-a62b6a138/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Eva Perez" className="text-brand-sage-light hover:text-white"><Linkedin /></a>
                         </div>
                     </div>
                 </div>
                 <div className="border-t border-brand-sage-medium mt-8 pt-6 text-center text-sm text-brand-sage-gray">
                     <p>© {new Date().getFullYear()} Cigale Conseil. Tous droits réservés.</p>
+                    <p className="mt-2">Cabinet d'expertise comptable inscrit à l'Ordre des experts-comptables d'Occitanie.</p>
                     <p className="mt-2">
                         <button onClick={openModal} className="hover:text-white underline">Mentions légales & Politique de confidentialité</button>
                     </p>

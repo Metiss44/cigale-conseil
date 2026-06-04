@@ -1,9 +1,21 @@
+import type { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
 import { Video } from '@/components/Video';
 import { SectorsCarousel } from '@/components/SectorsCarousel';
 import { ExpertiseDomains } from '@/components/ExpertiseDomains';
+
+export const metadata: Metadata = {
+  title: 'Mon parcours — Eva Perez, experte-comptable',
+  description: 'Découvrez le parcours d\'Eva Perez, experte-comptable diplômée à Montpellier. Depuis 2016, elle accompagne entrepreneurs et structures collaboratives avec rigueur et bienveillance.',
+  alternates: { canonical: 'https://cigaleconseil.fr/parcours' },
+  openGraph: {
+    title: 'Mon parcours — Eva Perez, experte-comptable',
+    description: 'Depuis 2016, Eva Perez accompagne entrepreneurs et structures collaboratives avec rigueur et bienveillance.',
+    url: 'https://cigaleconseil.fr/parcours',
+  },
+};
 
 export default function ParcoursPage() {
     return (
@@ -23,13 +35,13 @@ export default function ParcoursPage() {
                     {/* Intro text */}
                     <div className="max-w-3xl mx-auto mt-12">
                         <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mb-4">
-                            Depuis 2016, j'accompagne les entrepreneurs, associations et structures collaboratives avec une approche à la fois rigoureuse et humaine. Mon cheminement dans l'expertise comptable m'a amenée à évoluer dans des univers très variés - des TPE aux groupes de sociétés jusqu'aux structures hydrides collaboratives.
+                            Depuis 2016, j'accompagne les entrepreneurs, associations et structures collaboratives avec une approche à la fois rigoureuse et humaine. Mon cheminement dans l'expertise comptable m'a amenée à évoluer dans des univers très variés - des TPE aux groupes de sociétés jusqu'aux structures hybrides collaboratives.
                         </p>
                         <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mb-4">
-                            Chez Cigale conseil, je crois que la comptabilité ne se résume pas à des chiffres, mais qu'elle repose avant tout sur une relation humaine, sincère et durable.
+                            Chez Cigale Conseil, je crois que la comptabilité ne se résume pas à des chiffres, mais qu'elle repose avant tout sur une relation humaine, sincère et durable.
                         </p>
                         <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed">
-                            Etre à vos côtés, c'est aussi comprendre vos parcours, vos ambitions et vos doutes. Cette proximité, je la cultive avec bienveillance et transparence, pour que chacun se sente accompagné avec clarté, sécurité et sérénité.
+                            Être à vos côtés, c'est aussi comprendre vos parcours, vos ambitions et vos doutes. Cette proximité, je la cultive avec bienveillance et transparence, pour que chacun se sente accompagné avec clarté, sécurité et sérénité.
                         </p>
                     </div>
 

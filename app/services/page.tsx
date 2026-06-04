@@ -1,11 +1,22 @@
+import type { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
 import { Services } from '@/components/Services';
 import { CompatibilityQuiz } from '@/components/CompatibilityQuiz';
 import { ExpertiseDomains } from '@/components/ExpertiseDomains';
-
 import { SectorsCarousel } from '@/components/SectorsCarousel';
+
+export const metadata: Metadata = {
+  title: 'Services Cigale Conseil — Expertise comptable à Montpellier',
+  description: 'Découvrez les services de Cigale Conseil, cabinet d\'expertise comptable à Montpellier : création d\'entreprise, suivi comptable, fiscalité, pilotage et conseil.',
+  alternates: { canonical: 'https://cigaleconseil.fr/services' },
+  openGraph: {
+    title: 'Services Cigale Conseil — Expertise comptable à Montpellier',
+    description: 'Création d\'entreprise, suivi comptable, conseil stratégique et accompagnement sur-mesure par Cigale Conseil.',
+    url: 'https://cigaleconseil.fr/services',
+  },
+};
 
 export default function ServicesPage() {
     return (
@@ -18,17 +29,17 @@ export default function ServicesPage() {
                     {/* Title with gradient */}
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight">
                         <span className="bg-gradient-to-r from-brand-sage-dark via-brand-blue-main to-brand-sage-dark bg-clip-text text-transparent animate-fadeIn">
-                            Expertise et Accompagnement
+                            Services Cigale Conseil : expertise comptable et accompagnement
                         </span>
                     </h1>
 
                     {/* Intro text */}
                     <div className="max-w-3xl mx-auto mt-12">
                         <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed">
-                            J'ai créé le travail de mes rêves : réaliser mon métier, qui est le conseil aux entreprises (autour de la comptabilité, fiscalité), avec l'envie d'accompagner correctement mes clients.
+                            J'ai créé Cigale Conseil pour exercer mon métier d'experte-comptable autrement : conseiller les entreprises avec clarté sur leur comptabilité, leur fiscalité et leurs décisions de gestion.
                         </p>
                         <p className="text-lg md:text-xl text-brand-sage-gray/90 leading-relaxed mt-4">
-                            En apportant une approche moderne : payé pas pour de l'administratif, mais plutot pour du conseil et de l'accompagnement. L'utilisation de logiciels performants vous rendre egalement autonome, vous pouvez enfin gérer sans stress.
+                            Mon approche est moderne et orientée accompagnement : moins d'administratif inutile, plus de conseil utile, avec des outils performants pour suivre votre activité et gagner en autonomie sans stress.
                         </p>
                     </div>
 

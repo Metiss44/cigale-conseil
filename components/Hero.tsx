@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
                     <div className="lg:pr-8 text-center lg:text-left">
                         <p className="font-medium text-brand-sage-gray mb-4 text-sm md:text-sm tracking-wide uppercase">Cabinet d'expertise comptable – Montpellier & France entière</p>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-sage-dark leading-tight md:leading-[1.1] tracking-tight max-w-xl mx-auto lg:mx-0">
-                            Expert comptable engagée dans l'accompagnement des sociétés
+                            Cigale Conseil, experte-comptable engagée pour les sociétés
                         </h1>
                         <p className="mt-6 md:mt-6 text-base md:text-lg text-brand-sage-gray max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Cigale Conseil accompagne les entrepreneurs, freelances et structures engagées avec une comptabilité claire, pédagogique et alignée avec leurs valeurs.
