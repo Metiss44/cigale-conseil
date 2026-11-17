@@ -1,8 +1,10 @@
 {
   "name": "cigale-conseil",
   "private": true,
+  "packageManager": "pnpm@12.18.0",
   "version": "0.0.0",
   "scripts": {
+    "verifier": "pnpm run build",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
