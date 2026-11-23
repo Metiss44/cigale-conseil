@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.cigaleconseil.fr', 'cdn.matisscottard.com'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'cdn.cigaleconseil.fr' },
+      { protocol: 'https', hostname: 'cdn.matisscottard.com' },
+    ],
   },
   async redirects() {
     return [

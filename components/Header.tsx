@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -122,7 +123,7 @@ export const Header: React.FC = () => {
                     </div>
 
                     {/* Center: Logo */}
-                    <a href="/#accueil" className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+                    <Link href="/#accueil" className="flex items-center justify-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                         <Image
                             src={isScrolled ? 'https://cdn.cigaleconseil.fr/illustrations/logo-ciagale-blanc.webp' : 'https://cdn.cigaleconseil.fr/illustrations/logo-cigale.webp'}
                             alt="Cigale Conseil Logo"
@@ -130,7 +131,7 @@ export const Header: React.FC = () => {
                             height={80}
                             className={`transition-all duration-300 ${isScrolled ? 'h-12 md:h-16' : 'h-16 md:h-[4.5rem]'} w-auto`}
                         />
-                    </a>
+                    </Link>
 
                     {/* Right: CTA */}
                     <div className="hidden lg:flex items-center gap-4">
@@ -145,7 +146,7 @@ export const Header: React.FC = () => {
                         >
                             Pennylane
                         </a>
-                        <a
+                        <Link
                             href="/#contact"
                             className={`px-6 py-2 rounded-xl font-medium text-sm transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isScrolled
                                 ? 'bg-brand-blue-main text-white hover:bg-brand-blue-soft'
@@ -153,7 +154,7 @@ export const Header: React.FC = () => {
                                 }`}
                         >
                             Prendre RDV
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -240,13 +241,13 @@ export const Header: React.FC = () => {
                     >
                         Pennylane
                     </a>
-                    <a
+                    <Link
                         href="/#contact"
                         onClick={() => setIsOpen(false)}
                         className="mt-8 bg-brand-blue-main text-white px-8 py-3 rounded-xl text-lg shadow-lg hover:bg-brand-blue-soft transition"
                     >
                         Prendre RDV
-                    </a>
+                    </Link>
                 </div>
             </div>
 

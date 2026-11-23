@@ -5,17 +5,17 @@ import { Building, Palette, LineChart } from 'lucide-react';
 
 const pillars = [
     {
-        icon: <Building className="text-brand-blue-main" />,
+        icon: <Building className="text-brand-blue-main" size={28} strokeWidth={1.5} />,
         title: "Gestion d'entreprise",
         text: "Accompagnement de structures avec une maîtrise de modèles économiques complexes, et des montages financiers spécifiques."
     },
     {
-        icon: <Palette className="text-brand-orange" />,
+        icon: <Palette className="text-brand-orange" size={28} strokeWidth={1.5} />,
         title: "Approche pédagogique",
         text: "Approche pédagogique qui rend la comptabilité claire, accessible et intuitive, afin que chacun puisse comprendre et piloter sereinement son activité."
     },
     {
-        icon: <LineChart className="text-brand-orange" />,
+        icon: <LineChart className="text-brand-orange" size={28} strokeWidth={1.5} />,
         title: "Stratégie d'entreprise",
         text: "Accompagnement de groupes et sociétés à forts enjeux (énergies renouvelables, etc.) avec une approche stratégique de la fiscalité et du pilotage."
     }
@@ -51,7 +51,7 @@ export const ExpertiseDomains: React.FC = () => {
                                 }}
                             >
                                 <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-brand-sage-light/30 text-brand-blue-main mb-6 group-hover:scale-110 transition-transform duration-300">
-                                    {React.cloneElement(pillar.icon as React.ReactElement, { size: 28, strokeWidth: 1.5 })}
+                                    {pillar.icon}
                                 </div>
                                 <h3 className="text-xl font-bold text-brand-sage-dark mb-3 group-hover:text-brand-blue-main transition-colors">
                                     {pillar.title}

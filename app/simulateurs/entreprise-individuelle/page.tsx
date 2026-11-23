@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Header } from '@/components/Header';
 import { FooterWrapper } from '@/components/FooterWrapper';
@@ -72,9 +73,9 @@ export default function SimulateurAutoEntrepreneur() {
                             </p>
                             <p className="text-brand-sage-gray">
                                 Pour un accompagnement personnalisé dans la gestion de votre activité, n'hésitez pas à{' '}
-                                <a href="/#contact" className="text-brand-blue-main hover:text-brand-blue-soft font-semibold underline">
+                                <Link href="/#contact" className="text-brand-blue-main hover:text-brand-blue-soft font-semibold underline">
                                     nous contacter
-                                </a>.
+                                </Link>.
                             </p>
                         </div>
 

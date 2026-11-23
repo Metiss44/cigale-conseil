@@ -1,4 +1,5 @@
 
+import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import { Linkedin, Instagram } from 'lucide-react';
@@ -29,9 +30,9 @@ export const Footer: React.FC<FooterProps> = ({ openModal }) => {
                     <div>
                         <h4 className="font-bold mb-4">Navigation</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="/#a-propos" className="text-brand-sage-light hover:text-white">À propos</a></li>
-                            <li><a href="/services" className="text-brand-sage-light hover:text-white">Services</a></li>
-                            <li><a href="/#contact" className="text-brand-sage-light hover:text-white">Contact</a></li>
+                            <li><Link href="/#a-propos" className="text-brand-sage-light hover:text-white">À propos</Link></li>
+                            <li><Link href="/services" className="text-brand-sage-light hover:text-white">Services</Link></li>
+                            <li><Link href="/#contact" className="text-brand-sage-light hover:text-white">Contact</Link></li>
                         </ul>
                     </div>
                     <div>

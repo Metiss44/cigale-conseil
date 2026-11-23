@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useState, type ReactElement } from 'react';
 import { Header } from '@/components/Header';
 import { FooterWrapper } from '@/components/FooterWrapper';
 import { CicadaBackground } from '@/components/CicadaBackground';
@@ -37,9 +38,8 @@ export default function SimulateurFraisKilometriques() {
     const [vehicleType, setVehicleType] = useState<VehicleType>('car_thermal_hybrid_hydrogen');
     const [powerCV, setPowerCV] = useState<number>(5);
     const [distance, setDistance] = useState<number>(10000);
-    const [result, setResult] = useState<number | null>(null);
 
-    const vehicleIcons: Record<VehicleType, JSX.Element> = {
+    const vehicleIcons: Record<VehicleType, ReactElement> = {
         car_thermal_hybrid_hydrogen: <Car className="w-6 h-6" />,
         car_electric: <><Car className="w-6 h-6" /><Zap className="w-4 h-4 absolute -top-1 -right-1" /></>,
         motorcycle_thermal: <Bike className="w-6 h-6" />,
@@ -48,13 +48,8 @@ export default function SimulateurFraisKilometriques() {
         moped_electric: <><Bike className="w-5 h-5" /><Zap className="w-4 h-4 absolute -top-1 -right-1" /></>,
     };
 
-    useEffect(() => {
-        calculateMileageAllowance();
-    }, [vehicleType, powerCV, distance]);
-
-    const calculateMileageAllowance = () => {
-        const vehicle = baremeData.vehicles[vehicleType];
-        if (!vehicle) return;
+    const calculateMileageAllowance = (): number | null => {
+        const vehicle: Vehicle = baremeData.vehicles[vehicleType];
 
         // Find the appropriate power band
         const powerBand = vehicle.power_bands.find(band => {
@@ -62,7 +57,7 @@ export default function SimulateurFraisKilometriques() {
             return powerCV >= band.min_cv && powerCV <= band.max_cv;
         });
 
-        if (!powerBand) return;
+        if (!powerBand) return null;
 
         // Find the appropriate distance band
         const distanceBand = vehicle.distance_bands.find(band => {
@@ -70,21 +65,20 @@ export default function SimulateurFraisKilometriques() {
             return distance >= band.min_km && distance <= band.max_km;
         });
 
-        if (!distanceBand) return;
+        if (!distanceBand) return null;
 
-        // Get coefficients with proper type assertion
-        // @ts-ignore - distanceBand.id is guaranteed to be a valid key
-        const coeffs = powerBand.coefficients[distanceBand.id] as Coefficients;
-        if (!coeffs) return;
+        const coeffs = powerBand.coefficients[distanceBand.id];
+        if (!coeffs) return null;
 
         // Calculate: (a × d) + b or a × d depending on b value
         const calculatedAmount = coeffs.b > 0
             ? (coeffs.a * distance) + coeffs.b
             : coeffs.a * distance;
 
-        setResult(Math.round(calculatedAmount * 100) / 100);
+        return Math.round(calculatedAmount * 100) / 100;
     };
 
+    const result = calculateMileageAllowance();
     const currentVehicle = baremeData.vehicles[vehicleType];
 
     return (
@@ -119,9 +113,9 @@ export default function SimulateurFraisKilometriques() {
                             </p>
                             <p className="text-brand-sage-gray">
                                 Pour optimiser votre fiscalité et votre comptabilité,{' '}
-                                <a href="/#contact" className="text-brand-blue-main hover:text-brand-blue-soft font-semibold underline">
+                                <Link href="/#contact" className="text-brand-blue-main hover:text-brand-blue-soft font-semibold underline">
                                     contactez-nous
-                                </a>.
+                                </Link>.
                             </p>
                         </div>
 

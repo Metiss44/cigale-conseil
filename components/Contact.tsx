@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        setMounted(true);
+        const frame = window.requestAnimationFrame(() => setMounted(true));
         
         // Load Calendly script
         const script = document.createElement('script');
@@ -36,6 +36,7 @@ export const Contact: React.FC = () => {
         document.body.appendChild(script);
         
         return () => {
+            window.cancelAnimationFrame(frame);
             document.body.removeChild(script);
         };
     }, []);
