@@ -8,7 +8,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint app components lib"
+    "lint": "eslint app components lib",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:deploy": "opennextjs-cloudflare deploy"
   },
   "dependencies": {
     "lucide-react": "0.553.0",
@@ -26,7 +29,9 @@
     "postcss": "8.5.33",
     "tailwindcss": "4.3.5",
     "typescript": "6.0.3",
-    "@tailwindcss/postcss": "4.3.5"
+    "@tailwindcss/postcss": "4.3.5",
+    "@opennextjs/cloudflare": "1.20.17",
+    "wrangler": "4.162.0"
   },
   "engines": {
     "node": "24.x"

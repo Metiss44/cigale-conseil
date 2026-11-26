@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cigale-conseil",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "cigaleconseil.fr/*", "zone_name": "cigaleconseil.fr" },
+    { "pattern": "www.cigaleconseil.fr/*", "zone_name": "cigaleconseil.fr" }
+  ],
+  "preview_urls": false,
+  "vars": { "CONTACT_HOSTING": "cloudflare" },
+  "secrets": {
+    "required": ["POSTMARK_SERVER_TOKEN", "POSTMARK_FROM_EMAIL", "POSTMARK_TO_EMAIL"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}

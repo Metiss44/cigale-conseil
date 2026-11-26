@@ -1,7 +1,10 @@
+const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.cigaleconseil.fr' },
       { protocol: 'https', hostname: 'cdn.matisscottard.com' },
@@ -54,3 +57,5 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+if (process.env.NODE_ENV === "development") initOpenNextCloudflareForDev();
